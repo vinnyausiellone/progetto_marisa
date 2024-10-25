@@ -1,0 +1,11 @@
+<h6>SELEZIONA IL TUO CIBO PREFERITO</h6>
+<mat-select class="selectList" placeholder="Seleziona Cibo Preferito" [(ngModel)]="selectedValue" name="food">
+    @for (food of listaCibi; track food) {
+    <mat-option class="opzioniCibo" [value]="food.value">{{food.viewValue}}</mat-option>
+    }
+</mat-select>
+
+<div class="bottoni">
+    <button class="bottoneAggiungi pointer" (click)="aggiungiElemento()">Aggiungi elemento</button>
+    <button class="bottoneElimina pointer" (click)="eliminaElemento()">Elimina elemento</button>
+</div>

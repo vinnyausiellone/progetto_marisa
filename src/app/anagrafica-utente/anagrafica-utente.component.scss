@@ -1,0 +1,62 @@
+.utenti-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.utenti-td, .utenti-th {
+     border: 1px solid #dddddd;
+     text-align: left;
+     padding: 8px;
+}
+
+.utenti-tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.mt-10 {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.utenti-tr:hover{
+  background-color: aquamarine;
+}
+
+.utenti-id {
+  text-decoration: underline;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.cambioColoreRighePari {
+  background-color: hsl(131, 82%, 47%);
+}
+
+.colorareIconaSelezionata {
+  background-color: red;
+}
+
+.titolo {
+  cursor: pointer;
+}
+
+.tabella {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+}
+
+.tab-anagrafica {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.tab-anagrafica2 {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+ 
+

@@ -1,0 +1,34 @@
+<div class="custom-title">
+    <h2 class="titolo"> {{ titoloDettagli}} </h2>
+    <button class="bottoneIndietro" (click)="bottoneIndietro()" [disabled]="!bottoneAttivo">INDIETRO</button>
+</div>
+
+<ul class="tabellaCibo" *ngIf="mostraCibi">
+    <b> Cibo preferito </b>
+    <li *ngFor="let item of listaCibi">{{item}}</li>
+</ul>
+<ul class="tabellaCiboOdiato" *ngIf="!mostraCibi">
+    <b> Cibi cattivi </b>
+    <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
+</ul>
+
+
+<button class="ml-20" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ? 'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
+
+<div class="d-flex ml-20 mt-20 flex-direction-column" >
+    <b> Anagrafica Dettaglio</b>
+    <div *ngFor=" let item of anagraficaDettaglio">
+        <span>Dettaglio: {{ item.id}} {{item.name}} </span>
+    </div>
+</div>
+
+<div *ngIf="persona">
+  <h4> Persona Selezionata</h4>
+  <p>Nome: {{persona.nome}}</p>
+  <p>Cognome: {{persona.cognome}}</p>
+</div>
+
+<div class="customButton">
+    <button class="modalitaDark" (click)="modalitaDark()" [disabled]="!bottoneAttivo">Attiva Modalità Dark</button>
+    <button class="disattivaBottoni" (click)="disattivaBottoni()">Disattiva Bottoni</button>
+</div>

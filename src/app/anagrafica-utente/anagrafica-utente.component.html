@@ -1,0 +1,70 @@
+<h2 class="titolo" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
+
+<h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
+<div class="tabella">
+<table class="utenti-table">
+    <tbody>
+        <tr class="utenti-tr">
+            <th class="utenti-th">#</th>
+            <th class="utenti-th">Nome</th>
+            <th class="utenti-th">Cognome</th>
+            <th class="utenti-th">Azioni</th>
+        </tr>
+        <ng-container *ngFor="let item of listaNomi; let i = index; let odd = odd">
+        <tr class="utenti-tr">
+        <td class="utenti-id" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}" (click)="goToDettaglio(i+1)"> {{i+1}} </td>
+            <td class="utenti-td" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
+                <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [(ngModel)]="item.nome" required>
+                <p>{{item.nome}}</p>
+            </td>
+            <td class="utenti-td" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">{{ item.cognome}}</td>
+            <td class="icon" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
+                <mat-icon class="pointer" *ngIf="item.flagedit" (click)="aggiungiCeck(item)">
+                    edit
+                </mat-icon>
+                <mat-icon class="pointer ml-20" *ngIf="item.flagedit && !item.isDettaglio" (click)="clickEvento(item)">
+                    search
+                </mat-icon>
+                <mat-icon class="pointer ml-20" *ngIf="item.isDettaglio" (click)="closeDettaglio(item)">
+                    close
+                </mat-icon>
+                <mat-icon class="pointer" *ngIf="!item.flagedit" (click)="rimuoviInput(item)">
+                    check_circle
+                </mat-icon>
+                <mat-icon class="pointer" *ngIf="item.flagedit" (click)="selezionaPersone(item)">
+                    open_with
+                </mat-icon>
+            </td>
+        </tr>
+    </ng-container>
+    </tbody>
+</table>
+<div class="dettaglio" *ngIf="clickDettaglio">
+    <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
+</div>
+</div>
+
+<!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
+<app-anagrafica-dettaglio *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
+
+<button class="mt-10" (click)="mostra4Riga()">Mostra quarta riga</button>
+<button class="mt-10" (click)="cambiaColore()">Cambia colore righe pari</button>
+
+<div *ngIf="mostraDettaglio">
+    <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)" ></app-anagrafica-dettaglio>
+</div>
+
+<div class="tab-anagrafica">
+    <span class="mb-10">
+        id: {{anagraficaOggetto?.id}}
+    </span>
+    <span class="mb-10">
+        body: {{anagraficaOggetto?.body}}
+    </span>
+    <span class="mb-10">
+        title: {{anagraficaOggetto?.title}}
+    </span>
+    <span>
+        userId: {{anagraficaOggetto?.userId}}
+    </span>
+</div>

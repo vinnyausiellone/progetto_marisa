@@ -1,0 +1,22 @@
+<div>
+    <b> {{pageTitle}} </b>
+    <div *ngFor=" let item of approfondimentoElenco, let i = index">
+        <span> id: {{item.id}} </span> 
+        <span *ngIf="!cambio"> body: {{item.body}}</span>
+        <br>
+        <div>
+        <input name="inputBody" matInput type="text" [(ngModel)]="item.body" placeholder="Inserire Modifica" *ngIf="isModifica">
+        <mat-icon class="bottoneCambioBody pointer" (click)="cambioBody(item)" *ngIf="isModifica">
+            swap_horiz
+        </mat-icon>
+    </div>
+    </div>
+</div>
+
+
+    <button class="bottoneIndietro" (click)="bottoneIndietro()">INDIETRO</button>
+    <!-- BOTTONI PER FILTRARE UNA LISTA -->
+    <button class="filtraPari" (click)="bottoneFiltraPari()">Filtra per pari</button>
+    <button class="filtraDispari" (click)="bottoneFiltraDispari()">Filtra per dispari</button>
+
+

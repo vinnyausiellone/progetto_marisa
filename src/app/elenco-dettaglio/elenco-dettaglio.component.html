@@ -1,0 +1,14 @@
+<div class="tab-posts" *ngFor="let post of posts, let i = index">
+        <span class="mb-10">
+            id: {{post.id}}
+        </span>
+        <span class="mb-10">
+            title: {{post.title}}
+        </span>
+        <mat-icon class="bottoneVisualizza pointer" (click)="VisApprofondimento(i+1)">
+            search
+        </mat-icon>
+        <mat-icon class="bottoneModifica pointer" (click)="EditApprofondimento(i+1)">
+            edit
+        </mat-icon>
+</div>
