@@ -19,6 +19,7 @@ export class ListaComponent {
   disabled = true;
   ricettaNuova?: string;
   showCibo: boolean = false;
+  showTest: boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.selectedValue = this.listaCibi[0].viewValue;
@@ -59,7 +60,7 @@ export class ListaComponent {
 
   testevento(event: boolean) {
     if (event) {
-      console.log ('evento true')
+    this.showTest = true;
     }
   }
 }
