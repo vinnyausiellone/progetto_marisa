@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { FormControl } from '@angular/forms';
 
 interface Food {
   value: string;
@@ -13,12 +10,11 @@ interface Food {
   selector: 'app-lista',
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.scss',
-  standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatSelectModule, MatInputModule],
 })
 export class ListaComponent {
   selectedValue: string;
   cont = 0;
+  cibiFC = new FormControl();
 
   constructor() {
     this.selectedValue = this.listaCibi[0].viewValue;

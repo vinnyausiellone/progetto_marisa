@@ -2,7 +2,7 @@ import { Component, input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
 import { IntAnagrafica } from './anagrafica-utente.model';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 
 
@@ -37,12 +37,14 @@ export class AnagraficaUtenteComponent implements OnInit{
   anagraficaOggetto?: IntAnagrafica;
   idPresente = false;
   id?:any;
-  nomeForm = new FormControl('');
   mostraInput:  boolean[] = [];
   clickDettaglio = false;
   nuovaRiga = false;
   personaSelezionata?: {nome: string; cognome: string};
   personaClick = false;
+  nomeFC = new FormControl('', Validators.required);
+  idValore = false;
+  flagPari: boolean = false;
 
 
   listaNomi: Persona[] =  [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo') ];
@@ -69,7 +71,8 @@ export class AnagraficaUtenteComponent implements OnInit{
     this.mostraDettaglio=!this.mostraDettaglio
     }
 
-    clickEvento(item: Persona){
+    clickEvento(item: Persona, i: number){
+      this.flagPari = (i+1) % 2 === 0 ? true : false;
       this.listaNomi.forEach(res => {
         if (res.isDettaglio) {
           res.isDettaglio = false;
@@ -111,6 +114,9 @@ export class AnagraficaUtenteComponent implements OnInit{
    this.nuovaRiga = !this.nuovaRiga;
    }
 
+   selezionaRigaTemplate() {
+    this.idValore = !this.idValore;
+   }
 
 
     }   

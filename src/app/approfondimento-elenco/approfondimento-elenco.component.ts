@@ -3,6 +3,7 @@ import { IntPostsApprofondimento } from '../anagrafica-utente/anagrafica-utente.
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
 import { Router } from '@angular/router';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-approfondimento-elenco',
@@ -17,6 +18,7 @@ export class ApprofondimentoElencoComponent implements OnInit {
   isModifica: boolean = false;
   pageTitle: string = '';
   cambio = false;
+  approfondimentoFC = new FormControl ('', Validators.required);
 
  
 

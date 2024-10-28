@@ -20,6 +20,7 @@ export class AnagraficaDettaglioComponent implements OnInit {
   anagraficaDettaglio?: IntAnagraficaDettaglio[];
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() persona?: {nome:string; cognome: string};
+  @Input() flagPari?: boolean;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService){}
   

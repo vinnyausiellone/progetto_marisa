@@ -14,7 +14,7 @@
         <tr class="utenti-tr">
         <td class="utenti-id" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}" (click)="goToDettaglio(i+1)"> {{i+1}} </td>
             <td class="utenti-td" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [(ngModel)]="item.nome" required>
+                <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="nomeFC">
                 <p>{{item.nome}}</p>
             </td>
             <td class="utenti-td" [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">{{ item.cognome}}</td>
@@ -22,7 +22,7 @@
                 <mat-icon class="pointer" *ngIf="item.flagedit" (click)="aggiungiCeck(item)">
                     edit
                 </mat-icon>
-                <mat-icon class="pointer ml-20" *ngIf="item.flagedit && !item.isDettaglio" (click)="clickEvento(item)">
+                <mat-icon class="pointer ml-20" *ngIf="item.flagedit && !item.isDettaglio" (click)="clickEvento(item, i)">
                     search
                 </mat-icon>
                 <mat-icon class="pointer ml-20" *ngIf="item.isDettaglio" (click)="closeDettaglio(item)">
@@ -40,12 +40,14 @@
     </tbody>
 </table>
 <div class="dettaglio" *ngIf="clickDettaglio">
-    <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
+    <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)" [flagPari]="flagPari"></app-anagrafica-dettaglio>
 </div>
 </div>
 
 <!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
 <app-anagrafica-dettaglio *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
+
+
 
 <button class="mt-10" (click)="mostra4Riga()">Mostra quarta riga</button>
 <button class="mt-10" (click)="cambiaColore()">Cambia colore righe pari</button>

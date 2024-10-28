@@ -7,7 +7,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
@@ -18,6 +18,7 @@ import { AnagraficaUtenteComponent } from './anagrafica-utente/anagrafica-utente
 import { AnagraficaDettaglioComponent } from './anagrafica-dettaglio/anagrafica-dettaglio.component';
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ListaComponent } from './lista/lista.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     HeaderComponent,
     ElencoDettaglioComponent,
     ApprofondimentoElencoComponent,
+    ListaComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
