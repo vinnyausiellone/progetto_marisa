@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { ElencoDettaglioComponent } from './elenco-dettaglio/elenco-dettaglio.component';
 import { ApprofondimentoElencoComponent } from './approfondimento-elenco/approfondimento-elenco.component';
 import { ListaComponent } from './lista/lista.component';
+import { RicettaComponent } from './ricetta/ricetta.component';
 
 
 
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'approfondimentoElencoVis/:id', component: ApprofondimentoElencoComponent, data: ['isVisualizza'] },
   { path: 'approfondimentoElencoMod/:id', component: ApprofondimentoElencoComponent, data: ['isModifica'] },
   { path: 'lista', component: ListaComponent},
+  { path: 'ricetta', component: RicettaComponent},
+  { path: 'ricetta/:value', component: RicettaComponent},
   { path: '**', redirectTo: '/homePage' }
 ];
 

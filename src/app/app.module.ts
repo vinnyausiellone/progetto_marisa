@@ -19,6 +19,8 @@ import { AnagraficaDettaglioComponent } from './anagrafica-dettaglio/anagrafica-
 
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ListaComponent } from './lista/lista.component';
+import { RicettaComponent } from './ricetta/ricetta.component';
+import { ProvaEventoComponent } from './lista/prova-evento/prova-evento.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { ListaComponent } from './lista/lista.component';
     ElencoDettaglioComponent,
     ApprofondimentoElencoComponent,
     ListaComponent,
+    RicettaComponent,
+    ProvaEventoComponent,
   ],
   imports: [
     BrowserModule,

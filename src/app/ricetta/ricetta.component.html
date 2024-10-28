@@ -1,0 +1,8 @@
+<h4>{{ 'Ricetta: ' + pageTitle }}</h4>
+<mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Ricetta" [formControl]="ricettaFC" (change)="onChangeRicetta($event)"></textarea>
+  </mat-form-field>
+
+  <button class="salvaRicetta" (click)="onSalvaRicetta()"> Salva Ricetta</button>
+
+
