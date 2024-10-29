@@ -1,8 +1,11 @@
+<div *ngIf="!isFromLista">
 <h4>{{ 'Ricetta: ' + pageTitle }}</h4>
-<mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Ricetta" [formControl]="ricettaFC" (change)="onChangeRicetta($event)"></textarea>
+<div class="d-flex flex-direction-column">
+  <mat-form-field class="custum-textarea">
+    <textarea matInput placeholder="Ricetta" [formControl]="ricettaFC"></textarea>
   </mat-form-field>
+  <span class="mt-5" *ngIf="valoreRicetta">{{valoreRicetta}}</span>
+</div>
 
-  <button class="salvaRicetta" (click)="onSalvaRicetta()"> Salva Ricetta</button>
-
-
+<button class="salvaRicetta" (click)="onSalvaRicetta()"> Salva Ricetta</button>
+</div>

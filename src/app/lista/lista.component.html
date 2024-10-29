@@ -7,6 +7,8 @@
 </mat-select>
 
 <!-- <h3>Ricetta: {{ ricettaNuova}}</h3> -->
+ <!-- <app-ricetta [isFromLista]="true" (mandaRicetta)="riceviRicetta($event)" ></app-ricetta> -->
+  
 
 
 <button class="mostraRicetta" (click)="mostraRicetta()" [disabled]="!cibiFC.value">Mostra ricetta</button>
@@ -23,3 +25,5 @@
 <app-prova-evento [pippo]="true" (testevento)="testevento($event)"></app-prova-evento>
 <span *ngIf="showTest">EVENTO ESEGUITO</span>
 </div>
+
+<span *ngIf="ricettaSalvata">{{ricettaSalvata}}</span>

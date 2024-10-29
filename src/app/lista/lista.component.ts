@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../shared/services/shared.service';
@@ -13,7 +13,7 @@ interface Food {
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.scss',
 })
-export class ListaComponent {
+export class ListaComponent implements OnInit{
   selectedValue: string;
   cont = 0;
   cibiFC = new FormControl();
@@ -21,9 +21,19 @@ export class ListaComponent {
   ricettaNuova?: string;
   showCibo: boolean = false;
   showTest: boolean = false;
+  mostraTab: boolean = false;
+  ricettaSalvata?: string;
+
+  
 
   constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService) {
     this.selectedValue = this.listaCibi[0].viewValue;
+  }
+  ngOnInit(): void {
+   const ricettaSalvata: {ricetta: string} = this.sharedService.getAttUtilObj('ricetta');
+   this.sharedService.clearAttUtilObj('ricetta');
+   if(ricettaSalvata) this.ricettaSalvata = ricettaSalvata.ricetta;
+
   }
 
   listaCibi: Food[] = [
@@ -34,7 +44,7 @@ export class ListaComponent {
   ];
 
   cibiDaAggiungere: Food[] = [
-    { value: 'Patatine Fritte', viewValue: 'Patatine Fritte' },
+    { value: 'Tortellini', viewValue: 'Tortellini' },
     { value: 'Gelato', viewValue: 'Gelato' },
     { value: 'Bruschetta', viewValue: 'Bruschetta' },
     { value: 'Sushi', viewValue: 'Sushi' },
@@ -65,5 +75,8 @@ export class ListaComponent {
     this.showTest = true;
     }
   }
-}
+
+  
+  }
+
 
