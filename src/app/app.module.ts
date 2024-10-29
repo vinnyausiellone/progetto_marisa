@@ -21,6 +21,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ListaComponent } from './lista/lista.component';
 import { RicettaComponent } from './ricetta/ricetta.component';
 import { ProvaEventoComponent } from './lista/prova-evento/prova-evento.component';
+import { Esercizio2910Component } from './esercizio2910/esercizio2910.component';
+import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { ProvaEventoComponent } from './lista/prova-evento/prova-evento.componen
     ListaComponent,
     RicettaComponent,
     ProvaEventoComponent,
+    Esercizio2910Component,
+    Dettaglio2910Component,
   ],
   imports: [
     BrowserModule,

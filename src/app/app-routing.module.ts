@@ -8,6 +8,8 @@ import { ElencoDettaglioComponent } from './elenco-dettaglio/elenco-dettaglio.co
 import { ApprofondimentoElencoComponent } from './approfondimento-elenco/approfondimento-elenco.component';
 import { ListaComponent } from './lista/lista.component';
 import { RicettaComponent } from './ricetta/ricetta.component';
+import { Esercizio2910Component } from './esercizio2910/esercizio2910.component';
+import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component';
 
 
 
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'lista', component: ListaComponent},
   { path: 'ricetta', component: RicettaComponent},
   { path: 'ricetta/:value', component: RicettaComponent},
+  { path: 'esercizio2910', component: Esercizio2910Component},
+  { path: 'dettaglio2910', component: Dettaglio2910Component},
   { path: '**', redirectTo: '/homePage' }
 ];
 

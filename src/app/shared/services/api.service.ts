@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AppConfigService } from './app-config.service';
 import { Observable } from 'rxjs';
 import { IntAnagrafica, IntAnagraficaDettaglio, IntNuovoPost, IntPosts, IntPostsApprofondimento } from '../../anagrafica-utente/anagrafica-utente.model';
+import { IntData } from '../../esercizio2910/esercizio2910.model';
 @Injectable({ providedIn: 'root' })
  
 export class ApiService {
@@ -64,7 +65,7 @@ export class ApiService {
   getPosts(): Observable<IntPosts[]> { return this.httpClient.get<IntPosts[]> ('https://jsonplaceholder.typicode.com/posts')}
   getPostById(id: number): Observable<IntPostsApprofondimento[]> { return this.chiamataDiTipoGet('https://jsonplaceholder.typicode.com/comments?postId=' + id) }
   modificaApprofondimento (obj: any): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
-  
+  getData(): Observable<IntData[]> { return this.httpClient.get<IntData[]> ('https://jsonplaceholder.typicode.com/posts')}
   // getCurrentUserAnagrafica(): Observable<any> { return this.chiamataDiTipoGet(`${this.appConfigService.getConfig().backendUrl}` + URLS.GET_CURRENT_USER_ANAG) }
   // PREFETTURA
  // getListPref(obj: any) { return this.chiamataDiTipoPost(`${this.appConfigService.getConfig().backendUrl}` + URLS.GET_LIST_PREFETTURE, obj); }

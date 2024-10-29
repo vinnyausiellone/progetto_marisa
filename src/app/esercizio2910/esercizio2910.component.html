@@ -1,0 +1,32 @@
+<div class="d-flex">
+    <table class="esercizio-table">
+        <tbody>
+            <tr class="esercizio-tr">
+                <th class="esercizio-th">Id</th>
+                <th class="esercizio-th">Title</th>
+                <th class="esercizio-th">Body</th>
+                <th class="esercizio-th">User Id</th>
+                <th class="esercizio-th">Action</th>
+            </tr>
+            <ng-container *ngFor="let item of data; let i = index">
+                <tr class="esercizio-tr">
+                    <td class="esercizio-td"> {{item.id}} </td>
+                    <td class="esercizio-td"> {{item.title}} </td>
+                    <td class="esercizio-td"> {{item.body}} </td>
+                    <td class="esercizio-td"> {{item.userId}} </td>
+                    <td class="esercizio-td">
+                        <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
+                            search
+                        </mat-icon>
+                        <mat-icon>
+                            close
+                        </mat-icon>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <div class="dettaglio" *ngIf="showDettaglio">
+        <app-dettaglio2910></app-dettaglio2910>
+    </div>
+</div>
