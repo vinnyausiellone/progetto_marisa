@@ -66,6 +66,7 @@ export class ApiService {
   getPostById(id: number): Observable<IntPostsApprofondimento[]> { return this.chiamataDiTipoGet('https://jsonplaceholder.typicode.com/comments?postId=' + id) }
   modificaApprofondimento (obj: any): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
   getData(): Observable<IntData[]> { return this.httpClient.get<IntData[]> ('https://jsonplaceholder.typicode.com/posts')}
+  postData(obj: IntData): Observable<string> { return this.chiamataDiTipoPost ('https://jsonplaceholder.typicode.com/posts', obj)}
   // getCurrentUserAnagrafica(): Observable<any> { return this.chiamataDiTipoGet(`${this.appConfigService.getConfig().backendUrl}` + URLS.GET_CURRENT_USER_ANAG) }
   // PREFETTURA
  // getListPref(obj: any) { return this.chiamataDiTipoPost(`${this.appConfigService.getConfig().backendUrl}` + URLS.GET_LIST_PREFETTURE, obj); }

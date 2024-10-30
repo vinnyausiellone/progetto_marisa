@@ -1,32 +1,88 @@
-<div class="d-flex">
-    <table class="esercizio-table">
-        <tbody>
-            <tr class="esercizio-tr">
-                <th class="esercizio-th">Id</th>
-                <th class="esercizio-th">Title</th>
-                <th class="esercizio-th">Body</th>
-                <th class="esercizio-th">User Id</th>
-                <th class="esercizio-th">Action</th>
-            </tr>
-            <ng-container *ngFor="let item of data; let i = index">
-                <tr class="esercizio-tr">
-                    <td class="esercizio-td"> {{item.id}} </td>
-                    <td class="esercizio-td"> {{item.title}} </td>
-                    <td class="esercizio-td"> {{item.body}} </td>
-                    <td class="esercizio-td"> {{item.userId}} </td>
-                    <td class="esercizio-td">
-                        <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
-                            search
-                        </mat-icon>
-                        <mat-icon>
-                            close
-                        </mat-icon>
-                    </td>
-                </tr>
-            </ng-container>
-        </tbody>
-    </table>
-    <div class="dettaglio" *ngIf="showDettaglio">
-        <app-dettaglio2910></app-dettaglio2910>
-    </div>
+<div class="pointer">
+<mat-chip-set aria-label="user-id-selection">
+    <mat-chip *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
+    <mat-chip *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
+</mat-chip-set>
 </div>
+
+<div *ngIf="!showTabellaFiltrata">
+    <ng-container *ngTemplateOutlet="tabellaCompleta"></ng-container>
+</div>
+
+<div *ngIf="showTabellaFiltrata">
+    <ng-container *ngTemplateOutlet="tabellaFiltrata"></ng-container>
+</div>
+
+<ng-template #tabellaCompleta>
+    <div class="d-flex">
+        <table class="esercizio-table">
+            <tbody>
+                <tr class="esercizio-tr">
+                    <th class="esercizio-th">Id</th>
+                    <th class="esercizio-th">Title</th>
+                    <th class="esercizio-th">Body</th>
+                    <th class="esercizio-th">User Id</th>
+                    <th class="esercizio-th">Action</th>
+                </tr>
+                <ng-container *ngFor="let item of data; let i = index">
+                    <tr class="esercizio-tr">
+                        <td class="esercizio-td"> {{item.id}} </td>
+                        <td class="esercizio-td"> {{item.title}} </td>
+                        <td class="esercizio-td"> {{item.body}} </td>
+                        <td class="esercizio-td"> {{item.userId}} </td>
+                        <td class="esercizio-td">
+                            <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
+                                {{idRigaSelezionata === item.id ? 'close' : 'search'}}
+                            </mat-icon>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <div class="dettaglio" *ngIf="showDettaglio">
+            <app-dettaglio2910></app-dettaglio2910>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #tabellaFiltrata>
+    <div class="d-flex">
+        <table class="esercizio-table">
+            <tbody>
+                <tr class="esercizio-tr">
+                    <th class="esercizio-th">Id</th>
+                    <th class="esercizio-th">Title</th>
+                    <th class="esercizio-th">Body</th>
+                    <th class="esercizio-th">User Id</th>
+                    <th class="esercizio-th">Action</th>
+                </tr>
+                <ng-container *ngFor="let item of datiFiltrati; let i = index">
+                    <tr class="esercizio-tr">
+                        <td class="esercizio-td"> {{item.id}} </td>
+                        <td class="esercizio-td"> {{item.title}} </td>
+                        <td class="esercizio-td"> {{item.body}} </td>
+                        <td class="esercizio-td"> {{item.userId}} </td>
+                        <td class="esercizio-td">
+                            <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
+                                {{idRigaSelezionata === item.id ? 'close' : 'search'}}
+                            </mat-icon>
+                        </td>
+                    </tr>
+                </ng-container>
+                <tr *ngIf="showNuovaRiga">
+                    <td class="esercizio-td"> </td>
+                    <td class="esercizio-td"> <input type="text" [formControl]="titleFC"></td>
+                    <td class="esercizio-td"> <input type="text" [formControl]="bodyFC"></td>
+                    <td class="esercizio-td"> {{selectedUserId}} </td>
+                    <td class="esercizio-td"> </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="dettaglio" *ngIf="showDettaglio">
+            <app-dettaglio2910></app-dettaglio2910>
+        </div>
+    </div>
+    <button class="bottoneInserisciRiga" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserisci nuova riga</button>
+    <button class="bottoneInserisciRiga" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
+    <button class="bottoneInserisciRiga" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
+</ng-template>

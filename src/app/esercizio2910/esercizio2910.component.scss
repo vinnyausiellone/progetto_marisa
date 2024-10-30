@@ -8,7 +8,8 @@
 
 }
 
-.esercizio-td, .esercizio-th {
+.esercizio-td,
+.esercizio-th {
     border: 1px solid black;
     text-align: left;
     padding: 8px;
@@ -16,4 +17,13 @@
 
 .dettaglio {
     margin-left: 21px;
+}
+
+.bottoneInserisciRiga {
+    margin-top: 10px;
+    margin-left: 811px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    color: black;
+    cursor: pointer; 
 }
