@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { IntData } from './esercizio2910.model';
+import { Component, computed, OnInit, signal } from '@angular/core';
+import { IntData, Task } from './esercizio2910.model';
 import { ApiService } from '../shared/services/api.service';
 import { SharedService } from '../shared/services/shared.service';
 import { FormControl } from '@angular/forms';
@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class Esercizio2910Component implements OnInit {
 
+
   constructor(private apiService: ApiService, private sharedService: SharedService, private matSnackBar: MatSnackBar) { }
 
   data?: IntData[];
@@ -23,6 +24,7 @@ export class Esercizio2910Component implements OnInit {
   bodyFC = new FormControl();
   selectedUserId: number = 0;
   showNuovaRiga: boolean = false;
+  checkboxFC: FormControl[] = []; // questa lista verrà popolata quando viene popolata la tabella
 
 
   ngOnInit(): void {
@@ -33,6 +35,9 @@ export class Esercizio2910Component implements OnInit {
   getData() {
     this.apiService.getData().subscribe(res => {
       this.data = res;
+      this.data.forEach(x => {
+        this.checkboxFC.push(new FormControl());
+      })
     })
   }
 
@@ -60,6 +65,7 @@ export class Esercizio2910Component implements OnInit {
     this.showNuovaRiga = false;
   }
 
+  // METODO CHIAMATA POST CHE PRENDE I DATI INSERITI IN INPUT 
   onSalva() {
     const req: IntData = {
       userId: this.selectedUserId,
@@ -71,5 +77,10 @@ export class Esercizio2910Component implements OnInit {
       this.matSnackBar.open('Operazione eseguita correttamente', 'Close');
     })
   }
+
+  onDialog() {
+    
+  }
+
 }
 

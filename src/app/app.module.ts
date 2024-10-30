@@ -10,6 +10,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
@@ -54,6 +56,8 @@ import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component'
     ReactiveFormsModule,
     MatChipsModule,
     MatSnackBarModule,
+    MatCheckboxModule,
+    MatDialogModule,
   ],
   providers: [
     provideClientHydration(),

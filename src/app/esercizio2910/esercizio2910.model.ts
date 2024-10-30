@@ -4,3 +4,9 @@ export interface IntData {
     title:string;
     body: string;   
 }
+
+export interface Task {
+    name: string;
+    completed: boolean;
+    subtasks?: Task[];
+  }

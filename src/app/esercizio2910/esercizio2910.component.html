@@ -1,8 +1,8 @@
 <div class="pointer">
-<mat-chip-set aria-label="user-id-selection">
-    <mat-chip *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
-    <mat-chip *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
-</mat-chip-set>
+    <mat-chip-set aria-label="user-id-selection">
+        <mat-chip *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
+        <mat-chip *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
+    </mat-chip-set>
 </div>
 
 <div *ngIf="!showTabellaFiltrata">
@@ -18,14 +18,24 @@
         <table class="esercizio-table">
             <tbody>
                 <tr class="esercizio-tr">
+                    <th class="esercizio-th">
+                        <mat-checkbox class="example-margin">
+                        </mat-checkbox>
+                    </th>
                     <th class="esercizio-th">Id</th>
                     <th class="esercizio-th">Title</th>
                     <th class="esercizio-th">Body</th>
                     <th class="esercizio-th">User Id</th>
                     <th class="esercizio-th">Action</th>
                 </tr>
-                <ng-container *ngFor="let item of data; let i = index">
+                <ng-container *ngFor="let item of data; let i = index;">
                     <tr class="esercizio-tr">
+                        <td class="esercizio-td">
+    
+                            <mat-checkbox [formControl]="checkboxFC[i]">
+                            </mat-checkbox>
+                            
+                        </td>
                         <td class="esercizio-td"> {{item.id}} </td>
                         <td class="esercizio-td"> {{item.title}} </td>
                         <td class="esercizio-td"> {{item.body}} </td>
@@ -43,6 +53,7 @@
             <app-dettaglio2910></app-dettaglio2910>
         </div>
     </div>
+    <button mat-button (click)="onDialog()">Invia</button>
 </ng-template>
 
 <ng-template #tabellaFiltrata>
@@ -82,7 +93,8 @@
             <app-dettaglio2910></app-dettaglio2910>
         </div>
     </div>
-    <button class="bottoneInserisciRiga" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserisci nuova riga</button>
+    <button class="bottoneInserisciRiga" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserisci nuova
+        riga</button>
     <button class="bottoneInserisciRiga" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
     <button class="bottoneInserisciRiga" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
 </ng-template>
