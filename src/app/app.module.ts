@@ -27,6 +27,7 @@ import { RicettaComponent } from './ricetta/ricetta.component';
 import { ProvaEventoComponent } from './lista/prova-evento/prova-evento.component';
 import { Esercizio2910Component } from './esercizio2910/esercizio2910.component';
 import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component'
     ProvaEventoComponent,
     Esercizio2910Component,
     Dettaglio2910Component,
+    DialogComponent,
   ],
   imports: [
     BrowserModule,
