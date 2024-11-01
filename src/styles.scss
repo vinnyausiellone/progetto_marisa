@@ -12,7 +12,7 @@
 }
 
 .mt-50 {
-    margin-top: 50px;  
+    margin-top: 50px;
 }
 
 .mr-5 {
@@ -36,7 +36,7 @@
 }
 
 .mr-25 {
-    margin-right: 25px; 
+    margin-right: 25px;
 }
 
 .h-45 {
@@ -44,11 +44,11 @@
 }
 
 .mt-10 {
-    margin-top: 10px;  
+    margin-top: 10px;
 }
 
 .ml-475 {
-    margin-left: 475px;   
+    margin-left: 475px;
 }
 
 .ml-468 {
@@ -75,11 +75,25 @@
     align-items: center;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .justify-content-between {
     justify-content: space-between;
@@ -92,6 +106,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .p-10 {
     padding: 10px;
 }
+
+.w-100 {
+    width: 100%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.min-w-50 {
+    min-width: 50%;
+}
+
+//BOTTONI
 
 .button-standard {
     background-color: #1b4d8b;
@@ -106,5 +134,37 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .button-standard:hover {
-background-color: #163D6F;
+    background-color: #163D6F;
+}
+
+// TABELLE
+
+.custom-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border: 2px #1b4d8b;
+}
+
+.custom-table thead {
+    background-color: #1b4d8b;
+    color: #ffffff;
+}
+
+.custom-table th,
+.custom-table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+.custom-table tr:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.custom-table th {
+    font-weight: bold;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #e0e8f5;
 }

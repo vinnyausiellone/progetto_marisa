@@ -1,14 +1,14 @@
 <div class="tab-posts" *ngFor="let post of posts, let i = index">
-        <span class="mb-10">
-            id: {{post.id}}
-        </span>
-        <span class="mb-10">
-            title: {{post.title}}
-        </span>
-        <mat-icon class="mt-15 pointer" (click)="VisApprofondimento(i+1)">
-            search
-        </mat-icon>
-        <mat-icon class="mt-15 pointer" (click)="EditApprofondimento(i+1)">
-            edit
-        </mat-icon>
+    <span class="mb-10">
+        id: {{post.id}}
+    </span>
+    <span class="mb-10">
+        title: {{post.title}}
+    </span>
+    <mat-icon class="mt-15 pointer" (click)="VisApprofondimento(i+1)">
+        search
+    </mat-icon>
+    <mat-icon class="mt-15 pointer" (click)="EditApprofondimento(i+1)">
+        edit
+    </mat-icon>
 </div>

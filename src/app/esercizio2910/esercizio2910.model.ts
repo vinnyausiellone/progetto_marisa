@@ -1,13 +1,13 @@
 export interface IntData {
-    userId:number;
+    userId: number;
     id?: number;
-    title:string;
+    title: string;
     body: string;
-    selected: boolean;   
+    selected: boolean;
 }
 
 export interface Task {
     name: string;
     completed: boolean;
     subtasks?: Task[];
-  }
+}

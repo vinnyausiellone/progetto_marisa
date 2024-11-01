@@ -12,9 +12,9 @@ class Persona {
   flagedit: boolean;
   isDettaglio: boolean;
 
-  constructor (nome: string, cognome:string){
-    this.nome =nome;
-    this.cognome=cognome;
+  constructor(nome: string, cognome: string) {
+    this.nome = nome;
+    this.cognome = cognome;
     this.flagedit = true;
     this.isDettaglio = false;
   }
@@ -25,8 +25,8 @@ class Persona {
   templateUrl: './anagrafica-utente.component.html',
   styleUrls: ['./anagrafica-utente.component.scss']
 })
-export class AnagraficaUtenteComponent implements OnInit{
-  
+export class AnagraficaUtenteComponent implements OnInit {
+
   titoloTabella: string = 'Anagrafica Utenti';
   riga1col2 = 'Rossi';
   showRiga4 = false;
@@ -36,51 +36,51 @@ export class AnagraficaUtenteComponent implements OnInit{
   mostraDettaglio = false;
   anagraficaOggetto?: IntAnagrafica;
   idPresente = false;
-  id?:any;
-  mostraInput:  boolean[] = [];
+  id?: any;
+  mostraInput: boolean[] = [];
   clickDettaglio = false;
   nuovaRiga = false;
-  personaSelezionata?: {nome: string; cognome: string};
+  personaSelezionata?: { nome: string; cognome: string };
   personaClick = false;
   nomeFC = new FormControl('', Validators.required);
   idValore = false;
   flagPari: boolean = false;
 
 
-  listaNomi: Persona[] =  [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo') ];
-  
-  constructor (private route: ActivatedRoute, private router: Router, private apiService: ApiService){}
+  listaNomi: Persona[] = [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo')];
+
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getAnagrafica();
   }
 
-   mostra4Riga() {
-    this.listaNomi.push (new Persona('Paola', 'Lubian'));
-   }
+  mostra4Riga() {
+    this.listaNomi.push(new Persona('Paola', 'Lubian'));
+  }
 
-   cambiaColore() {
+  cambiaColore() {
     this.cambioColore = !this.cambioColore;
-   }
+  }
 
-   goToDettaglio(i: number) {
+  goToDettaglio(i: number) {
     this.router.navigateByUrl('anagraficaDettaglio/' + i);
-   }
+  }
 
-   mostraDettaglioMetodo() {
-    this.mostraDettaglio=!this.mostraDettaglio
-    }
+  mostraDettaglioMetodo() {
+    this.mostraDettaglio = !this.mostraDettaglio
+  }
 
-    clickEvento(item: Persona, i: number){
-      this.flagPari = (i+1) % 2 === 0 ? true : false;
-      this.listaNomi.forEach(res => {
-        if (res.isDettaglio) {
-          res.isDettaglio = false;
-        }
-      })
-      item.isDettaglio = true;
-      this.clickDettaglio = true;
-    }
+  clickEvento(item: Persona, i: number) {
+    this.flagPari = (i + 1) % 2 === 0 ? true : false;
+    this.listaNomi.forEach(res => {
+      if (res.isDettaglio) {
+        res.isDettaglio = false;
+      }
+    })
+    item.isDettaglio = true;
+    this.clickDettaglio = true;
+  }
 
   closeDettaglio(item: Persona) {
     item.isDettaglio = false;
@@ -97,30 +97,29 @@ export class AnagraficaUtenteComponent implements OnInit{
     item.flagedit = false;
   }
 
-   rimuoviInput(item: Persona) {
-    if (!item.nome){
-      alert ("Il campo è vuoto");
+  rimuoviInput(item: Persona) {
+    if (!item.nome) {
+      alert("Il campo è vuoto");
     } else {
       item.flagedit = true;
     }
-   }
+  }
 
-   selezionaPersone(persona: {nome: string; cognome: string}){
+  selezionaPersone(persona: { nome: string; cognome: string }) {
     this.personaClick = !this.personaClick;
-    this.personaSelezionata =persona;
-   }
+    this.personaSelezionata = persona;
+  }
 
-   getClickEvent (evento: boolean){
-   this.nuovaRiga = !this.nuovaRiga;
-   }
+  getClickEvent(evento: boolean) {
+    this.nuovaRiga = !this.nuovaRiga;
+  }
 
-   selezionaRigaTemplate() {
+  selezionaRigaTemplate() {
     this.idValore = !this.idValore;
-   }
+  }
 
 
-    }   
-   
-   
+}
 
-  
+
+

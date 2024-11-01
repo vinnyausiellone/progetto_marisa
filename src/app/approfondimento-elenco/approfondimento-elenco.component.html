@@ -1,23 +1,20 @@
 <div>
     <b> {{pageTitle}} </b>
     <div *ngFor=" let item of approfondimentoElenco, let i = index">
-        <span> id: {{item.id}} </span> 
+        <span> id: {{item.id}} </span>
         <span *ngIf="!cambio"> body: {{item.body}}</span>
         <br>
         <div>
-        <input name="inputBody" matInput type="text" [formControl]="approfondimentoFC" placeholder="Inserire Modifica" *ngIf="isModifica">
-        <mat-icon class="bottoneCambioBody pointer" (click)="cambioBody(item)" *ngIf="isModifica">
-            swap_horiz
-        </mat-icon>
-    </div>
+            <input name="inputBody" matInput type="text" [formControl]="approfondimentoFC"
+                placeholder="Inserire Modifica" *ngIf="isModifica">
+            <mat-icon class="mt-20 pointer" (click)="cambioBody(item)" *ngIf="isModifica">
+                swap_horiz
+            </mat-icon>
+        </div>
     </div>
 </div>
 
-
-    <button class="button-standard mt-20 mr-5 pointer" (click)="bottoneIndietro()">INDIETRO</button>
-    <!-- BOTTONI PER FILTRARE UNA LISTA -->
-    <button class="button-standard mt-20 mr-5 pointer" (click)="bottoneFiltraPari()">Filtra per pari</button>
-    <button class="button-standard mt-20 mr-5 pointer" (click)="bottoneFiltraDispari()">Filtra per dispari</button>
-
-
-
+<button class="button-standard mt-20 mr-5 pointer" (click)="bottoneIndietro()">INDIETRO</button>
+<!-- BOTTONI PER FILTRARE UNA LISTA -->
+<button class="button-standard mt-20 mr-5 pointer" (click)="bottoneFiltraPari()">Filtra per pari</button>
+<button class="button-standard mt-20 mr-5 pointer" (click)="bottoneFiltraDispari()">Filtra per dispari</button>

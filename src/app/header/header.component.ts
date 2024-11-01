@@ -8,21 +8,21 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
 
 
-  constructor( private router: Router, private apiService: ApiService){}
+  constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
-  
-    }
-
-    clickElenco() {
-      this.router.navigateByUrl('elencoDettaglio');
-     }
 
   }
-  
-  
 
- 
+  clickElenco() {
+    this.router.navigateByUrl('elencoDettaglio');
+  }
+
+}
+
+
+
+

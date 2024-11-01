@@ -19,16 +19,16 @@ export class AnagraficaDettaglioComponent implements OnInit {
   id?: any;
   anagraficaDettaglio?: IntAnagraficaDettaglio[];
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Input() persona?: {nome:string; cognome: string};
+  @Input() persona?: { nome: string; cognome: string };
   @Input() flagPari?: boolean;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService){}
-  
-  cambiaLista () {
+  constructor(private route: ActivatedRoute, private apiService: ApiService) { }
+
+  cambiaLista() {
     this.mostraCibi = !this.mostraCibi;
-    this.clickEvent.emit(true); 
+    this.clickEvent.emit(true);
   }
-  
+
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getAnagraficaById(this.id);
@@ -37,9 +37,9 @@ export class AnagraficaDettaglioComponent implements OnInit {
   modalitaDark() {
     this.darkmode = !this.darkmode;
     if (this.darkmode) {
-      document.body.classList.add ('dark-mode');
+      document.body.classList.add('dark-mode');
     } else {
-      document.body.classList.remove ('dark-mode');
+      document.body.classList.remove('dark-mode');
     }
   }
 

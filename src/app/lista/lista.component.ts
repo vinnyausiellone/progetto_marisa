@@ -13,7 +13,7 @@ interface Food {
   templateUrl: './lista.component.html',
   styleUrl: './lista.component.scss',
 })
-export class ListaComponent implements OnInit{
+export class ListaComponent implements OnInit {
   selectedValue: string;
   cont = 0;
   cibiFC = new FormControl();
@@ -24,15 +24,13 @@ export class ListaComponent implements OnInit{
   mostraTab: boolean = false;
   ricettaSalvata?: string;
 
-  
-
   constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService) {
     this.selectedValue = this.listaCibi[0].viewValue;
   }
   ngOnInit(): void {
-   const ricettaSalvata: {ricetta: string} = this.sharedService.getAttUtilObj('ricetta');
-   this.sharedService.clearAttUtilObj('ricetta');
-   if(ricettaSalvata) this.ricettaSalvata = ricettaSalvata.ricetta;
+    const ricettaSalvata: { ricetta: string } = this.sharedService.getAttUtilObj('ricetta');
+    this.sharedService.clearAttUtilObj('ricetta');
+    if (ricettaSalvata) this.ricettaSalvata = ricettaSalvata.ricetta;
 
   }
 
@@ -62,7 +60,7 @@ export class ListaComponent implements OnInit{
   }
 
   mostraRicetta() {
-    this.sharedService.setAttUtilObj('cibi', {cibo: this.cibiFC.value});
+    this.sharedService.setAttUtilObj('cibi', { cibo: this.cibiFC.value });
     this.router.navigateByUrl('ricetta');
   }
 
@@ -72,11 +70,11 @@ export class ListaComponent implements OnInit{
 
   testevento(event: boolean) {
     if (event) {
-    this.showTest = true;
+      this.showTest = true;
     }
   }
 
-  
-  }
+
+}
 
 

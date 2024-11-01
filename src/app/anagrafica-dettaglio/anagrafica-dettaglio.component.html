@@ -9,9 +9,10 @@
 <ng-template #pari>
     <div class="custom-title">
         <h2 class="titolo"> {{ titoloDettagli}} </h2>
-        <button class="button-standard pointer h-45" (click)="bottoneIndietro()" [disabled]="!bottoneAttivo">INDIETRO</button>
+        <button class="button-standard pointer h-45" (click)="bottoneIndietro()"
+            [disabled]="!bottoneAttivo">INDIETRO</button>
     </div>
-    
+
     <ul class="tabellaCibo" *ngIf="mostraCibi">
         <b> Cibo preferito </b>
         <li *ngFor="let item of listaCibi">{{item}}</li>
@@ -20,18 +21,20 @@
         <b> Cibi cattivi </b>
         <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
     </ul>
-    
-     <h3> RIGA PARI</h3>
-    <button class="ml-20 button-standard pointer" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ? 'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
+
+    <h3> RIGA PARI</h3>
+    <button class="ml-20 button-standard pointer" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
+        'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
 
 </ng-template>
 
 <ng-template #dispari>
     <div class="custom-title">
         <h2 class="titolo"> {{ titoloDettagli}} </h2>
-        <button class="button-standard pointer h-45" (click)="bottoneIndietro()" [disabled]="!bottoneAttivo">INDIETRO</button>
+        <button class="button-standard pointer h-45" (click)="bottoneIndietro()"
+            [disabled]="!bottoneAttivo">INDIETRO</button>
     </div>
-    
+
     <ul class="tabellaCibo" *ngIf="mostraCibi">
         <b> Cibo preferito </b>
         <li *ngFor="let item of listaCibi">{{item}}</li>
@@ -40,27 +43,29 @@
         <b> Cibi cattivi </b>
         <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
     </ul>
-    
-    
-    <button class="ml-20 button-standard pointer" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ? 'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
-    
-    <div class="d-flex ml-20 mt-20 flex-direction-column" >
+
+
+    <button class="ml-20 button-standard pointer" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
+        'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
+
+    <div class="d-flex ml-20 mt-20 flex-direction-column">
         <b> Anagrafica Dettaglio</b>
         <div *ngFor=" let item of anagraficaDettaglio">
             <span>Dettaglio: {{ item.id}} {{item.name}} </span>
         </div>
     </div>
-    
+
     <h3> RIGA DISPARI </h3>
-    
+
     <div *ngIf="persona">
-      <h4> Persona Selezionata</h4>
-      <p>Nome: {{persona.nome}}</p>
-      <p>Cognome: {{persona.cognome}}</p>
+        <h4> Persona Selezionata</h4>
+        <p>Nome: {{persona.nome}}</p>
+        <p>Cognome: {{persona.cognome}}</p>
     </div>
-    
+
     <div class="mt-50 d-flex mr-25 ml-20">
-        <button class="button-standard pointer mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">Attiva Modalità Dark</button>
+        <button class="button-standard pointer mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">Attiva
+            Modalità Dark</button>
         <button class="button-standard pointer mt-20" (click)="disattivaBottoni()">Disattiva Bottoni</button>
     </div>
 </ng-template>

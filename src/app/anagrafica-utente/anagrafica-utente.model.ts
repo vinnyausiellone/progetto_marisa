@@ -7,9 +7,9 @@ export interface IntAnagrafica {
 
 export interface IntAnagraficaDettaglio {
     postId: number;
-    id:number;
-    name:string;
-    email:string;
+    id: number;
+    name: string;
+    email: string;
     body: string;
 }
 

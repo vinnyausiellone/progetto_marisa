@@ -83,10 +83,10 @@ export class Esercizio2910Component implements OnInit {
   invioBtn() {
     const someSelected = this.data?.filter(item => item.selected);
     let idSelected: number[] = [];
-    if (someSelected && someSelected.length > 0) {   
-     someSelected.forEach((element: IntData) => {    //dobbiamo dare il tipo
-      idSelected.push(element.id!);      //il punto eslamativo dice che esistera' per forza
-     });
+    if (someSelected && someSelected.length > 0) {
+      someSelected.forEach((element: IntData) => {    //dobbiamo dare il tipo
+        idSelected.push(element.id!);      //il punto eslamativo dice che esistera' per forza
+      });
       this.dialogService.successo('Invio riga con id ' + idSelected.join(', ') + ' avvenuto con successo')
     } else {
       this.dialogService.errore('Selezionare almeno una riga')

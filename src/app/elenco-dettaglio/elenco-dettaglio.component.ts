@@ -10,8 +10,8 @@ import { IntPosts } from '../anagrafica-utente/anagrafica-utente.model';
 })
 export class ElencoDettaglioComponent implements OnInit {
   posts?: IntPosts[];
-  
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService){}
+
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getPosts();
@@ -20,15 +20,15 @@ export class ElencoDettaglioComponent implements OnInit {
   getPosts() {
     this.apiService.getPosts().subscribe(res => {
       this.posts = res;
-  })
-}
+    })
+  }
 
-EditApprofondimento(id: number){
-  this.router.navigateByUrl('approfondimentoElencoMod/' + id);
-}
+  EditApprofondimento(id: number) {
+    this.router.navigateByUrl('approfondimentoElencoMod/' + id);
+  }
 
-VisApprofondimento(id: number){
-  this.router.navigateByUrl('approfondimentoElencoVis/' + id);
-}
+  VisApprofondimento(id: number) {
+    this.router.navigateByUrl('approfondimentoElencoVis/' + id);
+  }
 
 }

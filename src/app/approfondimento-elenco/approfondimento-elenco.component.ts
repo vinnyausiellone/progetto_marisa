@@ -18,9 +18,7 @@ export class ApprofondimentoElencoComponent implements OnInit {
   isModifica: boolean = false;
   pageTitle: string = '';
   cambio = false;
-  approfondimentoFC = new FormControl ('', Validators.required);
-
- 
+  approfondimentoFC = new FormControl('', Validators.required);
 
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
     this.route.data.subscribe((params: any) => {
@@ -30,8 +28,6 @@ export class ApprofondimentoElencoComponent implements OnInit {
       }
     });
   }
-
-
 
   ngOnInit(): void {
     this.pageTitle = this.isVisualizza ? 'Dettaglio Approfondimento' : 'Modifica Approfondimento';
@@ -51,7 +47,7 @@ export class ApprofondimentoElencoComponent implements OnInit {
   }
 
   cambioBody(item: IntPostsApprofondimento) {
-    const req =  JSON.stringify({
+    const req = JSON.stringify({
       userId: 1,
       title: 'title',
       id: item.id,
@@ -63,13 +59,13 @@ export class ApprofondimentoElencoComponent implements OnInit {
     });
   }
 
-  bottoneFiltraPari(){
+  bottoneFiltraPari() {
     this.approfondimentoElenco = this.approfondimentoElencoBackup;
     const listaFiltrata = this.approfondimentoElenco?.filter(x => x.id % 2 === 0);
     this.approfondimentoElenco = listaFiltrata;
   }
 
-  bottoneFiltraDispari(){
+  bottoneFiltraDispari() {
     this.approfondimentoElenco = this.approfondimentoElencoBackup;
     const listaFiltrata = this.approfondimentoElenco?.filter(x => x.id % 2 !== 0);
     this.approfondimentoElenco = listaFiltrata;

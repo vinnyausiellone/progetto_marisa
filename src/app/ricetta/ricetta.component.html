@@ -1,11 +1,11 @@
 <div *ngIf="!isFromLista">
-<h4>{{ 'Ricetta: ' + pageTitle }}</h4>
-<div class="d-flex flex-direction-column">
-  <mat-form-field class="custum-textarea">
-    <textarea matInput placeholder="Ricetta" [formControl]="ricettaFC"></textarea>
-  </mat-form-field>
-  <span class="mt-5" *ngIf="valoreRicetta">{{valoreRicetta}}</span>
-</div>
+  <h4>{{ 'Ricetta: ' + pageTitle }}</h4>
+  <div class="d-flex flex-direction-column">
+    <mat-form-field class="custum-textarea">
+      <textarea matInput placeholder="Ricetta" [formControl]="ricettaFC"></textarea>
+    </mat-form-field>
+    <span class="mt-5" *ngIf="valoreRicetta">{{valoreRicetta}}</span>
+  </div>
 
-<button class="button-standard mr-5 d-flex poiner" (click)="onSalvaRicetta()"> Salva Ricetta</button>
+  <button class="button-standard mr-5 d-flex poiner" (click)="onSalvaRicetta()"> Salva Ricetta</button>
 </div>
