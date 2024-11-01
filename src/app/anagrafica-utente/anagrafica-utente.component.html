@@ -49,8 +49,8 @@
 
 
 
-<button class="mt-10" (click)="mostra4Riga()">Mostra quarta riga</button>
-<button class="mt-10" (click)="cambiaColore()">Cambia colore righe pari</button>
+<button class="button-standard mt-10 pointer" (click)="mostra4Riga()">Mostra quarta riga</button>
+<button class="button-standard mt-10 pointer" (click)="cambiaColore()">Cambia colore righe pari</button>
 
 <div *ngIf="mostraDettaglio">
     <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)" ></app-anagrafica-dettaglio>

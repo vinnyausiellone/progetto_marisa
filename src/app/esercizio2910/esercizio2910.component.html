@@ -51,7 +51,7 @@
             <app-dettaglio2910></app-dettaglio2910>
         </div>
     </div>
-    <button class="dialogButton" mat-button (click)="invioBtn()">Invia</button>
+    <button class="button-standard mt-10 ml-562 pointer" mat-button (click)="invioBtn()">Invia</button>
 </ng-template>
 
 <ng-template #tabellaFiltrata>
@@ -91,8 +91,10 @@
             <app-dettaglio2910></app-dettaglio2910>
         </div>
     </div>
-    <button class="bottoneInserisciRiga" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserisci nuova
+    <button class="button-standard mt-10 ml-475 pointer" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserisci nuova
         riga</button>
-    <button class="bottoneInserisciRiga" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
-    <button class="bottoneInserisciRiga" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
+        <div class="ml-468">
+    <button class="button-standard mt-10 mr-5 pointer" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
+    <button class="button-standard mt-10 pointer" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
+</div>
 </ng-template>

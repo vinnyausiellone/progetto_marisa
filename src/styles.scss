@@ -11,6 +11,14 @@
     margin-left: 20px;
 }
 
+.mt-50 {
+    margin-top: 50px;  
+}
+
+.mr-5 {
+    margin-right: 5px;
+}
+
 .d-flex {
     display: flex;
 }
@@ -21,6 +29,38 @@
 
 .mt-5 {
     margin-top: 5px;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mr-25 {
+    margin-right: 25px; 
+}
+
+.h-45 {
+    height: 45px;
+}
+
+.mt-10 {
+    margin-top: 10px;  
+}
+
+.ml-475 {
+    margin-left: 475px;   
+}
+
+.ml-468 {
+    margin-left: 468px;
+}
+
+.ml-562 {
+    margin-left: 562px;
+}
+
+.ml-116 {
+    margin-left: 116px;
 }
 
 .flex-direction-column {
@@ -51,4 +91,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .p-10 {
     padding: 10px;
+}
+
+.button-standard {
+    background-color: #1b4d8b;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.button-standard:hover {
+background-color: #163D6F;
 }
