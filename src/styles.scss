@@ -3,6 +3,14 @@
     color: white;
 }
 
+.custom-color {
+    color: #1b4d8b;
+}
+
+.custom-background {
+    background-color: #163D6F;
+}
+
 .mb-10 {
     margin-bottom: 10px;
 }
@@ -59,6 +67,10 @@
     margin-left: 562px;
 }
 
+.ml-200 {
+    margin-left: 200px;
+}
+
 .ml-116 {
     margin-left: 116px;
 }
@@ -99,12 +111,24 @@ body {
     justify-content: space-between;
 }
 
+.justify-content-center {
+    justify-content: center;
+}
+
 .w-100 {
     width: 100%;
 }
 
 .p-10 {
     padding: 10px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+.a-i-c {
+    align-items: center;
 }
 
 .w-100 {
@@ -139,10 +163,13 @@ body {
 
 // TABELLE
 
+.table-container {
+    border: 2px #1b4d8b;
+}
+
 .custom-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    border: 2px #1b4d8b;
 }
 
 .custom-table thead {
@@ -154,7 +181,6 @@ body {
 .custom-table td {
     text-align: center;
     padding: 10px;
-    border: 1px solid #dddddd;
 }
 
 .custom-table tr:nth-child(even) {
@@ -167,4 +193,34 @@ body {
 
 .custom-table tbody tr:hover {
     background-color: #e0e8f5;
+}
+
+// CHIPS
+
+.custom-chips {
+    background-color: #dddddd;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 0.5px 40px;
+    border: #163D6F;
+}
+
+.custom-chips:hover {
+    color: #1b4d8b;
+}
+
+// TITOLI
+
+.custom-title {
+    font-family: arial, sans-serif;
+    color: #163D6F;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+//DETTAGLIO
+
+.custom-dettaglio {
+    border: 2px solid #163D6F;
+    padding: 20px;
 }

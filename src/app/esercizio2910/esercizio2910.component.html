@@ -1,9 +1,10 @@
-<div class="pointer">
-    <mat-chip-set aria-label="user-id-selection">
-        <mat-chip *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
-        <mat-chip *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
-    </mat-chip-set>
+<div class="w-50 justify-content-center">
+    <mat-chip class="custom-chips mr-5 mb-10 mt-10 pointer" *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]"
+        (click)="onClickChip(userId)">{{userId}}</mat-chip>
+    <mat-chip class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata"
+        (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
 </div>
+
 
 <div *ngIf="!showTabellaFiltrata">
     <ng-container *ngTemplateOutlet="tabellaCompleta"></ng-container>

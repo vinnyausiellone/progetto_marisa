@@ -1,6 +1,6 @@
 <div>
-    <b> {{pageTitle}} </b>
-    <div *ngFor=" let item of approfondimentoElenco, let i = index">
+    <b class="custom-title"> {{pageTitle}} </b>
+    <div class="custom-color" *ngFor=" let item of approfondimentoElenco, let i = index">
         <span> id: {{item.id}} </span>
         <span *ngIf="!cambio"> body: {{item.body}}</span>
         <br>

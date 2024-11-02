@@ -1,4 +1,4 @@
-<h2 class="titolo pointer" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
+<h2 class="custom-title pointer" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
 
 <h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
 <div class="table-container">
@@ -48,7 +48,7 @@
             </ng-container>
         </tbody>
     </table>
-    <div class="dettaglio" *ngIf="clickDettaglio">
+    <div class="custom-dettaglio" *ngIf="clickDettaglio">
         <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)" [flagPari]="flagPari"></app-anagrafica-dettaglio>
     </div>
 </div>
@@ -65,7 +65,7 @@
     <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
 </div>
 
-<div class="tab-anagrafica">
+<div class="tab-anagrafica custom-dettaglio custom-color mt-20">
     <span class="mb-10">
         id: {{anagraficaOggetto?.id}}
     </span>
