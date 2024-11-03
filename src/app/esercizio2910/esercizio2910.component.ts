@@ -95,7 +95,8 @@ export class Esercizio2910Component implements OnInit {
 
   checkedAll($event: any) {
     this.data?.forEach(element => {
-      element.selected = !element.selected;
+      element.selected = true;
+      // element.selected = !element.selected;
     });
   }
 

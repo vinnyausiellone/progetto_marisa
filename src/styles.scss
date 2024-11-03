@@ -1,3 +1,7 @@
+.f-20 {
+    font-size: 20px;
+}
+
 .dark-mode {
     background-color: #121212;
     color: white;
@@ -174,6 +178,7 @@ body {
 .custom-table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
+    background-color: #fefefe;
 }
 
 .custom-table thead {
@@ -188,7 +193,7 @@ body {
 }
 
 .custom-table tr:nth-child(even) {
-    background-color: #f1f1f1;
+    background-color: #f6f7fa;
 }
 
 .custom-table th {
@@ -205,15 +210,15 @@ body {
     font-family: arial, sans-serif;
     color: #163D6F;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 // CHIPS
 .custom-chips {
     color: #ffffff !important;
-    background-color: #dddddd !important;
-    border-radius: 10px !important;
-    padding: 0.5px 40px !important;
+    background-color: #f6f7fa !important;
+    border-radius: 20px !important;
+    padding: 1px 40px !important;
     font-weight: bold !important;
     border: none !important;
 }
@@ -223,4 +228,9 @@ body {
 .custom-dettaglio {
     border: 2px solid #163D6F;
     padding: 20px;
+}
+
+.custom-dettaglio-elenco {
+    border: 1px solid #163D6F;
+    padding: 5px; 
 }

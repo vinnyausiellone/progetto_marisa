@@ -27,7 +27,7 @@ class Persona {
 })
 export class AnagraficaUtenteComponent implements OnInit {
 
-  titoloTabella: string = 'Anagrafica Utenti';
+  titoloTabella: string = 'ANAGRAFICA UTENTI';
   riga1col2 = 'Rossi';
   showRiga4 = false;
   riga4col1 = 'Mario';

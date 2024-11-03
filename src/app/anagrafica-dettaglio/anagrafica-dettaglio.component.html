@@ -35,12 +35,12 @@
             [disabled]="!bottoneAttivo">INDIETRO</button>
     </div>
 
-    <ul class="tabellaCibo" *ngIf="mostraCibi">
-        <b> Cibo preferito </b>
+    <ul class="custom-dettaglio" *ngIf="mostraCibi">
+        <b class="custom-title"> Cibo preferito </b>
         <li *ngFor="let item of listaCibi">{{item}}</li>
     </ul>
-    <ul class="tabellaCiboOdiato" *ngIf="!mostraCibi">
-        <b> Cibi cattivi </b>
+    <ul class="custom-dettaglio" *ngIf="!mostraCibi">
+        <b class="custom-title"> Cibi cattivi </b>
         <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
     </ul>
 
@@ -49,7 +49,7 @@
         'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
 
     <div class="d-flex ml-20 mt-20 flex-direction-column">
-        <b> Anagrafica Dettaglio</b>
+        <b class="custom-title"> Anagrafica Dettaglio</b>
         <div *ngFor=" let item of anagraficaDettaglio">
             <span>Dettaglio: {{ item.id}} {{item.name}} </span>
         </div>

@@ -1,6 +1,6 @@
 <h6 class="custom-title mt-20">SELEZIONA IL TUO CIBO PREFERITO</h6>
 
-<mat-select class="selectList custom-color" placeholder="Seleziona Cibo Preferito" [formControl]="cibiFC" name="food">
+<mat-select class="selectList" placeholder="Seleziona Cibo Preferito" [formControl]="cibiFC" name="food">
     <mat-option *ngFor="let cibo of listaCibi" [value]="cibo.value">
         {{ cibo.viewValue }}
     </mat-option>
