@@ -27,7 +27,6 @@ export class Esercizio2910Component implements OnInit {
   showNuovaRiga: boolean = false;
   checkboxFC: FormControl[] = []; // questa lista verrà popolata quando viene popolata la tabella
 
-
   ngOnInit(): void {
     this.getData();
 
@@ -43,9 +42,11 @@ export class Esercizio2910Component implements OnInit {
   }
 
   onOpenDettaglio(item: IntData) {
-    this.showDettaglio = !this.showDettaglio;
-    this.idRigaSelezionata = this.idRigaSelezionata === item.id ? undefined : item.id;
-    if (this.data) this.sharedService.setAttUtilObj('dati', { dati: item });
+    this.showDettaglio = true;
+    this.idRigaSelezionata = item.id;
+    if (this.data) {
+      this.sharedService.setAttUtilObj('dati', item);
+    }
   }
 
   onClickChip(numeroChip: number) {
@@ -93,9 +94,14 @@ export class Esercizio2910Component implements OnInit {
     }
   }
 
-  checkedAll($event: any) {
+  checkedAll(event: any) {
+    console.log(event);
     this.data?.forEach(element => {
-      element.selected = true;
+      if (!event.checked) {
+        element.selected = false;
+      } else {
+        element.selected = true;
+      }
       // element.selected = !element.selected;
     });
   }

@@ -1,6 +1,6 @@
 <div class="w-50 justify-content-center">
-    <mat-chip class="custom-chips mr-5 mb-10 mt-10 pointer" *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
-    <mat-chip class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
+    <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 pointer" *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
+    <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
 </div>
 
 
@@ -58,7 +58,7 @@
 </ng-template>
 
 <ng-template #tabellaFiltrata>
-    <div class="table-container d-flex">
+    <div class="d-flex">
         <table class="custom-table w-50 min-w-50">
             <thead>
                 <tr>

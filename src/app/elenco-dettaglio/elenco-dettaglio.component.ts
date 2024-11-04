@@ -11,6 +11,7 @@ import { IntPosts } from '../anagrafica-utente/anagrafica-utente.model';
 export class ElencoDettaglioComponent implements OnInit {
   posts?: IntPosts[];
 
+
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {

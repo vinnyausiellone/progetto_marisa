@@ -1,6 +1,6 @@
 <div class="custom-dettaglio d-flex flex-direction-column custom-color">
-    <span>User Id: {{datiValore?.userId}}</span>
-    <span>Id: {{datiValore?.id}}</span>
-    <span>Title: {{datiValore?.title}}</span>
-    <span>Body: {{datiValore?.body}}</span>
+    <span>User Id: {{sharedService.getAttUtilObj('dati')?.userId}}</span>
+    <span>Id: {{sharedService.getAttUtilObj('dati')?.id}}</span>
+    <span>Title: {{sharedService.getAttUtilObj('dati')?.title}}</span>
+    <span>Body: {{sharedService.getAttUtilObj('dati')?.body}}</span>
 </div>
