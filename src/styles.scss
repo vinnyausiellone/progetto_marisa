@@ -2,6 +2,12 @@
     font-size: 20px;
 }
 
+.button-f-bottom-right {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
 .dark-mode {
     background-color: #121212;
     color: white;
@@ -63,12 +69,12 @@
     margin-top: 10px;
 }
 
-.ml-475 {
-    margin-left: 475px;
+.ml-456 {
+    margin-left: 456px;
 }
 
-.ml-468 {
-    margin-left: 468px;
+.ml-449 {
+    margin-left: 449px;
 }
 
 .ml-562 {
@@ -241,6 +247,8 @@ body {
     padding: 5px;
 }
 
-.mat-mdc-select-placeholder {
-    color: white !important;
+// MARGINE GENERALE
+
+.es-container {
+    padding: 20px;
 }

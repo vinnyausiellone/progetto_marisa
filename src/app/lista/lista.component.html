@@ -1,25 +1,30 @@
-<h6 class="custom-title mt-20">SELEZIONA IL TUO CIBO PREFERITO</h6>
+<div class="es-container">
+    <div class="custom-title justify-content-between d-flex a-i-c p-20">
+        <h6 class="custom-title mt-20">SELEZIONA IL TUO CIBO PREFERITO</h6>
+        <button class="button-standard pointer h-45" (click)="bottoneIndietro()">INDIETRO</button>
+    </div>
 
-<mat-select class="selectList" placeholder="Seleziona Cibo Preferito" [formControl]="cibiFC" name="food">
-    <mat-option *ngFor="let cibo of listaCibi" [value]="cibo.value">
-        {{ cibo.viewValue }}
-    </mat-option>
-</mat-select>
+    <mat-select class="selectList" placeholder="Seleziona Cibo Preferito" [formControl]="cibiFC" name="food">
+        <mat-option *ngFor="let cibo of listaCibi" [value]="cibo.value">
+            {{ cibo.viewValue }}
+        </mat-option>
+    </mat-select>
 
-<!-- <h3>Ricetta: {{ ricettaNuova}}</h3> -->
-<!-- <app-ricetta [isFromLista]="true" (mandaRicetta)="riceviRicetta($event)" ></app-ricetta> -->
+    <!-- <h3>Ricetta: {{ ricettaNuova}}</h3> -->
+    <!-- <app-ricetta [isFromLista]="true" (mandaRicetta)="riceviRicetta($event)" ></app-ricetta> -->
 
-<button class="button-standard ml-20 pointer" (click)="mostraRicetta()" [disabled]="!cibiFC.value">Mostra
-    ricetta</button>
+    <button class="button-standard ml-20 pointer" (click)="mostraRicetta()" [disabled]="!cibiFC.value">Mostra
+        ricetta</button>
 
-<div class="bottoni">
-    <button class="button-standard mr-5 pointer" (click)="aggiungiElemento()">Aggiungi elemento</button>
-    <button class="button-standard mr-5 pointer" (click)="eliminaElemento()">Elimina elemento</button>
+    <div class="button-f-bottom-right">
+        <button class="button-standard mr-5 pointer" (click)="aggiungiElemento()">Aggiungi elemento</button>
+        <button class="button-standard mr-5 pointer" (click)="eliminaElemento()">Elimina elemento</button>
+    </div>
+
+    <div class="d-flex">
+        <!-- <app-prova-evento [pippo]="true" (testevento)="testevento($event)"></app-prova-evento> -->
+        <span *ngIf="showTest">EVENTO ESEGUITO</span>
+    </div>
+
+    <span *ngIf="ricettaSalvata">{{ricettaSalvata}}</span>
 </div>
-
-<div class="d-flex">
-    <app-prova-evento [pippo]="true" (testevento)="testevento($event)"></app-prova-evento>
-    <span *ngIf="showTest">EVENTO ESEGUITO</span>
-</div>
-
-<span *ngIf="ricettaSalvata">{{ricettaSalvata}}</span>

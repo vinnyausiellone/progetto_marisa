@@ -74,6 +74,10 @@ export class ListaComponent implements OnInit {
     }
   }
 
+  bottoneIndietro() {
+    window.history.back();
+  }
+
 
 }
 

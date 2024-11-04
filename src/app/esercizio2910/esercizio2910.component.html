@@ -1,8 +1,8 @@
+<div class="es-container">
 <div class="w-50 justify-content-center">
     <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 pointer" *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
     <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
 </div>
-
 
 <div *ngIf="!showTabellaFiltrata">
     <ng-container *ngTemplateOutlet="tabellaCompleta"></ng-container>
@@ -42,10 +42,16 @@
                         <td> {{item.body}} </td>
                         <td> {{item.userId}} </td>
                         <td>
-                            <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
-                                {{idRigaSelezionata === item.id ? 'close' : 'search'}}
-                            </mat-icon>
-                        </td>
+                            <button class="pointer trasparente" (click)="onOpenDettaglio(item)">
+                              <ng-container *ngIf="idRigaSelezionata === item.id; then closeIcon else searchIcon"></ng-container>
+                              <ng-template #closeIcon>
+                                <mat-icon matTooltip="Chiudi Dettaglio" (click)="chiudiDettaglio()"> close </mat-icon>
+                              </ng-template>
+                              <ng-template #searchIcon>
+                                <mat-icon matTooltip="Mostra Dettaglio"> search </mat-icon>
+                              </ng-template>
+                            </button>
+                          </td>
                     </tr>
                 </ng-container>
             </tbody>
@@ -54,7 +60,7 @@
             <app-dettaglio2910></app-dettaglio2910>
         </div>
     </div>
-    <button class="button-standard mt-10 ml-562 pointer" mat-button (click)="invioBtn()">Invia</button>
+    <button class="button-standard mt-10 ml-562 button-f-bottom-right pointer" mat-button (click)="invioBtn()">Invia</button>
 </ng-template>
 
 <ng-template #tabellaFiltrata>
@@ -96,11 +102,12 @@
             <app-dettaglio2910></app-dettaglio2910>
         </div>
     </div>
-    <button class="button-standard mt-10 ml-475 pointer" (click)="onInserireNuovaRiga()"
+    <button class="button-standard mt-10 ml-456 pointer" (click)="onInserireNuovaRiga()"
         *ngIf="!showNuovaRiga">Inserisci nuova
         riga</button>
-    <div class="ml-468">
+    <div class="ml-449">
         <button class="button-standard mt-10 mr-5 pointer" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
         <button class="button-standard mt-10 pointer" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
     </div>
 </ng-template>
+</div>

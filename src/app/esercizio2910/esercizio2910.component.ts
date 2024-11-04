@@ -67,6 +67,11 @@ export class Esercizio2910Component implements OnInit {
     this.showNuovaRiga = false;
   }
 
+  chiudiDettaglio() {
+    this.showDettaglio = !this.showDettaglio;
+  }
+ 
+
   // METODO CHIAMATA POST CHE PRENDE I DATI INSERITI IN INPUT 
   onSalva() {
     const req: IntData = {

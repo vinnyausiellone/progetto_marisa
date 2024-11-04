@@ -12,6 +12,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
@@ -60,6 +61,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
     MatSnackBarModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatTooltipModule,
   ],
   providers: [
     provideClientHydration(),

@@ -1,81 +1,82 @@
-<h2 class="custom-title custom-color pointer" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
+<div class="es-container">
+    <h2 class="custom-title custom-color pointer" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
 
-<h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
-<div class="table-container">
-    <table class="custom-table w-100">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nome</th>
-                <th>Cognome</th>
-                <th>Azioni</th>
-            </tr>
-        </thead>
-            <tbody>
-            <ng-container *ngFor="let item of listaNomi; let i = index; let odd = odd">
+    <h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
+    <div class="table-container">
+        <table class="custom-table w-100">
+            <thead>
                 <tr>
-                    <td class="utenti-id"
-                        [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}"
-                        (click)="goToDettaglio(i+1)"> {{i+1}} </td>
-                    <td class="utenti-td"
-                        [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                        <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="nomeFC">
-                        <p>{{item.nome}}</p>
-                    </td>
-                    <td class="utenti-td"
-                        [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                        {{ item.cognome}}</td>
-                    <td class="icon"
-                        [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                        <mat-icon class="pointer" *ngIf="item.flagedit" (click)="aggiungiCeck(item)">
-                            edit
-                        </mat-icon>
-                        <mat-icon class="pointer ml-20" *ngIf="item.flagedit && !item.isDettaglio"
-                            (click)="clickEvento(item, i)">
-                            search
-                        </mat-icon>
-                        <mat-icon class="pointer ml-20" *ngIf="item.isDettaglio" (click)="closeDettaglio(item)">
-                            close
-                        </mat-icon>
-                        <mat-icon class="pointer" *ngIf="!item.flagedit" (click)="rimuoviInput(item)">
-                            check_circle
-                        </mat-icon>
-                        <mat-icon class="pointer" *ngIf="item.flagedit" (click)="selezionaPersone(item)">
-                            open_with
-                        </mat-icon>
-                    </td>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Azioni</th>
                 </tr>
-            </ng-container>
-        </tbody>
-    </table>
-    <div class="custom-dettaglio" *ngIf="clickDettaglio">
-        <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)" [flagPari]="flagPari"></app-anagrafica-dettaglio>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let item of listaNomi; let i = index; let odd = odd">
+                    <tr>
+                        <td class="utenti-id"
+                            [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}"
+                            (click)="goToDettaglio(i+1)"> {{i+1}} </td>
+                        <td class="utenti-td"
+                            [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
+                            <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="nomeFC">
+                            <p>{{item.nome}}</p>
+                        </td>
+                        <td class="utenti-td"
+                            [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
+                            {{ item.cognome}}</td>
+                        <td class="icon"
+                            [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
+                            <mat-icon matTooltip="Cambia nome" class="pointer" *ngIf="item.flagedit" (click)="aggiungiCeck(item)">
+                                edit
+                            </mat-icon>
+                            <mat-icon matTooltip="Mostra dettaglio" class="pointer ml-20" *ngIf="item.flagedit && !item.isDettaglio"
+                                (click)="clickEvento(item, i)">
+                                search
+                            </mat-icon>
+                            <mat-icon class="pointer ml-20" *ngIf="item.isDettaglio" (click)="closeDettaglio(item)">
+                                close
+                            </mat-icon>
+                            <mat-icon matTooltip="Salva nuovo nome" class="pointer" *ngIf="!item.flagedit" (click)="rimuoviInput(item)">
+                                check_circle
+                            </mat-icon>
+                            <mat-icon matTooltip="Mostra persona selezionata" class="pointer" *ngIf="item.flagedit" (click)="selezionaPersone(item)">
+                                open_with
+                            </mat-icon>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <div class="custom-dettaglio" *ngIf="clickDettaglio">
+            <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"
+                [flagPari]="flagPari"></app-anagrafica-dettaglio>
+        </div>
     </div>
-</div>
 
-<!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
-<app-anagrafica-dettaglio *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
+    <!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
+    <app-anagrafica-dettaglio *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
 
+    <button class="button-standard mt-10 pointer mr-5" (click)="mostra4Riga()">Mostra quarta riga</button>
+    <button class="button-standard mt-10 pointer mr-5" (click)="cambiaColore()">Cambia colore righe pari</button>
 
+    <div *ngIf="mostraDettaglio">
+        <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
+    </div>
 
-<button class="button-standard mt-10 pointer mr-5" (click)="mostra4Riga()">Mostra quarta riga</button>
-<button class="button-standard mt-10 pointer mr-5" (click)="cambiaColore()">Cambia colore righe pari</button>
-
-<div *ngIf="mostraDettaglio">
-    <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
-</div>
-
-<div class="tab-anagrafica custom-dettaglio custom-color mt-20">
-    <span class="mb-10">
-        id: {{anagraficaOggetto?.id}}
-    </span>
-    <span class="mb-10">
-        body: {{anagraficaOggetto?.body}}
-    </span>
-    <span class="mb-10">
-        title: {{anagraficaOggetto?.title}}
-    </span>
-    <span>
-        userId: {{anagraficaOggetto?.userId}}
-    </span>
+    <div class="tab-anagrafica custom-dettaglio custom-color mt-20">
+        <span class="mb-10">
+            id: {{anagraficaOggetto?.id}}
+        </span>
+        <span class="mb-10">
+            body: {{anagraficaOggetto?.body}}
+        </span>
+        <span class="mb-10">
+            title: {{anagraficaOggetto?.title}}
+        </span>
+        <span>
+            userId: {{anagraficaOggetto?.userId}}
+        </span>
+    </div>
 </div>

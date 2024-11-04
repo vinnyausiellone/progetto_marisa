@@ -7,10 +7,10 @@ import { Component, EventEmitter, Input, input, Output } from "@angular/core";
   })
   export class ProvaEventoComponent {
  
-    @Output() testevento: EventEmitter<boolean> = new EventEmitter<boolean>();
-    @Input() pippo?: boolean;
+    // @Output() testevento: EventEmitter<boolean> = new EventEmitter<boolean>();
+    // @Input() pippo?: boolean;
 
-    testEvent() {
-      this.testevento.emit(true)
-    }
+    // testEvent() {
+    //   this.testevento.emit(true)
+    // }
   }
