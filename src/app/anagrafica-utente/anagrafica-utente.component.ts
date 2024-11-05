@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
 import { IntAnagrafica } from './anagrafica-utente.model';
 import { FormControl, Validators } from '@angular/forms';
+import { DialogService } from '../shared/services/dialog.service';
 
 
 
@@ -45,18 +46,20 @@ export class AnagraficaUtenteComponent implements OnInit {
   nomeFC = new FormControl('', Validators.required);
   idValore = false;
   flagPari: boolean = false;
-
-
   listaNomi: Persona[] = [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo')];
-
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
+  listaPersoneNuove: Persona[] = [new Persona('Isabelle', 'Haak'), new Persona('Marina', 'Lubian'), new Persona('Monica', 'De Gennaro'), new Persona('Sarah', 'Fahr'), new Persona('Cristina', 'Chirichella'), new Persona('Daniele', 'Sanatarelli'), new Persona('Marco', 'Fantasia')];
+  count = 4;
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService) { }
 
   ngOnInit(): void {
     this.getAnagrafica();
   }
 
-  mostra4Riga() {
-    this.listaNomi.push(new Persona('Paola', 'Lubian'));
+  mostraNuovaRigaTabella() {
+    if (this.count < 12) {
+      this.listaNomi.push(this.listaPersoneNuove[this.count - 4]);
+      this.count++
+    }
   }
 
   cambiaColore() {
@@ -94,14 +97,15 @@ export class AnagraficaUtenteComponent implements OnInit {
   }
 
   aggiungiCeck(item: Persona) {
+    this.nomeFC.reset();
     item.flagedit = false;
   }
 
-  rimuoviInput(item: Persona) {
-    if (!item.nome) {
-      alert("Il campo è vuoto");
+  rimuoviInput(persona: Persona) {
+    if (!this.nomeFC.value) {
+      this.dialogService.errore('Campo vuoto')
     } else {
-      item.flagedit = true;
+      persona.flagedit = true;
     }
   }
 

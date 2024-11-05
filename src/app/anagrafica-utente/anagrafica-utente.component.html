@@ -21,27 +21,30 @@
                         <td class="utenti-td"
                             [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
                             <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="nomeFC">
-                            <p>{{item.nome}}</p>
+                            <p *ngIf="item.flagedit">{{item.nome}}</p>
                         </td>
                         <td class="utenti-td"
                             [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
                             {{ item.cognome}}</td>
                         <td class="icon"
                             [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                            <mat-icon matTooltip="Cambia nome" class="pointer" *ngIf="item.flagedit" (click)="aggiungiCeck(item)">
+                            <mat-icon matTooltip="Cambia nome" class="pointer" *ngIf="item.flagedit"
+                                (click)="aggiungiCeck(item)">
                                 edit
                             </mat-icon>
-                            <mat-icon matTooltip="Mostra dettaglio" class="pointer ml-20" *ngIf="item.flagedit && !item.isDettaglio"
-                                (click)="clickEvento(item, i)">
+                            <mat-icon matTooltip="Mostra dettaglio" class="pointer ml-20"
+                                *ngIf="item.flagedit && !item.isDettaglio" (click)="clickEvento(item, i)">
                                 search
                             </mat-icon>
                             <mat-icon class="pointer ml-20" *ngIf="item.isDettaglio" (click)="closeDettaglio(item)">
                                 close
                             </mat-icon>
-                            <mat-icon matTooltip="Salva nuovo nome" class="pointer" *ngIf="!item.flagedit" (click)="rimuoviInput(item)">
+                            <mat-icon matTooltip="Salva nuovo nome" class="pointer" *ngIf="!item.flagedit"
+                                (click)="rimuoviInput(item)">
                                 check_circle
                             </mat-icon>
-                            <mat-icon matTooltip="Mostra persona selezionata" class="pointer" *ngIf="item.flagedit" (click)="selezionaPersone(item)">
+                            <mat-icon matTooltip="Mostra persona selezionata" class="pointer" *ngIf="item.flagedit"
+                                (click)="selezionaPersone(item)">
                                 open_with
                             </mat-icon>
                         </td>
@@ -50,19 +53,19 @@
             </tbody>
         </table>
         <div class="custom-dettaglio" *ngIf="clickDettaglio">
-            <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"
+            <app-anagrafica-dettaglio [mostraBottoni]="false" (clickEvent)="getClickEvent(true)"
                 [flagPari]="flagPari"></app-anagrafica-dettaglio>
         </div>
     </div>
 
     <!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
-    <app-anagrafica-dettaglio *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
+    <app-anagrafica-dettaglio [mostraBottoni]="false" *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
 
-    <button class="button-standard mt-10 pointer mr-5" (click)="mostra4Riga()">Mostra quarta riga</button>
+    <button *ngIf="count !==11" class="button-standard mt-10 pointer mr-5" (click)="mostraNuovaRigaTabella()" [disabled]="listaNomi.length === 10">Mostra riga {{count}}</button>
     <button class="button-standard mt-10 pointer mr-5" (click)="cambiaColore()">Cambia colore righe pari</button>
 
-    <div *ngIf="mostraDettaglio">
-        <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
+    <div *ngIf="mostraDettaglio" >
+        <app-anagrafica-dettaglio [mostraBottoni]="false" (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
     </div>
 
     <div class="tab-anagrafica custom-dettaglio custom-color mt-20">

@@ -26,10 +26,14 @@ export class Esercizio2910Component implements OnInit {
   selectedUserId: number = 0;
   showNuovaRiga: boolean = false;
   checkboxFC: FormControl[] = []; // questa lista verrà popolata quando viene popolata la tabella
+  getValoreToggle?: boolean;
+  mostraInput: boolean = false;
 
   ngOnInit(): void {
     this.getData();
-
+    const getValoreToggle: { valore: boolean } = this.sharedService.getAttUtilObj('valoreToggle');
+    this.sharedService.clearAttUtilObj('valoreToggle');
+    if (getValoreToggle) this.getValoreToggle = getValoreToggle.valore;
   }
 
   getData() {
@@ -70,7 +74,7 @@ export class Esercizio2910Component implements OnInit {
   chiudiDettaglio() {
     this.showDettaglio = !this.showDettaglio;
   }
- 
+
 
   // METODO CHIAMATA POST CHE PRENDE I DATI INSERITI IN INPUT 
   onSalva() {
@@ -133,6 +137,14 @@ export class Esercizio2910Component implements OnInit {
     } else {
       return false;
     }
+  }
+
+  bottoneIndietro() {
+    window.history.back();
+  }
+
+  cambioValore() {
+   this.mostraInput = !this.mostraInput;
   }
 
 

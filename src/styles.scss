@@ -157,6 +157,11 @@ body {
     min-width: 50%;
 }
 
+.r-20 {
+    position: inherit;
+    right: 200px;
+}
+
 //BOTTONI
 
 .button-standard {
@@ -173,6 +178,10 @@ body {
 
 .button-standard:hover {
     background-color: #163D6F;
+}
+
+.button-standard:disabled {
+    background-color: #b4b2b2;
 }
 
 // TABELLE

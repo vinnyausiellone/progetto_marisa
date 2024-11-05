@@ -21,6 +21,7 @@ export class AnagraficaDettaglioComponent implements OnInit {
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() persona?: { nome: string; cognome: string };
   @Input() flagPari?: boolean;
+  @Input() mostraBottoni: boolean = true;
 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 

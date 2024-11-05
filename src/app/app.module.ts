@@ -13,6 +13,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
@@ -62,6 +64,8 @@ import { DialogComponent } from './shared/dialog/dialog.component';
     MatCheckboxModule,
     MatDialogModule,
     MatTooltipModule,
+    MatSlideToggleModule,
+    MatRadioModule,
   ],
   providers: [
     provideClientHydration(),

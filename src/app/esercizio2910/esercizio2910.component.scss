@@ -1,5 +1,16 @@
-.trasparente {
-    color: none !important;
-    background-color: none !important;
-    border: none !important;
+.bottoneIndietro {
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
+
+
+.cambioColoreRigheDispari {
+    background-color: hsl(86, 94%, 50%);
+  }
+
+  .radio {
+    position: fixed;
+    margin-left: 626px;
+    margin-bottom: 100px;
+  }

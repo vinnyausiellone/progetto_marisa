@@ -1,113 +1,125 @@
 <div class="es-container">
-<div class="w-50 justify-content-center">
-    <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 pointer" *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
-    <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata" (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
-</div>
+    <div class="custom-title justify-content-between d-flex a-i-c p-20">
+        <h6 class="custom-title mt-20">ESERCIZIO 29/10</h6>
+        <button class="button-standard pointer h-45" (click)="bottoneIndietro()">INDIETRO</button>
+    </div>
+    <div class="w-50 justify-content-center">
+        <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 pointer"
+            *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
+        <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata"
+            (click)="showTabellaCompleta()">RIPRISTINA</mat-chip>
+    </div>
 
-<div *ngIf="!showTabellaFiltrata">
-    <ng-container *ngTemplateOutlet="tabellaCompleta"></ng-container>
-</div>
+    <div *ngIf="!showTabellaFiltrata">
+        <ng-container *ngTemplateOutlet="tabellaCompleta"></ng-container>
+    </div>
 
-<div *ngIf="showTabellaFiltrata">
-    <ng-container *ngTemplateOutlet="tabellaFiltrata"></ng-container>
-</div>
+    <div *ngIf="showTabellaFiltrata">
+        <ng-container *ngTemplateOutlet="tabellaFiltrata"></ng-container>
+    </div>
 
-<ng-template #tabellaCompleta>
-    <div class="d-flex">
-        <table class="custom-table w-50 min-w-50">
-            <thead>
-                <tr>
-                    <th>
-                        <mat-checkbox class="example-margin" (change)="checkedAll($event)" [checked]="checked()"
-                            [indeterminate]="someChecked()">
-                        </mat-checkbox>
-                    </th>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Body</th>
-                    <th>User Id</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngFor="let item of data; let i = index;">
+    <ng-template #tabellaCompleta>
+        <div class="d-flex">
+            <table class="custom-table w-50 min-w-50">
+                <thead>
                     <tr>
-                        <td>
-                            <mat-checkbox [formControl]="checkboxFC[i]" [checked]="item.selected"
-                                (change)="checkedRow($event)" (ngModelChange)="checked()" [(ngModel)]="item.selected">
+                        <th>
+                            <mat-checkbox class="example-margin" (change)="checkedAll($event)" [checked]="checked()"
+                                [indeterminate]="someChecked()">
                             </mat-checkbox>
-                        </td>
-                        <td> {{item.id}} </td>
-                        <td> {{item.title}} </td>
-                        <td> {{item.body}} </td>
-                        <td> {{item.userId}} </td>
-                        <td>
-                            <button class="pointer trasparente" (click)="onOpenDettaglio(item)">
-                              <ng-container *ngIf="idRigaSelezionata === item.id; then closeIcon else searchIcon"></ng-container>
-                              <ng-template #closeIcon>
-                                <mat-icon matTooltip="Chiudi Dettaglio" (click)="chiudiDettaglio()"> close </mat-icon>
-                              </ng-template>
-                              <ng-template #searchIcon>
-                                <mat-icon matTooltip="Mostra Dettaglio"> search </mat-icon>
-                              </ng-template>
-                            </button>
-                          </td>
+                        </th>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                        <th>User Id</th>
+                        <th>Action</th>
                     </tr>
-                </ng-container>
-            </tbody>
-        </table>
-        <div class="ml-20" *ngIf="showDettaglio">
-            <app-dettaglio2910></app-dettaglio2910>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let item of data; let i = index; let odd = odd">
+                        <tr>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
+                                <mat-checkbox [formControl]="checkboxFC[i]" [checked]="item.selected"
+                                    (change)="checkedRow($event)" (ngModelChange)="checked()"
+                                    [(ngModel)]="item.selected">
+                                </mat-checkbox>
+                            </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.id}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
+                                <input *ngIf="mostraInput" type="text" [formControl]="titleFC"> {{item.title}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
+                                <input *ngIf="mostraInput" type="text" [formControl]="bodyFC"> {{item.body}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.userId}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
+                                <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
+                                    {{idRigaSelezionata === item.id ? 'close' : 'search'}}
+                                </mat-icon>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+            <div class="radio custom-color">
+                <mat-radio-group aria-label="Select an option">
+                        <p>Vuoi modificare la riga selezionata?</p>
+                        <mat-radio-button (click)="cambioValore()" value="Si">Si</mat-radio-button>
+                        <mat-radio-button value="No">No</mat-radio-button>
+                  </mat-radio-group>  
+                </div> 
+            <div class="ml-20" *ngIf="showDettaglio">
+                <app-dettaglio2910></app-dettaglio2910>
+            </div>
         </div>
-    </div>
-    <button class="button-standard mt-10 ml-562 button-f-bottom-right pointer" mat-button (click)="invioBtn()">Invia</button>
-</ng-template>
+        <button class="button-standard mt-10 ml-562 button-f-bottom-right pointer h-45" mat-button
+            (click)="invioBtn()">Invia</button>
+    </ng-template>
 
-<ng-template #tabellaFiltrata>
-    <div class="d-flex">
-        <table class="custom-table w-50 min-w-50">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Body</th>
-                    <th>User Id</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <ng-container *ngFor="let item of datiFiltrati; let i = index">
+    <ng-template #tabellaFiltrata>
+        <div class="d-flex">
+            <table class="custom-table w-50 min-w-50">
+                <thead>
                     <tr>
-                        <td> {{item.id}} </td>
-                        <td> {{item.title}} </td>
-                        <td> {{item.body}} </td>
-                        <td> {{item.userId}} </td>
-                        <td>
-                            <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
-                                {{idRigaSelezionata === item.id ? 'close' : 'search'}}
-                            </mat-icon>
-                        </td>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                        <th>User Id</th>
+                        <th>Action</th>
                     </tr>
-                </ng-container>
-                <tr *ngIf="showNuovaRiga">
-                    <td> </td>
-                    <td> <input type="text" [formControl]="titleFC"></td>
-                    <td> <input type="text" [formControl]="bodyFC"></td>
-                    <td> {{selectedUserId}} </td>
-                    <td> </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="ml-20" *ngIf="showDettaglio">
-            <app-dettaglio2910></app-dettaglio2910>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let item of datiFiltrati; let i = index; let odd = odd">
+                        <tr>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.id}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.title}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.body}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.userId}} </td>
+                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
+                                <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
+                                    {{idRigaSelezionata === item.id ? 'close' : 'search'}}
+                                </mat-icon>
+                            </td>
+                        </tr>
+                    </ng-container>
+                    <tr *ngIf="showNuovaRiga">
+                        <td> </td>
+                        <td> <input type="text" [formControl]="titleFC"></td>
+                        <td> <input type="text" [formControl]="bodyFC"></td>
+                        <td> {{selectedUserId}} </td>
+                        <td> </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="ml-20" *ngIf="showDettaglio">
+                <app-dettaglio2910></app-dettaglio2910>
+            </div>
         </div>
-    </div>
-    <button class="button-standard mt-10 ml-456 pointer" (click)="onInserireNuovaRiga()"
-        *ngIf="!showNuovaRiga">Inserisci nuova
-        riga</button>
-    <div class="ml-449">
-        <button class="button-standard mt-10 mr-5 pointer" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
-        <button class="button-standard mt-10 pointer" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
-    </div>
-</ng-template>
+        <button class="button-standard mt-10 ml-456 pointer" (click)="onInserireNuovaRiga()"
+            *ngIf="!showNuovaRiga">Inserisci nuova
+            riga</button>
+        <div class="ml-449">
+            <button class="button-standard mt-10 mr-5 pointer" (click)="onAnnulla()"
+                *ngIf="showNuovaRiga">Annulla</button>
+            <button class="button-standard mt-10 pointer" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
+        </div>
+    </ng-template>
 </div>
