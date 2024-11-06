@@ -1,10 +1,11 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
-import { IntData, Task } from './esercizio2910.model';
+import { booleanAttribute, Component, Input, OnInit} from '@angular/core';
+import { IntData} from './esercizio2910.model';
 import { ApiService } from '../shared/services/api.service';
 import { SharedService } from '../shared/services/shared.service';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogService } from '../shared/services/dialog.service';
+import { MatRadioButton, MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-esercizio2910',
@@ -29,11 +30,12 @@ export class Esercizio2910Component implements OnInit {
   getValoreToggle?: boolean;
   mostraInput: boolean = false;
 
+  @Input({ transform: booleanAttribute }) highlighted?: boolean;
+
   ngOnInit(): void {
     this.getData();
-    const getValoreToggle: { valore: boolean } = this.sharedService.getAttUtilObj('valoreToggle');
+    this.getValoreToggle = this.sharedService.getAttUtilObj('valoreToggle');
     this.sharedService.clearAttUtilObj('valoreToggle');
-    if (getValoreToggle) this.getValoreToggle = getValoreToggle.valore;
   }
 
   getData() {
@@ -57,6 +59,7 @@ export class Esercizio2910Component implements OnInit {
     this.datiFiltrati = this.data?.filter(item => item.userId === numeroChip);
     this.showTabellaFiltrata = true;
     this.selectedUserId = numeroChip;
+    this.highlighted = true;
   }
 
   showTabellaCompleta() {
@@ -143,10 +146,14 @@ export class Esercizio2910Component implements OnInit {
     window.history.back();
   }
 
-  cambioValore() {
+  cambioValore(riga: any) {
+    const someSelected = this.data?.filter(item => item.selected);
+    if (someSelected) {
    this.mostraInput = !this.mostraInput;
+    
   }
 
 
+}
 }
 

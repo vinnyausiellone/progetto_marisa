@@ -14,6 +14,6 @@ export class Dettaglio2910Component implements OnInit{
   constructor(public sharedService: SharedService) { }
   
   ngOnInit(): void {
-    this.sharedService.setAttUtilObj('valoreToggle', {valore: this.valoreFC.value})
+    this.sharedService.setAttUtilObj('valoreToggle', this.valoreFC.value)
   }
 }

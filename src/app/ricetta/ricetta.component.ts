@@ -52,4 +52,8 @@ export class RicettaComponent implements OnInit {
     this.sharedService.setAttUtilObj('ricetta', {ricetta: this.ricettaFC.value})
     this.router.navigateByUrl('lista');
   }
+
+  bottoneIndietro() {
+    window.history.back(); 
+  }
 }

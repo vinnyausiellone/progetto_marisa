@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-approfondimento-elenco',
@@ -20,7 +21,7 @@ export class ApprofondimentoElencoComponent implements OnInit {
   cambio = false;
   approfondimentoFC = new FormControl('', Validators.required);
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) {
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private matSnackBar: MatSnackBar) {
     this.route.data.subscribe((params: any) => {
       if (params['0']) {
         this.isVisualizza = params['0'] === 'isVisualizza';
@@ -47,15 +48,16 @@ export class ApprofondimentoElencoComponent implements OnInit {
   }
 
   cambioBody(item: IntPostsApprofondimento) {
-    const req = JSON.stringify({
-      userId: 1,
-      title: 'title',
-      id: item.id,
-      body: item.body,
-    })
+    // const req:  = JSON.stringify({
+    //   userId: 1,
+    //   title: 'title',
+    //   id: item.id,
+    //   body: this.approfondimentoFC.value,
+    // })
 
-    this.apiService.modificaApprofondimento(req).subscribe(res => {
+    this.apiService.modificaApprofondimento(item).subscribe(res => {
       console.log('response', res)
+      this.matSnackBar.open('Operazione eseguita correttamente', 'Close');
     });
   }
 
@@ -69,6 +71,10 @@ export class ApprofondimentoElencoComponent implements OnInit {
     this.approfondimentoElenco = this.approfondimentoElencoBackup;
     const listaFiltrata = this.approfondimentoElenco?.filter(x => x.id % 2 !== 0);
     this.approfondimentoElenco = listaFiltrata;
+  }
+
+  resetDettaglio() {
+    this.approfondimentoElenco = this.approfondimentoElencoBackup; 
   }
 
 }

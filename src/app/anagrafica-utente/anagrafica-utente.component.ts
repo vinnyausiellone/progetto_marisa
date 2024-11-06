@@ -43,7 +43,7 @@ export class AnagraficaUtenteComponent implements OnInit {
   nuovaRiga = false;
   personaSelezionata?: { nome: string; cognome: string };
   personaClick = false;
-  nomeFC = new FormControl('', Validators.required);
+  listaNomeFC: FormControl[] = [];
   idValore = false;
   flagPari: boolean = false;
   listaNomi: Persona[] = [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo')];
@@ -53,6 +53,9 @@ export class AnagraficaUtenteComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnagrafica();
+    this.listaNomi.forEach(res => {
+      this.listaNomeFC.push(new FormControl(res.nome, Validators.required));
+    })
   }
 
   mostraNuovaRigaTabella() {
@@ -96,16 +99,22 @@ export class AnagraficaUtenteComponent implements OnInit {
     })
   }
 
-  aggiungiCeck(item: Persona) {
-    this.nomeFC.reset();
+  aggiungiCeck(item: Persona, index: number) {
+    this.listaNomeFC[index].reset();
     item.flagedit = false;
   }
 
-  rimuoviInput(persona: Persona) {
-    if (!this.nomeFC.value) {
+  rimuoviInput(persona: Persona, index: number) {
+    if (!this.listaNomeFC[index].value) {
       this.dialogService.errore('Campo vuoto')
     } else {
       persona.flagedit = true;
+    }
+  }
+
+  annullaInput(persona: Persona, index: number) {
+    if (!this.listaNomeFC[index].value || this.listaNomeFC[index].value) {
+    persona.flagedit = true;
     }
   }
 

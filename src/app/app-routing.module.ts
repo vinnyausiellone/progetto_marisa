@@ -14,12 +14,11 @@ import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component'
 
 
 const routes: Routes = [
- 
+  { path: 'header', component: HeaderComponent},
   { path: 'anagraficaUtente', component: AnagraficaUtenteComponent},
   { path: 'anagraficaDettaglio', component: AnagraficaDettaglioComponent},
   { path: 'anagraficaDettaglio/:id', component: AnagraficaDettaglioComponent},
   { path: 'homePage', component: HomePageComponent},
-  { path: 'header', component: HeaderComponent},
   { path: 'elencoDettaglio', component: ElencoDettaglioComponent},
   { path: 'elencoDettaglio/:id', component: ElencoDettaglioComponent },
   { path: 'approfondimentoElenco', component: ApprofondimentoElencoComponent},

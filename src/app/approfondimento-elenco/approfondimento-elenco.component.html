@@ -1,22 +1,24 @@
 <div class="es-container">
-<div>
-    <b class="custom-title f-20"> {{pageTitle}} </b>
-    <div class="custom-color" *ngFor=" let item of approfondimentoElenco, let i = index">
-        <span> id: {{item.id}} </span>
-        <span *ngIf="!cambio"> body: {{item.body}}</span>
-        <br>
-        <div>
-            <input name="inputBody" matInput type="text" [formControl]="approfondimentoFC"
-                placeholder="Inserire Modifica" *ngIf="isModifica">
-            <mat-icon class="mt-20 pointer" (click)="cambioBody(item)" *ngIf="isModifica">
-                swap_horiz
-            </mat-icon>
+    <div>
+        <div class="custom-title justify-content-between d-flex a-i-c p-20">
+            <b class="custom-title f-20"> {{pageTitle}} </b>
+            <button class="button-standard h-45" (click)="bottoneIndietro()">INDIETRO</button>
+        </div>
+        <div class="divModifica custom-color" *ngFor=" let item of approfondimentoElenco, let i = index">
+            <span> id: {{item.id}} </span>
+            <span *ngIf="!cambio"> body: {{item.body}}</span>
+            <div>
+                <input name="inputBody" matInput type="text" [formControl]="approfondimentoFC"
+                    placeholder="Inserire Modifica PUT" *ngIf="isModifica">
+                <mat-icon class="mt-20 pointer" (click)="cambioBody(item)" *ngIf="isModifica">
+                    swap_horiz
+                </mat-icon>
+            </div>
         </div>
     </div>
-</div>
 
-<button class="button-standard mt-20 mr-5 pointer" (click)="bottoneIndietro()">INDIETRO</button>
-<!-- BOTTONI PER FILTRARE UNA LISTA -->
-<button class="button-standard mt-20 mr-5 pointer" (click)="bottoneFiltraPari()">Filtra per pari</button>
-<button class="button-standard mt-20 mr-5 pointer" (click)="bottoneFiltraDispari()">Filtra per dispari</button>
+    <!-- BOTTONI PER FILTRARE UNA LISTA -->
+    <button class="button-standard mt-20 mr-5" (click)="bottoneFiltraPari()">Filtra per pari</button>
+    <button class="button-standard mt-20 mr-5" (click)="bottoneFiltraDispari()">Filtra per dispari</button>
+    <button class="button-standard mt-20 mr-5" (click)="resetDettaglio()">Reset dettaglio</button>
 </div>

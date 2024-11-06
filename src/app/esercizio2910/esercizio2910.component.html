@@ -1,9 +1,10 @@
+<app-header></app-header>
 <div class="es-container">
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
         <h6 class="custom-title mt-20">ESERCIZIO 29/10</h6>
-        <button class="button-standard pointer h-45" (click)="bottoneIndietro()">INDIETRO</button>
     </div>
     <div class="w-50 justify-content-center">
+        <p class="custom-color">Filtra per UserId:</p>
         <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 pointer"
             *ngFor="let userId of [1,2,3,4,5,6,7,8,9,10]" (click)="onClickChip(userId)">{{userId}}</mat-chip>
         <mat-chip id="chipsId" class="custom-chips mr-5 mb-10 mt-10 ml-200 pointer" *ngIf="showTabellaFiltrata"
@@ -46,9 +47,11 @@
                             </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.id}} </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
-                                <input *ngIf="mostraInput" type="text" [formControl]="titleFC"> {{item.title}} </td>
+                                <span *ngIf="!mostraInput"> {{item.title}} </span>
+                                <input *ngIf="mostraInput" type="text" [formControl]="titleFC"></td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
-                                <input *ngIf="mostraInput" type="text" [formControl]="bodyFC"> {{item.body}} </td>
+                                <span *ngIf="!mostraInput"> {{item.body}} </span>
+                                <input *ngIf="mostraInput" type="text" [formControl]="bodyFC"> </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}"> {{item.userId}} </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && odd}">
                                 <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
@@ -62,15 +65,15 @@
             <div class="radio custom-color">
                 <mat-radio-group aria-label="Select an option">
                         <p>Vuoi modificare la riga selezionata?</p>
-                        <mat-radio-button (click)="cambioValore()" value="Si">Si</mat-radio-button>
-                        <mat-radio-button value="No">No</mat-radio-button>
+                        <mat-radio-button (click)="cambioValore(checkedRow)" value="Si" name="radios">Si</mat-radio-button>
+                        <mat-radio-button (click)="cambioValore(checkedRow)" value="No" name="radios">No</mat-radio-button>
                   </mat-radio-group>  
                 </div> 
             <div class="ml-20" *ngIf="showDettaglio">
                 <app-dettaglio2910></app-dettaglio2910>
             </div>
         </div>
-        <button class="button-standard mt-10 ml-562 button-f-bottom-right pointer h-45" mat-button
+        <button class="button-standard mt-10 ml-562 button-f-bottom-right h-45" mat-button
             (click)="invioBtn()">Invia</button>
     </ng-template>
 
@@ -109,17 +112,23 @@
                     </tr>
                 </tbody>
             </table>
+            <div class="radio custom-color">
+                <mat-radio-group aria-label="Select an option">
+                        <p>Vuoi modificare la riga selezionata?</p>
+                        <mat-radio-button (click)="cambioValore(checkedRow)" value="Si">Si</mat-radio-button>
+                        <mat-radio-button (click)="cambioValore(checkedRow)" value="No">No</mat-radio-button>
+                  </mat-radio-group>  
+                </div>
             <div class="ml-20" *ngIf="showDettaglio">
                 <app-dettaglio2910></app-dettaglio2910>
             </div>
         </div>
-        <button class="button-standard mt-10 ml-456 pointer" (click)="onInserireNuovaRiga()"
-            *ngIf="!showNuovaRiga">Inserisci nuova
-            riga</button>
+        <button class="button-standard mt-20" (click)="onInserireNuovaRiga()"
+            *ngIf="!showNuovaRiga">Inserire nuova riga</button>
         <div class="ml-449">
-            <button class="button-standard mt-10 mr-5 pointer" (click)="onAnnulla()"
+            <button class="button-standard mt-10 mr-5" (click)="onAnnulla()"
                 *ngIf="showNuovaRiga">Annulla</button>
-            <button class="button-standard mt-10 pointer" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
+            <button class="button-standard mt-10" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
         </div>
     </ng-template>
 </div>

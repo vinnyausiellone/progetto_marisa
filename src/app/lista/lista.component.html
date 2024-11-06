@@ -1,7 +1,7 @@
+<app-header></app-header>
 <div class="es-container">
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
         <h6 class="custom-title mt-20">SELEZIONA IL TUO CIBO PREFERITO</h6>
-        <button class="button-standard pointer h-45" (click)="bottoneIndietro()">INDIETRO</button>
     </div>
 
     <mat-select class="selectList" placeholder="Seleziona Cibo Preferito" [formControl]="cibiFC" name="food">
@@ -13,12 +13,12 @@
     <!-- <h3>Ricetta: {{ ricettaNuova}}</h3> -->
     <!-- <app-ricetta [isFromLista]="true" (mandaRicetta)="riceviRicetta($event)" ></app-ricetta> -->
 
-    <button class="button-standard ml-20 pointer" (click)="mostraRicetta()" [disabled]="!cibiFC.value">Mostra
+    <button class="button-standard ml-20" (click)="mostraRicetta()" [disabled]="!cibiFC.value">Mostra
         ricetta</button>
 
     <div class="button-f-bottom-right">
-        <button class="button-standard mr-5 pointer" (click)="aggiungiElemento()">Aggiungi elemento</button>
-        <button class="button-standard mr-5 pointer" (click)="eliminaElemento()">Elimina elemento</button>
+        <button class="button-standard mr-5" (click)="aggiungiElemento()">Aggiungi elemento</button>
+        <button class="button-standard mr-5" (click)="eliminaElemento()">Elimina elemento</button>
     </div>
 
     <div class="d-flex">
