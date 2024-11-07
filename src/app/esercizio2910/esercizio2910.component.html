@@ -48,7 +48,7 @@
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}"> {{item.id}} </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaTitle">
-                                    <input type="text" [formControl]="titleFC">
+                                    <input type="text" [formControl]="titleFC[i]">
                                 </ng-container>
                                 <ng-template #mostraRigaTitle>
                                     {{ item.title }}
@@ -56,7 +56,7 @@
                             </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaBody">
-                                    <input type="text" [formControl]="bodyFC">
+                                    <input type="text" [formControl]="bodyFC[i]">
                                 </ng-container>
                                 <ng-template #mostraRigaBody>
                                     {{ item.body }}
@@ -67,22 +67,21 @@
                                 <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
                                     {{idRigaSelezionata === item.id ? 'close' : 'search'}}
                                 </mat-icon>
-                                <mat-icon matTooltip="Salva modifiche" *ngIf="onChangeRighe && item.selected"
-                                    class="pointer" (click)="onSaveRiga(item)">
-                                    done_outline
+                                <mat-icon matTooltip="Salva modifiche" *ngIf="item.selected && onChangeRighe" class="pointer" (click)="onSaveRiga(item, i)">
+                                    arrow_forward
                                 </mat-icon>
                             </td>
                         </tr>
+                        <div *ngIf="someChecked()" class="radio custom-color">
+                            <mat-radio-group aria-label="Select an option">
+                                <p>Vuoi modificare la riga selezionata?</p>
+                                <mat-radio-button (change)="modificaRiga(true, i)" value="Si">Si</mat-radio-button>
+                                <mat-radio-button (change)="modificaRiga(false, i)" value="No">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
                     </ng-container>
                 </tbody>
             </table>
-            <div class="radio custom-color">
-                <mat-radio-group aria-label="Select an option">
-                    <p>Vuoi modificare la riga selezionata?</p>
-                    <mat-radio-button (change)="modificaRiga(true)" value="Si" name="radios">Si</mat-radio-button>
-                    <mat-radio-button (change)="modificaRiga(false)" value="No" name="radios">No</mat-radio-button>
-                </mat-radio-group>
-            </div>
             <div class="ml-20" *ngIf="showDettaglio">
                 <app-dettaglio2910></app-dettaglio2910>
             </div>
@@ -120,7 +119,7 @@
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}"> {{item.id}} </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaTitle">
-                                    <input type="text" [formControl]="titleFC">
+                                    <input type="text" [formControl]="titleFC[i]">
                                 </ng-container>
                                 <ng-template #mostraRigaTitle>
                                     {{ item.title }}
@@ -128,7 +127,7 @@
                             </td>
                             <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaBody">
-                                    <input type="text" [formControl]="bodyFC">
+                                    <input type="text" [formControl]="bodyFC[i]">
                                 </ng-container>
                                 <ng-template #mostraRigaBody>
                                     {{ item.body }}
@@ -140,29 +139,28 @@
                                     (click)="onOpenDettaglio(item)">
                                     {{idRigaSelezionata === item.id ? 'close' : 'search'}}
                                 </mat-icon>
-                                <mat-icon matTooltip="Salva modifiche" *ngIf="onChangeRighe && item.selected"
-                                    class="pointer" (click)="onSaveRiga(item)">
-                                    done_outline
+                                <mat-icon matTooltip="Salva modifiche" *ngIf="onChangeRighe && item.selected" class="pointer" (click)="onSaveRiga(item, i)">
+                                    arrow_forward
                                 </mat-icon>
                             </td>
                         </tr>
-                    </ng-container>
+                        <div *ngIf="someChecked()" class="radio custom-color">
+                            <mat-radio-group aria-label="Select an option">
+                                <p>Vuoi modificare la riga selezionata?</p>
+                                <mat-radio-button (change)="modificaRiga(true, i)" value="Si">Si</mat-radio-button>
+                                <mat-radio-button (change)="modificaRiga(false, i)" value="No">No</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
                     <tr *ngIf="showNuovaRiga">
                         <td> </td>
-                        <td> <input type="text" [formControl]="titleFC"></td>
-                        <td> <input type="text" [formControl]="bodyFC"></td>
+                        <td> <input type="text" [formControl]="titleFC[i]"></td>
+                        <td> <input type="text" [formControl]="bodyFC[i]"></td>
                         <td> {{selectedUserId}} </td>
                         <td> </td>
                     </tr>
+                </ng-container>
                 </tbody>
             </table>
-            <div class="radio custom-color">
-                <mat-radio-group aria-label="Select an option">
-                    <p>Vuoi modificare la riga selezionata?</p>
-                    <mat-radio-button (change)="modificaRiga(true)" value="Si">Si</mat-radio-button>
-                    <mat-radio-button (change)="modificaRiga(false)" value="No">No</mat-radio-button>
-                </mat-radio-group>
-            </div>
             <div class="ml-20" *ngIf="showDettaglio">
                 <app-dettaglio2910></app-dettaglio2910>
             </div>
@@ -171,7 +169,7 @@
             riga</button>
         <div class="ml-449">
             <button class="button-standard mt-10 mr-5" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
-            <button class="button-standard mt-10" (click)="onSalva()" *ngIf="showNuovaRiga">Salva</button>
+            <!-- <button class="button-standard mt-10" (click)="onSalva(i)" *ngIf="showNuovaRiga">Salva</button> -->
         </div>
     </ng-template>
 </div>

@@ -21,8 +21,8 @@ export class Esercizio2910Component implements OnInit {
   idRigaSelezionata?: number;
   datiFiltrati?: IntData[];
   showTabellaFiltrata: boolean = false;
-  titleFC = new FormControl();
-  bodyFC = new FormControl();
+  titleFC: FormControl[] = [];
+  bodyFC: FormControl[] = [];
   selectedUserId: number = 0;
   showNuovaRiga: boolean = false;
   checkboxFC: FormControl[] = []; // questa lista verrà popolata quando viene popolata la tabella
@@ -59,14 +59,14 @@ export class Esercizio2910Component implements OnInit {
     }
   }
 
-  onSaveRiga(item: IntData) {
-    const req: IntData = {
-      userId: this.selectedUserId,
-      title: this.titleFC.value,
-      body: this.bodyFC.value,
-      selected: false,
-    }
-    this.apiService.modificaData(req).subscribe(res => {
+  onSaveRiga(item: IntData, index: number) {
+    // const req: IntData = {
+    //   userId: this.selectedUserId,
+    //   title: this.titleFC[index].value,
+    //   body: this.bodyFC[index].value,
+    //   selected: false,
+    // }
+    this.apiService.modificaData(item).subscribe(res => {
       console.log('response', res)
       this.matSnackBar.open('Operazione eseguita correttamente', 'Close');
     })
@@ -98,11 +98,11 @@ export class Esercizio2910Component implements OnInit {
 
 
   // METODO CHIAMATA POST CHE PRENDE I DATI INSERITI IN INPUT 
-  onSalva() {
+  onSalva(index: number) {
     const req: IntData = {
       userId: this.selectedUserId,
-      title: this.titleFC.value,
-      body: this.bodyFC.value,
+      title: this.titleFC[index].value,
+      body: this.bodyFC[index].value,
       selected: false,
     }
     this.apiService.postData(req).subscribe(res => {
@@ -164,9 +164,9 @@ export class Esercizio2910Component implements OnInit {
     window.history.back();
   }
 
-  modificaRiga(value: boolean) {
-    this.titleFC.reset();
-    this.bodyFC.reset();
+  modificaRiga(value: boolean, index: number) {
     this.onChangeRighe = value;
+    this.titleFC[index].reset();
+    this.bodyFC[index].reset();
   }
 }
