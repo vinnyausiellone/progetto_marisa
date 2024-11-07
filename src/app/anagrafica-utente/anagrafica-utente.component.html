@@ -21,7 +21,7 @@
                             (click)="goToDettaglio(i+1)"> {{i+1}} </td>
                         <td class="utenti-td"
                             [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                            <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="listaNomeFC[0]"> 
+                            <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="listaNomeFC[i]"> 
                             <p *ngIf="item.flagedit">{{item.nome}}</p>
                         </td>
                         <td class="utenti-td"

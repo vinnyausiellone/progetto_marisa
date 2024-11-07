@@ -1,11 +1,10 @@
-import { booleanAttribute, Component, Input, OnInit} from '@angular/core';
-import { IntData} from './esercizio2910.model';
+import { Component, OnInit } from '@angular/core';
+import { IntData } from './esercizio2910.model';
 import { ApiService } from '../shared/services/api.service';
 import { SharedService } from '../shared/services/shared.service';
 import { FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogService } from '../shared/services/dialog.service';
-import { MatRadioButton, MatRadioChange } from '@angular/material/radio';
 
 @Component({
   selector: 'app-esercizio2910',
@@ -29,8 +28,13 @@ export class Esercizio2910Component implements OnInit {
   checkboxFC: FormControl[] = []; // questa lista verrà popolata quando viene popolata la tabella
   getValoreToggle?: boolean;
   mostraInput: boolean = false;
+  isActive: boolean = false;
+  onChangeRighe: boolean = false;
+  chipIndex: number | null = null;
 
-  @Input({ transform: booleanAttribute }) highlighted?: boolean;
+
+  chips = [1,2,3,4,5,6,7,8,9,10];
+
 
   ngOnInit(): void {
     this.getData();
@@ -55,14 +59,28 @@ export class Esercizio2910Component implements OnInit {
     }
   }
 
-  onClickChip(numeroChip: number) {
+  onSaveRiga(item: IntData) {
+    const req: IntData = {
+      userId: this.selectedUserId,
+      title: this.titleFC.value,
+      body: this.bodyFC.value,
+      selected: false,
+    }
+    this.apiService.modificaData(req).subscribe(res => {
+      console.log('response', res)
+      this.matSnackBar.open('Operazione eseguita correttamente', 'Close');
+    })
+  }
+
+  onClickChip(numeroChip: number, index: number) {
     this.datiFiltrati = this.data?.filter(item => item.userId === numeroChip);
     this.showTabellaFiltrata = true;
     this.selectedUserId = numeroChip;
-    this.highlighted = true;
+    this.chipIndex = index;
   }
 
   showTabellaCompleta() {
+    this.chipIndex = null;
     this.showTabellaFiltrata = false;
   }
 
@@ -146,14 +164,9 @@ export class Esercizio2910Component implements OnInit {
     window.history.back();
   }
 
-  cambioValore(riga: any) {
-    const someSelected = this.data?.filter(item => item.selected);
-    if (someSelected) {
-   this.mostraInput = !this.mostraInput;
-    
+  modificaRiga(value: boolean) {
+    this.titleFC.reset();
+    this.bodyFC.reset();
+    this.onChangeRighe = value;
   }
-
-
 }
-}
-

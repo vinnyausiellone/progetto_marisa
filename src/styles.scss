@@ -234,15 +234,18 @@ body {
 }
 
 // CHIPS
-#chipsId {
-    color: #ffffff !important;
-    background-color: #1b4d8b !important;
+mat-chip {
     padding: 1px 40px !important;
     font-weight: bold !important;
 }
 
-.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) .mdc-evolution-chip__text-label {
+.mdc-evolution-chip__text-label {
     color: white !important;
+
+}
+
+.mat-chip.active {
+    background: #ffffff;
 }
 
 //DETTAGLIO

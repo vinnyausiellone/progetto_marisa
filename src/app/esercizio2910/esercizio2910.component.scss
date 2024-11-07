@@ -1,24 +1,30 @@
 .cambioColoreRigheDispari {
-    background-color: hsl(86, 94%, 50%);
-  }
+  background-color: hsl(3, 94%, 50%);
+}
 
-  .radio {
-    position: fixed;
-    left: 55%;
-    bottom: 20%;
-    border: 1px solid #1b4d8b;
-    text-align: center;
-  }
+.radio {
+  position: fixed;
+  left: 55%;
+  bottom: 20%;
+  border: 1px solid #1b4d8b;
+  text-align: center;
+}
 
-  p {
-    padding: 10px;
-    background-color: #1b4d8b;
-    color: white;
-  }
+p {
+  padding: 10px;
+  background-color: #1b4d8b;
+  color: white;
+}
 
-  .cambioColoreChip {
-    color: #1b4d8b;
-    background-color: white;
-  }
 
-  
+.mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: #1b4d8b;
+}
+
+.mdc-evolution-chip__action {
+  background: #1b4d8b;
+}
+
+.mat-mdc-standard-chip[_ngcontent-ng-c2723218563]:not(.mdc-evolution-chip--disabled).active {
+  background-color: rgb(154, 158, 161);
+}
