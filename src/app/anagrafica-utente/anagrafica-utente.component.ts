@@ -4,6 +4,7 @@ import { ApiService } from '../shared/services/api.service';
 import { IntAnagrafica } from './anagrafica-utente.model';
 import { FormControl, Validators } from '@angular/forms';
 import { DialogService } from '../shared/services/dialog.service';
+import { SharedService } from '../shared/services/shared.service';
 
 
 
@@ -49,7 +50,7 @@ export class AnagraficaUtenteComponent implements OnInit {
   listaNomi: Persona[] = [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo')];
   listaPersoneNuove: Persona[] = [new Persona('Isabelle', 'Haak'), new Persona('Marina', 'Lubian'), new Persona('Monica', 'De Gennaro'), new Persona('Sarah', 'Fahr'), new Persona('Cristina', 'Chirichella'), new Persona('Daniele', 'Sanatarelli'), new Persona('Marco', 'Fantasia')];
   count = 4;
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.getAnagrafica();
@@ -123,9 +124,11 @@ export class AnagraficaUtenteComponent implements OnInit {
     }
   }
 
-  selezionaPersone(persona: { nome: string; cognome: string }) {
-    this.personaClick = !this.personaClick;
-    this.personaSelezionata = persona;
+  selezionaPersone(persona: Persona) {
+    // this.personaClick = !this.personaClick;
+    // this.personaSelezionata = persona;
+    this.sharedService.setAttUtilObj('personaSel', {nome: persona.nome, cognome: persona.cognome})
+    this.router.navigateByUrl('personaSelezionata');
   }
 
   getClickEvent(evento: boolean) {

@@ -4,7 +4,7 @@
 
     <h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
     <div class="table-container">
-        <table class="custom-table w-100">
+        <table class="custom-table w-100 min-w-50">
             <thead>
                 <tr>
                     <th>#</th>
@@ -21,7 +21,7 @@
                             (click)="goToDettaglio(i+1)"> {{i+1}} </td>
                         <td class="utenti-td"
                             [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}">
-                            <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="listaNomeFC[i]"> 
+                            <input name="inputNome" matInput type="text" *ngIf="!item.flagedit" [formControl]="listaNomeFC[i]">
                             <p *ngIf="item.flagedit">{{item.nome}}</p>
                         </td>
                         <td class="utenti-td"
@@ -38,7 +38,7 @@
                                 search
                             </mat-icon> -->
                             <mat-icon matTooltip="Mostra dettaglio" class="pointer ml-20"
-                                *ngIf="item.flagedit && !item.isDettaglio" (click)="goToDettaglio(i+1)">
+                                *ngIf="item.flagedit && !item.isDettaglio" (click)="clickEvento(item, i)">
                                 search
                             </mat-icon>
                             <mat-icon class="pointer ml-20" *ngIf="item.isDettaglio" (click)="closeDettaglio(item)">
@@ -68,7 +68,7 @@
     </div>
 
     <!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
-    <app-anagrafica-dettaglio *ngIf="personaClick" [persona]="personaSelezionata"></app-anagrafica-dettaglio>
+    <!-- <app-persona-selezionata *ngIf="personaClick" [persona]="personaSelezionata"></app-persona-selezionata> -->
 
     <button class="button-standard mt-10 mr-5" (click)="mostraNuovaRigaTabella()" [disabled]="listaNomi.length === 10">Aggiungi riga {{count > 10 ? '' : count}}</button>
     <button class="button-standard mt-10 mr-5" (click)="cambiaColore()">Cambia colore righe pari</button>

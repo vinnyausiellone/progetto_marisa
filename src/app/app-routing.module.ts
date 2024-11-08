@@ -10,6 +10,7 @@ import { ListaComponent } from './lista/lista.component';
 import { RicettaComponent } from './ricetta/ricetta.component';
 import { Esercizio2910Component } from './esercizio2910/esercizio2910.component';
 import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component';
+import { PersonaSelezionataComponent } from './persona-selezionata/persona-selezionata.component';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'anagraficaUtente', component: AnagraficaUtenteComponent},
   { path: 'anagraficaDettaglio', component: AnagraficaDettaglioComponent},
   { path: 'anagraficaDettaglio/:id', component: AnagraficaDettaglioComponent},
+  { path: 'personaSelezionata', component: PersonaSelezionataComponent},
   { path: 'homePage', component: HomePageComponent},
   { path: 'elencoDettaglio', component: ElencoDettaglioComponent},
   { path: 'elencoDettaglio/:id', component: ElencoDettaglioComponent },
