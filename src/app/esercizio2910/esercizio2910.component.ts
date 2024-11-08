@@ -26,7 +26,7 @@ export class Esercizio2910Component implements OnInit {
   selectedUserId: number = 0;
   showNuovaRiga: boolean = false;
   checkboxFC: FormControl[] = []; // questa lista verrà popolata quando viene popolata la tabella
-  getValoreToggle?: boolean;
+  getValoreToggle: boolean = false;
   mostraInput: boolean = false;
   isActive: boolean = false;
   onChangeRighe: boolean = false;
@@ -38,8 +38,10 @@ export class Esercizio2910Component implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    this.getValoreToggle = this.sharedService.getAttUtilObj('valoreToggle');
-    this.sharedService.clearAttUtilObj('valoreToggle');
+  }
+
+  cambioValoreToggle(nuovoValore: boolean) {
+    this.getValoreToggle = nuovoValore;
   }
 
   getData() {
@@ -93,7 +95,7 @@ export class Esercizio2910Component implements OnInit {
   }
 
   chiudiDettaglio() {
-    this.showDettaglio = !this.showDettaglio;
+    this.showDettaglio = false;
   }
 
 

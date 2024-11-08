@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({ providedIn: 'root' })
  
 export class SharedService {
+  [x: string]: any;
     private utilObj: any = {};
     stream = new Subject<any>();
   /**

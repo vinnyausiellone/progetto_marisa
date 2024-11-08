@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SharedService } from '../shared/services/shared.service';
 import { FormControl } from '@angular/forms';
 
@@ -10,9 +10,14 @@ import { FormControl } from '@angular/forms';
 export class Dettaglio2910Component implements OnInit{
   valoreFC = new FormControl(false)
 
+  @Output() cambioValoreToggle = new EventEmitter<boolean>();
+
   constructor(public sharedService: SharedService) { }
   
   ngOnInit(): void {
-    this.sharedService.setAttUtilObj('valoreToggle', this.valoreFC.value)
+  }
+
+  onCambioValoreToggle() {
+    this.cambioValoreToggle.emit(this.valoreFC.value || false);
   }
 }

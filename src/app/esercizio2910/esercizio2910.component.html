@@ -37,16 +37,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let item of data; let i = index; let even = even">
+                    <ng-container *ngFor="let item of data; let i = index">
                         <tr>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
                                 <mat-checkbox [formControl]="checkboxFC[i]" [checked]="item.selected"
                                     (change)="checkedRow($event)" (ngModelChange)="checked()"
                                     [(ngModel)]="item.selected">
                                 </mat-checkbox>
                             </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}"> {{item.id}} </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }"> {{item.id}} </td>
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaTitle">
                                     <input type="text" [formControl]="titleFC[i]">
                                 </ng-container>
@@ -54,7 +54,7 @@
                                     {{ item.title }}
                                 </ng-template>
                             </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaBody">
                                     <input type="text" [formControl]="bodyFC[i]">
                                 </ng-container>
@@ -62,10 +62,13 @@
                                     {{ item.body }}
                                 </ng-template>
                             </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}"> {{item.userId}} </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
-                                <mat-icon class="pointer" (click)="onOpenDettaglio(item)">
-                                    {{idRigaSelezionata === item.id ? 'close' : 'search'}}
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }"> {{item.userId}} </td>
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
+                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="onOpenDettaglio(item)">
+                                    search
+                                </mat-icon>
+                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="chiudiDettaglio()">
+                                    close
                                 </mat-icon>
                                 <mat-icon matTooltip="Salva modifiche" *ngIf="item.selected && onChangeRighe" class="pointer" (click)="onSaveRiga(item, i)">
                                     arrow_forward
@@ -83,7 +86,7 @@
                 </tbody>
             </table>
             <div class="ml-20" *ngIf="showDettaglio">
-                <app-dettaglio2910></app-dettaglio2910>
+                <app-dettaglio2910 (cambioValoreToggle)="cambioValoreToggle($event)"></app-dettaglio2910>
             </div>
         </div>
         <button class="button-standard mt-10 ml-562 button-f-bottom-right h-45" mat-button
@@ -108,16 +111,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let item of datiFiltrati; let i = index; let even = even">
+                    <ng-container *ngFor="let item of datiFiltrati; let i = index">
                         <tr>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
                                 <mat-checkbox [formControl]="checkboxFC[i]" [checked]="item.selected"
                                     (change)="checkedRow($event)" (ngModelChange)="checked()"
                                     [(ngModel)]="item.selected">
                                 </mat-checkbox>
                             </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}"> {{item.id}} </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }"> {{item.id}} </td>
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaTitle">
                                     <input type="text" [formControl]="titleFC[i]">
                                 </ng-container>
@@ -125,7 +128,7 @@
                                     {{ item.title }}
                                 </ng-template>
                             </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
                                 <ng-container *ngIf="onChangeRighe && item.selected; else mostraRigaBody">
                                     <input type="text" [formControl]="bodyFC[i]">
                                 </ng-container>
@@ -133,11 +136,13 @@
                                     {{ item.body }}
                                 </ng-template>
                             </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}"> {{item.userId}} </td>
-                            <td [ngClass]="{'cambioColoreRigheDispari': getValoreToggle && even}">
-                                <mat-icon *ngIf="!onChangeRighe && !item.selected" class="pointer"
-                                    (click)="onOpenDettaglio(item)">
-                                    {{idRigaSelezionata === item.id ? 'close' : 'search'}}
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }"> {{item.userId}} </td>
+                            <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
+                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="onOpenDettaglio(item)">
+                                    search
+                                </mat-icon>
+                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="chiudiDettaglio()">
+                                    close
                                 </mat-icon>
                                 <mat-icon matTooltip="Salva modifiche" *ngIf="onChangeRighe && item.selected" class="pointer" (click)="onSaveRiga(item, i)">
                                     arrow_forward
@@ -162,7 +167,7 @@
                 </tbody>
             </table>
             <div class="ml-20" *ngIf="showDettaglio">
-                <app-dettaglio2910></app-dettaglio2910>
+                 <app-dettaglio2910 (cambioValoreToggle)="cambioValoreToggle($event)"></app-dettaglio2910>
             </div>
         </div>
         <button class="button-standard mt-20" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserire nuova
