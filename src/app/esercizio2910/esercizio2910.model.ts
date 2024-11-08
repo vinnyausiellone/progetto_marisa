@@ -3,7 +3,7 @@ export interface IntData {
     id?: number;
     title: string;
     body: string;
-    selected: boolean;
+    selected?: boolean; //solo front end (punto interrogativo per farla diventare opzionale)
 }
 
 export interface Task {

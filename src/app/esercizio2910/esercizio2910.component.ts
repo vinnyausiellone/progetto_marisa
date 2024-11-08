@@ -30,6 +30,8 @@ export class Esercizio2910Component implements OnInit {
   chipIndex: number | null = null;
   // getValoreToggleFromSharedService: any;
   chips = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  datiFiltratiTitle: string[] = [];
+  datiFiltratiBody: string[] = [];
 
   constructor(private apiService: ApiService, public sharedService: SharedService, private matSnackBar: MatSnackBar, private dialogService: DialogService) {
   //  this.getValoreToggleFromSharedService = this.sharedService.getAttUtilObj('valoreToggle')
@@ -38,7 +40,6 @@ export class Esercizio2910Component implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    
   }
 
   cambioValoreToggle(nuovoValore: boolean) {
@@ -50,7 +51,19 @@ export class Esercizio2910Component implements OnInit {
       this.data = res;
       this.data.forEach(x => {
         this.checkboxFC.push(new FormControl());
+        this.datiFiltratiTitle.push(x.title);
+        this.datiFiltratiBody.push(x.body);
       })
+      if (this.datiFiltratiTitle) {
+        this.datiFiltratiTitle.forEach(res => {
+          this.titleFC.push(new FormControl(res));
+        })
+      }
+      if (this.datiFiltratiBody) {
+        this.datiFiltratiBody.forEach(res => {
+          this.bodyFC.push(new FormControl(res));
+        })
+      }
     })
   }
 
@@ -62,17 +75,26 @@ export class Esercizio2910Component implements OnInit {
     }
   }
 
-  onSaveRiga(item: IntData, index: number) {
-    // const req: IntData = {
-    //   userId: this.selectedUserId,
-    //   title: this.titleFC[index].value,
-    //   body: this.bodyFC[index].value,
-    //   selected: false,
-    // }
-    this.apiService.modificaData(item).subscribe(res => {
-      console.log('response', res)
+  onSaveRiga(item: IntData, index: number) { 
+    const req: IntData = {
+      id: item.id,
+      userId: this.selectedUserId,
+      title: this.titleFC[index].value ? this.titleFC[index].value : '',
+      body: this.bodyFC[index].value ? this.bodyFC[index].value : ''
+    }
+    this.apiService.modificaData(req).subscribe(res => {
+      this.data?.forEach(x => {
+        if (x.id === res.id) {
+          x.title = res.title;
+          x.body = res.body;
+          x.selected = false;
+        }
+      })
+      this.onChangeRighe = false;
       this.matSnackBar.open('Operazione eseguita correttamente', 'Close');
     })
+    this.titleFC[index].reset();
+    this.bodyFC[index].reset();
   }
 
   onClickChip(numeroChip: number, index: number) {
@@ -169,11 +191,9 @@ export class Esercizio2910Component implements OnInit {
 
   modificaRiga(value: boolean, index: number) {
     if (value) {
-      this.onChangeRighe = value;
+      this.onChangeRighe = true;
     } else {
       this.onChangeRighe = false;
     }
-    this.titleFC[index].reset();
-    this.bodyFC[index].reset();
   }
 }
