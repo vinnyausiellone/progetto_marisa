@@ -67,7 +67,7 @@ export class ApiService {
   modificaApprofondimento (obj: IntPostsApprofondimento): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
   getData(): Observable<IntData[]> { return this.httpClient.get<IntData[]> ('https://jsonplaceholder.typicode.com/posts')}
   postData(obj: IntData): Observable<string> { return this.chiamataDiTipoPost ('https://jsonplaceholder.typicode.com/posts', obj)}
-  modificaNome (obj: any): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/', obj)}
+  modificaNome (obj: any): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
   modificaData (obj: IntData): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
   // getCurrentUserAnagrafica(): Observable<any> { return this.chiamataDiTipoGet(`${this.appConfigService.getConfig().backendUrl}` + URLS.GET_CURRENT_USER_ANAG) }
   // PREFETTURA

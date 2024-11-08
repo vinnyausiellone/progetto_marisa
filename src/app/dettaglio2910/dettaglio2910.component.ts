@@ -19,5 +19,6 @@ export class Dettaglio2910Component implements OnInit{
 
   onCambioValoreToggle() {
     this.cambioValoreToggle.emit(this.valoreFC.value || false);
+    // this.sharedService.setAttUtilObj('valoreToggle', this.valoreFC.value);
   }
 }

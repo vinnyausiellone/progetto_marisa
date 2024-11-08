@@ -108,6 +108,11 @@ export class AnagraficaUtenteComponent implements OnInit {
     if (!this.listaNomeFC[index].value) {
       this.dialogService.errore('Campo vuoto')
     } else {
+      this.listaNomi.forEach(x => {
+        if (x.nome === persona.nome) {
+          x.nome = this.listaNomeFC[index].value;
+        }
+      })
       persona.flagedit = true;
     }
   }

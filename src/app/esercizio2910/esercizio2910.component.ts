@@ -13,9 +13,6 @@ import { DialogService } from '../shared/services/dialog.service';
 })
 export class Esercizio2910Component implements OnInit {
 
-
-  constructor(private apiService: ApiService, private sharedService: SharedService, private matSnackBar: MatSnackBar, private dialogService: DialogService) { }
-
   data?: IntData[];
   showDettaglio: boolean = false;
   idRigaSelezionata?: number;
@@ -31,13 +28,17 @@ export class Esercizio2910Component implements OnInit {
   isActive: boolean = false;
   onChangeRighe: boolean = false;
   chipIndex: number | null = null;
+  // getValoreToggleFromSharedService: any;
+  chips = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-
-  chips = [1,2,3,4,5,6,7,8,9,10];
+  constructor(private apiService: ApiService, public sharedService: SharedService, private matSnackBar: MatSnackBar, private dialogService: DialogService) {
+  //  this.getValoreToggleFromSharedService = this.sharedService.getAttUtilObj('valoreToggle')
+   }
 
 
   ngOnInit(): void {
     this.getData();
+    
   }
 
   cambioValoreToggle(nuovoValore: boolean) {
@@ -167,7 +168,11 @@ export class Esercizio2910Component implements OnInit {
   }
 
   modificaRiga(value: boolean, index: number) {
-    this.onChangeRighe = value;
+    if (value) {
+      this.onChangeRighe = value;
+    } else {
+      this.onChangeRighe = false;
+    }
     this.titleFC[index].reset();
     this.bodyFC[index].reset();
   }

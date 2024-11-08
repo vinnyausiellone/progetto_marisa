@@ -64,15 +64,13 @@
                             </td>
                             <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }"> {{item.userId}} </td>
                             <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
-                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="onOpenDettaglio(item)">
+                                <mat-icon *ngIf="!onChangeRighe" matTooltip="Chiudi dettaglio" class="pointer" (click)="onOpenDettaglio(item)">
                                     search
                                 </mat-icon>
-                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="chiudiDettaglio()">
+                                <mat-icon *ngIf="!onChangeRighe" matTooltip="Chiudi dettaglio" class="pointer" (click)="chiudiDettaglio()">
                                     close
                                 </mat-icon>
-                                <mat-icon matTooltip="Salva modifiche" *ngIf="item.selected && onChangeRighe" class="pointer" (click)="onSaveRiga(item, i)">
-                                    arrow_forward
-                                </mat-icon>
+                                <span class="material-icons pointer" matTooltip="Salva modifiche" *ngIf="item.selected && onChangeRighe" (click)="onSaveRiga(item, i)"> arrow_forward </span>
                             </td>
                         </tr>
                         <div *ngIf="someChecked()" class="radio custom-color">
@@ -138,15 +136,13 @@
                             </td>
                             <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }"> {{item.userId}} </td>
                             <td [ngClass]="{'cambioColore': getValoreToggle && (i+1) % 2 !== 0 }">
-                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="onOpenDettaglio(item)">
+                                <mat-icon *ngIf="!onChangeRighe" matTooltip="Chiudi dettaglio" class="pointer" (click)="onOpenDettaglio(item)">
                                     search
                                 </mat-icon>
-                                <mat-icon matTooltip="Chiudi dettaglio" class="pointer" (click)="chiudiDettaglio()">
+                                <mat-icon *ngIf="!onChangeRighe" matTooltip="Chiudi dettaglio" class="pointer" (click)="chiudiDettaglio()">
                                     close
                                 </mat-icon>
-                                <mat-icon matTooltip="Salva modifiche" *ngIf="onChangeRighe && item.selected" class="pointer" (click)="onSaveRiga(item, i)">
-                                    arrow_forward
-                                </mat-icon>
+                                <span class="material-icons pointer" matTooltip="Salva modifiche" *ngIf="item.selected && onChangeRighe" (click)="onSaveRiga(item, i)"> arrow_forward </span>
                             </td>
                         </tr>
                         <div *ngIf="someChecked()" class="radio custom-color">
@@ -156,18 +152,18 @@
                                 <mat-radio-button (change)="modificaRiga(false, i)" value="No">No</mat-radio-button>
                             </mat-radio-group>
                         </div>
-                    <tr *ngIf="showNuovaRiga">
-                        <td> </td>
-                        <td> <input type="text" [formControl]="titleFC[i]"></td>
-                        <td> <input type="text" [formControl]="bodyFC[i]"></td>
-                        <td> {{selectedUserId}} </td>
-                        <td> </td>
-                    </tr>
-                </ng-container>
+                        <tr *ngIf="showNuovaRiga">
+                            <td> </td>
+                            <td> <input type="text" [formControl]="titleFC[i]"></td>
+                            <td> <input type="text" [formControl]="bodyFC[i]"></td>
+                            <td> {{selectedUserId}} </td>
+                            <td> </td>
+                        </tr>
+                    </ng-container>
                 </tbody>
             </table>
             <div class="ml-20" *ngIf="showDettaglio">
-                 <app-dettaglio2910 (cambioValoreToggle)="cambioValoreToggle($event)"></app-dettaglio2910>
+                <app-dettaglio2910 (cambioValoreToggle)="cambioValoreToggle($event)"></app-dettaglio2910>
             </div>
         </div>
         <button class="button-standard mt-20" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserire nuova
