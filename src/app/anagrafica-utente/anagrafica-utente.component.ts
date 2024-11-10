@@ -54,9 +54,6 @@ export class AnagraficaUtenteComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAnagrafica();
-    this.listaNomi.forEach(res => {
-      this.listaNomeFC.push(new FormControl(res.nome, Validators.required));
-    })
   }
 
   mostraNuovaRigaTabella() {
@@ -97,6 +94,9 @@ export class AnagraficaUtenteComponent implements OnInit {
   getAnagrafica() {
     this.apiService.getAnagrafica().subscribe(res => {
       this.anagraficaOggetto = res;
+      this.listaNomi.forEach(res => {
+        this.listaNomeFC.push(new FormControl(res.nome));
+      })
     })
   }
 

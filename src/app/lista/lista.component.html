@@ -25,6 +25,8 @@
         <!-- <app-prova-evento [pippo]="true" (testevento)="testevento($event)"></app-prova-evento> -->
         <span *ngIf="showTest">EVENTO ESEGUITO</span>
     </div>
-
-    <span *ngIf="ricettaSalvata">{{ricettaSalvata}}</span>
+<div class="mt-50" *ngIf="ricettaSalvata">
+    <p class="custom-title">RICETTA SALVATA</p>
+    <span>{{ricettaSalvata}}</span>
+</div>
 </div>

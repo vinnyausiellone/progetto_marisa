@@ -4,10 +4,9 @@
       <h4 class="custom-title">{{ 'Ricetta: ' + pageTitle }}</h4>
       <button class="button-standard h-45" (click)="bottoneIndietro()">INDIETRO</button>
     </div>
-    <span class="mt-5" *ngIf="valoreRicetta">{{valoreRicetta}}</span>
     <div class="d-flex flex-direction-column">
       <mat-form-field class="custum-textarea">
-        <textarea matInput placeholder="Modifica ricetta" [formControl]="ricettaFC"></textarea>
+        <textarea matInput [formControl]="ricettaFC" rows="5"></textarea>
       </mat-form-field>
     </div>
 

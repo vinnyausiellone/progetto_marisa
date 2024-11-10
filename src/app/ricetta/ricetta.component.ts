@@ -42,6 +42,7 @@ export class RicettaComponent implements OnInit {
     if (cibiValore) this.cibiValore = cibiValore.cibo;
     if (this.cibiValore) this.pageTitle = this.cibiValore;
     this.valoreRicetta = this.listaRicette.find(ricetta => ricetta.id === this.cibiValore)?.value;
+    this.ricettaFC.setValue(this.valoreRicetta || '');
   }
 
   onChangeRicetta(evento: Event) {

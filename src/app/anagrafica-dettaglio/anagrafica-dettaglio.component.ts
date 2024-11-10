@@ -10,7 +10,7 @@ import { IntAnagraficaDettaglio } from '../anagrafica-utente/anagrafica-utente.m
   styleUrl: './anagrafica-dettaglio.component.scss'
 })
 export class AnagraficaDettaglioComponent implements OnInit {
-  titoloDettagli = 'Dettaglio Utente';
+  titoloDettagli = 'DETTAGLIO UTENTE';
   darkmode = false;
   listaCibi = ['Pizza', 'Parmigiana di melanzane', 'Pasta panna e salmone'];
   listaCibiOdiati = ['Cetrioli', 'Spinaci', 'Broccoli'];
