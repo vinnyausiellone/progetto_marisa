@@ -8,15 +8,15 @@
             <span> id: {{item.id}} </span>
             <span *ngIf="!cambio"> body: {{item.body}}</span>
             <div>
-                <input name="inputBody" matInput type="text" [formControl]="approfondimentoFC"
+                <!-- <input name="inputBody" matInput type="text" [formControl]="approfondimentoFC"
                     placeholder="Inserire Modifica PUT" *ngIf="isModifica">
                 <mat-icon class="mt-20 pointer" (click)="cambioBody(item)" *ngIf="isModifica">
                     swap_horiz
-                </mat-icon>
-                <mat-icon matTooltip="Modifica Body" class="mt-20 pointer" (click)="modificaBody()" *ngIf="isModifica">
+                </mat-icon> -->
+                <!-- <mat-icon matTooltip="Modifica Body" class="mt-20 pointer" (click)="modificaBody(item, i)" *ngIf="isModifica">
                     add_circle
-                </mat-icon>
-                <span *ngIf="openTextarea">
+                </mat-icon> -->
+                <span>
                     <textarea class="ml-20" matInput [formControl]="bodyFC[i]" rows="1"></textarea>
                     <mat-icon class="ml-20 pointer" matTooltip="Salva Modifiche" (click)="cambioTextarea(item, i)"> expand_circle_down </mat-icon>
                 </span>

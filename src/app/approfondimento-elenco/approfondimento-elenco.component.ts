@@ -85,8 +85,10 @@ export class ApprofondimentoElencoComponent implements OnInit {
     this.approfondimentoElenco = this.approfondimentoElencoBackup; 
   }
 
-  modificaBody() {
+  modificaBody(item: IntPostsApprofondimento, i: number) {
+    if (item.id === i) {
   this.openTextarea = !this.openTextarea;
+    }
   }
 
   cambioTextarea(item: IntPostsApprofondimento, index: number) {
