@@ -20,6 +20,9 @@ export class ApprofondimentoElencoComponent implements OnInit {
   pageTitle: string = '';
   cambio = false;
   approfondimentoFC = new FormControl('', Validators.required);
+  openTextarea: boolean = false;
+  bodyFC: FormControl[] = [];
+  datiFiltratiBody: string[] = [];
 
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private matSnackBar: MatSnackBar) {
     this.route.data.subscribe((params: any) => {
@@ -34,12 +37,17 @@ export class ApprofondimentoElencoComponent implements OnInit {
     this.pageTitle = this.isVisualizza ? 'Dettaglio Approfondimento' : 'Modifica Approfondimento';
     this.id = this.route.snapshot.paramMap.get('id');
     this.getPostById(this.id);
+
   }
 
   getPostById(id: any) {
     this.apiService.getPostById(id).subscribe(res => {
       this.approfondimentoElenco = res;
       this.approfondimentoElencoBackup = res;
+      this.approfondimentoElenco.forEach(x => {
+        this.bodyFC.push (new FormControl());
+        this.datiFiltratiBody.push(x.body);
+        })
     })
   }
 
@@ -75,6 +83,29 @@ export class ApprofondimentoElencoComponent implements OnInit {
 
   resetDettaglio() {
     this.approfondimentoElenco = this.approfondimentoElencoBackup; 
+  }
+
+  modificaBody() {
+  this.openTextarea = !this.openTextarea;
+  }
+
+  cambioTextarea(item: IntPostsApprofondimento, index: number) {
+    const req: IntPostsApprofondimento = {
+      id: item.id,
+      userId: item.userId,
+      title: item.title,
+      body: this.bodyFC[index].value ? this.bodyFC[index].value : ''
+    }
+    this.apiService.modificaApprofondimento(req).subscribe(res => {
+      this.approfondimentoElenco?.forEach(x => {
+        if (x.id === res.id) {
+          x.title = res.title;
+          x.body = res.body;
+        }
+      })
+    })
+    this.bodyFC[index].reset();
+    
   }
 
 }

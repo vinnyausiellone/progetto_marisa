@@ -11,6 +11,8 @@ import { RicettaComponent } from './ricetta/ricetta.component';
 import { Esercizio2910Component } from './esercizio2910/esercizio2910.component';
 import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component';
 import { PersonaSelezionataComponent } from './persona-selezionata/persona-selezionata.component';
+import { RigaPariDispariComponent } from './riga-pari-dispari/riga-pari-dispari.component';
+import { GetAnagraficaComponent } from './get-anagrafica/get-anagrafica.component';
 
 
 
@@ -32,6 +34,9 @@ const routes: Routes = [
   { path: 'ricetta/:value', component: RicettaComponent},
   { path: 'esercizio2910', component: Esercizio2910Component},
   { path: 'dettaglio2910', component: Dettaglio2910Component},
+  { path: 'rigaPariDispari', component: RigaPariDispariComponent},
+  { path: 'rigaPariDispari/:id', component: RigaPariDispariComponent},
+  { path: 'getAnagrafica', component: GetAnagraficaComponent},
   { path: '**', redirectTo: '/homePage' }
 ];
 

@@ -265,3 +265,18 @@ mat-chip {
 .es-container {
     padding: 20px;
 }
+
+#loading {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+mat-spinner {
+    color: #1b4d8b !important;
+    position: fixed !important;
+    top: 50% !important;
+    z-index: 9999 !important; //infinito
+}

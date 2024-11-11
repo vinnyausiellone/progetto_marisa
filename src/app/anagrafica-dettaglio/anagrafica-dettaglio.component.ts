@@ -18,11 +18,14 @@ export class AnagraficaDettaglioComponent implements OnInit {
   bottoneAttivo = true;
   id?: any;
   anagraficaDettaglio?: IntAnagraficaDettaglio[];
+  showCibiPreferiti?: boolean;
+  showCibiOdiati?: boolean;
+  showAll?: boolean;
+
   @Output() clickEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input() persona?: { nome: string; cognome: string };
-  @Input() flagPari?: boolean;
   @Input() mostraBottoni: boolean = true;
-
+ 
   constructor(private route: ActivatedRoute, private apiService: ApiService) { }
 
   cambiaLista() {
@@ -57,6 +60,24 @@ export class AnagraficaDettaglioComponent implements OnInit {
       this.anagraficaDettaglio = res;
     })
   }
+
+ mostraCibiPreferiti() {
+  this.showCibiPreferiti = true;
+  this.showCibiOdiati = false
+  this.showAll = false;
+ }
+
+ mostraCibiOdiati() {
+  this.showCibiOdiati = true;
+  this.showAll = false;
+  this.showCibiPreferiti = false;
+ }
+
+ mostraEntrambi() {
+  this.showAll = true;
+  this.showCibiOdiati = false;
+  this.showCibiPreferiti = false;
+ }
 
 
 

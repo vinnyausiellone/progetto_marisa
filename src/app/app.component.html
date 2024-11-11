@@ -1,3 +1,6 @@
-
 <router-outlet>
 </router-outlet>
+
+<div id="loading" *ngIf="spinnerService.spinnerCounter$ | async">
+<mat-spinner diameter="80" mode="indeterminate" strokeWidth="8"></mat-spinner>
+</div>

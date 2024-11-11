@@ -1,63 +1,51 @@
 
 <div class="es-container">
-<div *ngIf="flagPari">
-    <ng-container *ngTemplateOutlet="pari"></ng-container>
-</div>
-
-<div *ngIf="!flagPari">
-    <ng-container *ngTemplateOutlet="dispari"></ng-container>
-</div>
-
-<ng-template #pari>
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
         <h2 class="custom-title"> {{ titoloDettagli}} </h2>
         <button class="button-standard h-45" (click)="bottoneIndietro()"
             [disabled]="!bottoneAttivo">INDIETRO</button>
     </div>
-
-    <ul class="tabellaCibo" *ngIf="mostraCibi">
-        <b> Cibo preferito </b>
+    <div class="custom-dettaglio" *ngIf="showCibiPreferiti">
+    <ul>
+        <b class="custom-title"> Cibi preferiti </b>
         <li *ngFor="let item of listaCibi">{{item}}</li>
     </ul>
-    <ul class="tabellaCiboOdiato" *ngIf="!mostraCibi">
-        <b> Cibi cattivi </b>
+</div>
+<div class="custom-dettaglio" *ngIf="showCibiOdiati">
+    <ul>
+        <b class="custom-title"> Cibi odiati </b>
         <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
     </ul>
+</div>
 
-    <h3> RIGA PARI</h3>
-    <button class="ml-20 button-standard" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
-        'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
-
-</ng-template>
-
-<ng-template #dispari>
-    <div class="custom-title justify-content-between d-flex a-i-c p-20">
-        <h2 class="custom-title"> {{ titoloDettagli}} </h2>
-        <button class="button-standard h-45" (click)="bottoneIndietro()"
-            [disabled]="!bottoneAttivo">INDIETRO</button>
+    <div *ngIf="showAll" class="custom-dettaglio d-flex">
+        <ul>
+            <b class="custom-title"> Cibi preferiti </b>
+            <li *ngFor="let item of listaCibi">{{item}}</li>
+        </ul>
+        <ul class="ml-200">
+            <b class="custom-title"> Cibi odiati </b>
+            <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
+        </ul>
     </div>
 
-    <ul class="custom-dettaglio" *ngIf="mostraCibi">
-        <b class="custom-title"> Cibo preferito </b>
-        <li *ngFor="let item of listaCibi">{{item}}</li>
-    </ul>
-    <ul class="custom-dettaglio" *ngIf="!mostraCibi">
-        <b class="custom-title"> Cibi cattivi </b>
-        <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
-    </ul>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1" (change)="mostraCibiPreferiti()" [disabled]="!bottoneAttivo">Mostra cibi preferiti</mat-radio-button>
+        <mat-radio-button value="2" (change)="mostraCibiOdiati()" [disabled]="!bottoneAttivo">Mostra cibi odiati</mat-radio-button>
+        <mat-radio-button value="3" (change)="mostraEntrambi()" [disabled]="!bottoneAttivo">Mostra entrambi</mat-radio-button>
+      </mat-radio-group>
 
 
-    <button class="ml-20 button-standard" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
-        'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button>
+    <!-- <button class="ml-20 button-standard" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
+        'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button> -->
 
-    <div class="d-flex ml-20 mt-20 flex-direction-column">
+    <!-- <div class="d-flex ml-20 mt-20 flex-direction-column">
         <b class="custom-title"> Anagrafica Dettaglio</b>
         <div *ngFor=" let item of anagraficaDettaglio">
             <span>Dettaglio: {{ item.id}} {{item.name}} </span>
         </div>
-    </div>
+    </div> -->
 
-    <h3> RIGA DISPARI </h3>
 <!-- 
     <div *ngIf="persona">
         <h4> Persona Selezionata</h4>
@@ -65,9 +53,8 @@
         <p>Cognome: {{persona.cognome}}</p>
     </div> -->
 
-    <div class="mt-50 d-flex mr-25 ml-20">
+    <div class="button-f-bottom-right">
         <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ? 'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button>
-        <button class="button-standard mt-20" (click)="disattivaBottoni()">Disattiva Bottoni</button>
+        <button class="button-standard mt-20" (click)="disattivaBottoni()">{{bottoneAttivo ? 'Disattiva Bottoni': 'Attiva Bottoni'}}</button>
     </div>
-</ng-template>
 </div>

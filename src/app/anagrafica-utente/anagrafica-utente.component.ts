@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
-import { IntAnagrafica } from './anagrafica-utente.model';
 import { FormControl, Validators } from '@angular/forms';
 import { DialogService } from '../shared/services/dialog.service';
 import { SharedService } from '../shared/services/shared.service';
@@ -36,7 +35,7 @@ export class AnagraficaUtenteComponent implements OnInit {
   riga4col2 = 'Rossi';
   cambioColore = false;
   mostraDettaglio = false;
-  anagraficaOggetto?: IntAnagrafica;
+  // anagraficaOggetto?: IntAnagrafica;
   idPresente = false;
   id?: any;
   mostraInput: boolean[] = [];
@@ -50,10 +49,14 @@ export class AnagraficaUtenteComponent implements OnInit {
   listaNomi: Persona[] = [new Persona('Marisa', 'Rossi'), new Persona('Giulia', 'Verdi'), new Persona('Maria', 'Giallo')];
   listaPersoneNuove: Persona[] = [new Persona('Isabelle', 'Haak'), new Persona('Marina', 'Lubian'), new Persona('Monica', 'De Gennaro'), new Persona('Sarah', 'Fahr'), new Persona('Cristina', 'Chirichella'), new Persona('Daniele', 'Sanatarelli'), new Persona('Marco', 'Fantasia')];
   count = 4;
+  idTabella?: number;
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, private sharedService: SharedService) { }
 
   ngOnInit(): void {
-    this.getAnagrafica();
+    // this.getAnagrafica();
+    this.listaNomi.forEach(res => {
+      this.listaNomeFC.push(new FormControl(res.nome));
+    })
   }
 
   mostraNuovaRigaTabella() {
@@ -91,17 +94,13 @@ export class AnagraficaUtenteComponent implements OnInit {
     this.clickDettaglio = false;
   }
 
-  getAnagrafica() {
-    this.apiService.getAnagrafica().subscribe(res => {
-      this.anagraficaOggetto = res;
-      this.listaNomi.forEach(res => {
-        this.listaNomeFC.push(new FormControl(res.nome));
-      })
-    })
-  }
+  // getAnagrafica() {
+  //   this.apiService.getAnagrafica().subscribe(res => {
+  //     this.anagraficaOggetto = res;
+  //   })
+  // }
 
   aggiungiCeck(item: Persona, index: number) {
-    this.listaNomeFC[index].reset();
     item.flagedit = false;
   }
 

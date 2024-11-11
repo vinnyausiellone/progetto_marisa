@@ -64,7 +64,7 @@ export class ApiService {
   getAnagraficaById(id: number): Observable<IntAnagraficaDettaglio[]> { return this.chiamataDiTipoGet('https://jsonplaceholder.typicode.com/comments?postId=' + id) }
   getPosts(): Observable<IntPosts[]> { return this.httpClient.get<IntPosts[]> ('https://jsonplaceholder.typicode.com/posts')}
   getPostById(id: number): Observable<IntPostsApprofondimento[]> { return this.chiamataDiTipoGet('https://jsonplaceholder.typicode.com/comments?postId=' + id) }
-  modificaApprofondimento (obj: IntPostsApprofondimento): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
+  modificaApprofondimento (obj: any): Observable<IntPostsApprofondimento> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}
   getData(): Observable<IntData[]> { return this.httpClient.get<IntData[]> ('https://jsonplaceholder.typicode.com/posts')}
   postData(obj: IntData): Observable<string> { return this.chiamataDiTipoPost ('https://jsonplaceholder.typicode.com/posts', obj)}
   modificaNome (obj: any): Observable<string> { return this.chiamataDiTipoPut ('https://jsonplaceholder.typicode.com/posts/' + obj.id, obj)}

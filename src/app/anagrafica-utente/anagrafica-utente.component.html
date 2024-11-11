@@ -16,7 +16,7 @@
             <tbody>
                 <ng-container *ngFor="let item of listaNomi; let i = index; let odd = odd">
                     <tr>
-                        <td class="utenti-id"
+                        <td class="utenti-id" matTooltip="Mostra dettaglio"
                             [ngClass]="{'cambioColoreRighePari': cambioColore && odd, 'colorareIconaSelezionata': item.isDettaglio}"
                             (click)="goToDettaglio(i+1)"> {{i+1}} </td>
                         <td class="utenti-td"
@@ -61,11 +61,16 @@
                 </ng-container>
             </tbody>
         </table>
-        <div class="custom-dettaglio" *ngIf="clickDettaglio">
+        <!-- <div class="custom-dettaglio" *ngIf="clickDettaglio">
             <app-anagrafica-dettaglio [mostraBottoni]="false" (clickEvent)="getClickEvent(true)"
                 [flagPari]="flagPari"></app-anagrafica-dettaglio>
-        </div>
+        </div> -->
     </div>
+
+     <div class="es-container custom-title" *ngIf="clickDettaglio">
+            <app-riga-pari-dispari (clickEvent)="getClickEvent(true)"
+                [flagPari]="flagPari"></app-riga-pari-dispari>
+        </div>
 
     <!--PASSO IL COMPONENTE DAL PADRE AL FIGLIO-->
     <!-- <app-persona-selezionata *ngIf="personaClick" [persona]="personaSelezionata"></app-persona-selezionata> -->
@@ -77,7 +82,7 @@
         <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
     </div>
 
-    <div class="tab-anagrafica custom-dettaglio custom-color mt-20">
+    <!-- <div class="tab-anagrafica custom-dettaglio custom-color mt-20">
         <span class="mb-10">
             id: {{anagraficaOggetto?.id}}
         </span>
@@ -91,4 +96,4 @@
             userId: {{anagraficaOggetto?.userId}}
         </span>
     </div>
-</div>
+</div> -->
