@@ -1,0 +1,7 @@
+<div class="spinner-overlay" *ngIf="isLoading | async"> 
+<div class="spinner"></div>
+</div>
+
+
+<!-- ASYNC: gestire l'Observable direttamente nel template, 
+ sottoscrive automaticamente all'Observable e restituisce il suo ultimo valore emesso -->

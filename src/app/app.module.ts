@@ -36,7 +36,8 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import { PersonaSelezionataComponent } from './persona-selezionata/persona-selezionata.component';
 import { RigaPariDispariComponent } from './riga-pari-dispari/riga-pari-dispari.component';
 import { GetAnagraficaComponent } from './get-anagrafica/get-anagrafica.component';
-import { HttpInterceptorService } from './shared/services/spinner-interceptor.service';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { LoadingInterceptor } from './shared/services/loading.interceptor';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { HttpInterceptorService } from './shared/services/spinner-interceptor.se
     PersonaSelezionataComponent,
     RigaPariDispariComponent,
     GetAnagraficaComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,11 +83,7 @@ import { HttpInterceptorService } from './shared/services/spinner-interceptor.se
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorService,
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

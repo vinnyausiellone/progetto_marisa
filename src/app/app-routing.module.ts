@@ -13,6 +13,7 @@ import { Dettaglio2910Component } from './dettaglio2910/dettaglio2910.component'
 import { PersonaSelezionataComponent } from './persona-selezionata/persona-selezionata.component';
 import { RigaPariDispariComponent } from './riga-pari-dispari/riga-pari-dispari.component';
 import { GetAnagraficaComponent } from './get-anagrafica/get-anagrafica.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'rigaPariDispari', component: RigaPariDispariComponent},
   { path: 'rigaPariDispari/:id', component: RigaPariDispariComponent},
   { path: 'getAnagrafica', component: GetAnagraficaComponent},
+  { path: 'spinner', component: SpinnerComponent},
   { path: '**', redirectTo: '/homePage' }
 ];
 
