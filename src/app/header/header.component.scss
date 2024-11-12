@@ -31,3 +31,14 @@
 .navbar-item:hover::before {
     width: 100%;
 }
+
+mat-icon {
+    color: #ffffff !important; 
+    cursor: pointer;
+
+}
+
+.mat-slide-toggle {
+    position: absolute;
+    right: 500px;
+}

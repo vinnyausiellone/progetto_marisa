@@ -1,0 +1,9 @@
+<div class="calendario">
+<mat-card class="demo-inline-calendar-card">
+    <mat-calendar [(selected)]="selectedData" [minDate]="minDate" [dateClass]="dateClass"></mat-calendar>
+  </mat-card>
+  <p>Data selezionata: {{ selectedData | date: 'dd/MM/yyyy'}}</p>
+</div>
+
+
+<!-- minDate mostrerà il calendario con le date precedenti disabilitate -->

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  valoreDarkFC = new FormControl(false)
+
+  @Output() cambioValoreDark = new EventEmitter<boolean>();
 
   constructor(private router: Router, private apiService: ApiService) { }
 
@@ -17,10 +21,13 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  onCambioValoreDark() {
+    this.cambioValoreDark.emit(this.valoreDarkFC.value || false);
+  }
+
   clickElenco() {
     this.router.navigateByUrl('elencoDettaglio');
   }
-
 }
 
 

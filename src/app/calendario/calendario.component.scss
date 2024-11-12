@@ -1,0 +1,12 @@
+.demo-inline-calendar-card {
+  width: 600px;
+}
+
+::ng-deep .weekend .mat-calendar-body-cell-content {
+    color: #005cbb;
+    
+}
+
+::ng-deep .weekend .mat-calendar-body-selected {
+    color: white;
+}

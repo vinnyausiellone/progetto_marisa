@@ -1,11 +1,14 @@
 <header>
     <nav class="navbar">
         <div class="navbar-items">
+            <mat-icon class="navbar-items mt-25 ml-20" routerLink="/homePage"> home </mat-icon>
             <button class="navbar-item" routerLink="/anagraficaUtente"> Anagrafica Utente</button>
             <button class="navbar-item" (click)="clickElenco()"> Elenco </button>
             <button class="navbar-item" routerLink="/lista"> Lista Cibo</button>
             <button class="navbar-item" routerLink="/esercizio2910"> Esercizio 29/10</button>
-            <button class="navbar-item" routerLink="/getAnagrafica"> GET ID 1 </button>
+            <button class="navbar-item" routerLink="/getAnagrafica"> Prima chiamata API </button>
+            <button class="navbar-item" routerLink="/calendario"> Calendario </button>
+        <mat-slide-toggle class="navbar-item ml-20" [formControl]="valoreDarkFC" (change)="onCambioValoreDark()"></mat-slide-toggle>
         </div>
     </nav>
 </header>

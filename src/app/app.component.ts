@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,8 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'projectName';
+  // getValoreDark: boolean = false;
+
+  constructor() {}
   
   ngOnInit(): void {
 
   }
+
+//   cambioValoreDark(nuovoValore: boolean) {
+//     this.getValoreDark = nuovoValore;
+//     if (this.getValoreDark) {
+//       document.body.classList.add('dark-mode');
+//     } else {
+//       document.body.classList.remove('dark-mode');
+//     }
+//   }
+// 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IntPostsApprofondimento } from '../anagrafica-utente/anagrafica-utente.model';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';

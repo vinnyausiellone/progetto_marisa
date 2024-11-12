@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { DialogService } from '../shared/services/dialog.service';
 import { SharedService } from '../shared/services/shared.service';
 

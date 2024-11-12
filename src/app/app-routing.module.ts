@@ -14,11 +14,13 @@ import { PersonaSelezionataComponent } from './persona-selezionata/persona-selez
 import { RigaPariDispariComponent } from './riga-pari-dispari/riga-pari-dispari.component';
 import { GetAnagraficaComponent } from './get-anagrafica/get-anagrafica.component';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 
 
 const routes: Routes = [
   { path: 'header', component: HeaderComponent},
+  { path: 'calendario', component: CalendarioComponent},
   { path: 'anagraficaUtente', component: AnagraficaUtenteComponent},
   { path: 'anagraficaDettaglio', component: AnagraficaDettaglioComponent},
   { path: 'anagraficaDettaglio/:id', component: AnagraficaDettaglioComponent},

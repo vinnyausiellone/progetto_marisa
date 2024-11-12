@@ -17,6 +17,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatCardModule} from '@angular/material/card';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,6 +40,22 @@ import { RigaPariDispariComponent } from './riga-pari-dispari/riga-pari-dispari.
 import { GetAnagraficaComponent } from './get-anagrafica/get-anagrafica.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { LoadingInterceptor } from './shared/services/loading.interceptor';
+import { CalendarioComponent } from './calendario/calendario.component';
+import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+
+const MY_DATE_FORMAT = {
+  parse: {
+    dateInput: 'DD/MM/YYYY', // this is how your date will be parsed from Input
+  },
+  display: {
+    dateInput: 'DD/MM/YYYY', // this is how your date will get displayed on the Input
+    monthYearLabel: 'MM YYYY',
+    dateA11yLabel: 'DD/MM/YYYY',
+    monthYearA11yLabel: 'MM YYYY'
+  },
+};
+
 
 
 @NgModule({
@@ -59,6 +77,7 @@ import { LoadingInterceptor } from './shared/services/loading.interceptor';
     RigaPariDispariComponent,
     GetAnagraficaComponent,
     SpinnerComponent,
+    CalendarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,11 +98,18 @@ import { LoadingInterceptor } from './shared/services/loading.interceptor';
     MatRadioModule,
     MatButtonToggleModule,
     MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule,
+    MatMomentDateModule,
   ],
   providers: [
+    provideNativeDateAdapter(),
     provideClientHydration(),
     provideAnimationsAsync(),
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: MAT_DATE_LOCALE, useValue: 'it-IT'},
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
   ],
   bootstrap: [AppComponent]
 })

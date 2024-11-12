@@ -1,0 +1,19 @@
+import { Component, model } from '@angular/core';
+
+@Component({
+  selector: 'app-calendario',
+  templateUrl: './calendario.component.html',
+  styleUrl: './calendario.component.scss'
+})
+export class CalendarioComponent {
+  selectedData: Date | null = null;
+  minDate: Date = new Date(); // Inposta la data minima come oggi
+
+  // Funzione per applicare una classe specifica ai weekend
+  dateClass = (date: Date): string => {
+    const day = date.getDay();
+    return day === 6 || day === 0 ? 'weekend' : ''; // 6 = Sabato, 0 = Domenica
+  }
+
+
+}

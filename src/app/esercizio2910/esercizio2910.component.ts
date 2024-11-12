@@ -84,10 +84,10 @@ export class Esercizio2910Component implements OnInit {
     }
     this.apiService.modificaData(req).subscribe(res => {
       this.data?.forEach(x => {
-        if (x.id === res.id) {
-          x.title = res.title;
-          x.body = res.body;
-          x.selected = false;
+        if (item.id === res.id) {
+          item.title = res.title;
+          item.body = res.body;
+          item.selected = false;
         }
       })
       this.onChangeRighe = false;
