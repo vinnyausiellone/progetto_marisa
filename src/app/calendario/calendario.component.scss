@@ -7,6 +7,71 @@
     
 }
 
+::ng-deep .dark-mode .weekend .mat-calendar-body-cell-content {
+  color: black;
+}
+
 ::ng-deep .weekend .mat-calendar-body-selected {
     color: white;
+}
+
+::ng-deep .dark-mode .weekend .mat-calendar-body-selected {
+  color: white;
+}
+
+::ng-deep .dark-mode .demo-inline-calendar-card {
+  border: 1px solid white;
+}
+
+// ::ng-deep .dark-mode .mat-calendar-body-disabled>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+//   color: rgb(92, 88, 88);
+// }
+
+::ng-deep .dark-mode .mat-calendar-table-header th {
+  color: white;
+}
+
+::ng-deep .dark-mode .mat-calendar-body-selected {
+  background-color: black;
+  border-color: black;
+}
+
+::ng-deep .dark-mode .mat-mdc-icon-button {
+  color: white;
+}
+
+::ng-deep .dark-mode .mat-calendar-arrow {
+  fill: white;
+}
+
+::ng-deep .dark-mode .mat-mdc-button:not(:disabled) {
+  color: white;
+}
+
+::ng-deep .dark-mode .mat-calendar-body-label {
+  color: white;
+}
+
+::ng-deep .dark-mode .mat-calendar-body-selected.mat-calendar-body-today {
+  box-shadow: none;
+}
+
+::ng-deep .dark-mode .mat-calendar-body-today:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  border-color: white;
+}
+
+div:first-child {
+  height: 100%;
+}
+
+.dark-mode p {
+  color: white;
+}
+
+.dark-mode mat-card {
+  background-color: rgb(86, 84, 84);
+}
+
+::ng-deep .dark-mode .mat-calendar-body-cell-content {
+ color: white;
 }

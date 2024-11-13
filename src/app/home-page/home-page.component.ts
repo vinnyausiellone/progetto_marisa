@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
+  // isDarkMode: boolean = false;
+
+  // toggleDarkMode(isDark: boolean) {
+  //   this.isDarkMode = isDark;
+  //   }
  
 }

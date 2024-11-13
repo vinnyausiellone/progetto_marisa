@@ -5,12 +5,17 @@ h1 {
     padding: 10px 10px;
     border: 3px solid #ffffff;
     text-align: center;
+    margin-top: 300px;
 }
 
-div {
+.title {
     margin-top: 200px;
 }
 
 ::ng-deep body {
+    background-color: #1b4d8b !important;
+}
+
+::ng-deep .dark-mode body {
     background-color: #1b4d8b !important;
 }

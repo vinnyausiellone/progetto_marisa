@@ -4,7 +4,7 @@ import { Injectable } from "@angular/core";
 import { finalize, Observable } from "rxjs";
 import { LoadingService } from "./loading.service";
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class LoadingInterceptor implements HttpInterceptor {
     constructor(private loadingService: LoadingService) {}
 

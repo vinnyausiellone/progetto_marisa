@@ -23,6 +23,7 @@ export class ListaComponent implements OnInit {
   showTest: boolean = false;
   mostraTab: boolean = false;
   ricettaSalvata?: string;
+  isDarkMode = false;
 
   constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService) {
     this.selectedValue = this.listaCibi[0].viewValue;
@@ -78,7 +79,9 @@ export class ListaComponent implements OnInit {
     window.history.back();
   }
 
-
+  toggleDarkMode(isDark: boolean) {
+    this.isDarkMode = isDark;
+    }
 }
 
 

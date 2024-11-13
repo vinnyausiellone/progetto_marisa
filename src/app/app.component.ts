@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from './shared/services/shared.service';
 
 
 @Component({
@@ -9,12 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'projectName';
   // getValoreDark: boolean = false;
+  isDarkMode = false;
 
-  constructor() {}
+  constructor(private sharedService: SharedService) {}
   
   ngOnInit(): void {
 
   }
+
+  toggleDarkMode(isDark: boolean) {
+    this.isDarkMode = isDark;
+    }
 
 //   cambioValoreDark(nuovoValore: boolean) {
 //     this.getValoreDark = nuovoValore;

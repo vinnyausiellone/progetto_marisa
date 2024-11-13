@@ -1,3 +1,6 @@
-<!-- <app-header (cambioValoreDark)="cambioValoreDark($event)"></app-header> -->
+<div [ngClass]="{'dark-mode': isDarkMode}">
+    <app-header [isDarkMode]="isDarkMode" (darkModeToggle)="toggleDarkMode($event)"></app-header> 
+</div>
 <app-spinner></app-spinner>
 <router-outlet></router-outlet>
+

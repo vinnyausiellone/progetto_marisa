@@ -10,6 +10,8 @@ import { IntPosts } from '../anagrafica-utente/anagrafica-utente.model';
 })
 export class ElencoDettaglioComponent implements OnInit {
   posts?: IntPosts[];
+  // isDarkMode = false;
+
 
 
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
@@ -31,5 +33,9 @@ export class ElencoDettaglioComponent implements OnInit {
   VisApprofondimento(id: number) {
     this.router.navigateByUrl('approfondimentoElencoVis/' + id);
   }
+
+  // toggleDarkMode(isDark: boolean) {
+  //   this.isDarkMode = isDark;
+  //   }
 
 }

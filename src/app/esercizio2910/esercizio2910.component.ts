@@ -32,6 +32,7 @@ export class Esercizio2910Component implements OnInit {
   chips = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   datiFiltratiTitle: string[] = [];
   datiFiltratiBody: string[] = [];
+  // isDarkMode = false;
 
   constructor(private apiService: ApiService, public sharedService: SharedService, private matSnackBar: MatSnackBar, private dialogService: DialogService) {
   //  this.getValoreToggleFromSharedService = this.sharedService.getAttUtilObj('valoreToggle')
@@ -41,6 +42,10 @@ export class Esercizio2910Component implements OnInit {
   ngOnInit(): void {
     this.getData();
   }
+
+  // toggleDarkMode(isDark: boolean) {
+  //   this.isDarkMode = isDark;
+  //   }
 
   cambioValoreToggle(nuovoValore: boolean) {
     this.getValoreToggle = nuovoValore;

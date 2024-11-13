@@ -3,6 +3,11 @@
   color: white;
 }
 
+.dark-mode .cambioColore {
+  background-color: black;
+  color: white;
+}
+
 .radio {
   position: fixed;
   left: 55%;
@@ -11,10 +16,22 @@
   text-align: center;
 }
 
+.dark-mode .mat-mdc-radio-button .mat-internal-form-field {
+  color: white, white !important;
+}
+
+.dark-mode .radio {
+  border: 1px solid #ffffff;
+}
+
 p {
   padding: 10px;
   background-color: #1b4d8b;
   color: white;
+}
+
+.dark-mode p {
+  background-color: rgb(41, 41, 41);
 }
 
 .material-icons {
@@ -29,6 +46,18 @@ p {
   background: #1b4d8b;
 }
 
+.dark-mode .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: rgb(41, 41, 41);
+}
+
+.dark-mode .mdc-evolution-chip__action {
+  background: rgb(41, 41, 41);
+}
+
 .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).active {
+  background-color: rgb(154, 158, 161);
+}
+
+.dark-mode .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled).active {
   background-color: rgb(154, 158, 161);
 }

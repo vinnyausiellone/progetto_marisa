@@ -15,11 +15,12 @@ import { RigaPariDispariComponent } from './riga-pari-dispari/riga-pari-dispari.
 import { GetAnagraficaComponent } from './get-anagrafica/get-anagrafica.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { CalendarioComponent } from './calendario/calendario.component';
+import { AppComponent } from './app.component';
+import { CommonModule } from '@angular/common';
 
 
 
 const routes: Routes = [
-  { path: 'header', component: HeaderComponent},
   { path: 'calendario', component: CalendarioComponent},
   { path: 'anagraficaUtente', component: AnagraficaUtenteComponent},
   { path: 'anagraficaDettaglio', component: AnagraficaDettaglioComponent},
@@ -41,11 +42,16 @@ const routes: Routes = [
   { path: 'rigaPariDispari/:id', component: RigaPariDispariComponent},
   { path: 'getAnagrafica', component: GetAnagraficaComponent},
   { path: 'spinner', component: SpinnerComponent},
-  { path: '**', redirectTo: '/homePage' }
+  { path: '**', redirectTo: '/homePage' },
+  { path: '', component: AppComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash : true })],
+  declarations: [],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes, { useHash: true })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 

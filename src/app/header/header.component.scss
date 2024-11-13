@@ -3,9 +3,13 @@
     border: 2px solid #ffffff;
 }
 
+.dark-mode .navbar {
+    background-color: black;
+}
+
 .navbar-item {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 17px;
     padding: 15px 30px;
     cursor: pointer;
     position: relative;
@@ -17,6 +21,10 @@
 
 }
 
+.dark-mode .navbar-item {
+    background-color: black;
+}
+
 .navbar-item::before {
     content: "";
     height: 4px;
@@ -26,6 +34,10 @@
     left: 0;
     position: absolute;
     transition: all 0.2s ease-in-out;
+}
+
+.dark-mode .navbar-item::before {
+    background-color: white;
 }
 
 .navbar-item:hover::before {

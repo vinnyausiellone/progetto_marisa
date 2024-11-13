@@ -44,6 +44,10 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 
+
+
+
+
 const MY_DATE_FORMAT = {
   parse: {
     dateInput: 'DD/MM/YYYY', // this is how your date will be parsed from Input
@@ -102,6 +106,10 @@ const MY_DATE_FORMAT = {
     MatNativeDateModule,
     MatCardModule,
     MatMomentDateModule,
+  
+  ],
+  exports: [
+    HeaderComponent
   ],
   providers: [
     provideNativeDateAdapter(),
@@ -109,7 +117,7 @@ const MY_DATE_FORMAT = {
     provideAnimationsAsync(),
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
     { provide: MAT_DATE_LOCALE, useValue: 'it-IT'},
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT }
+    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMAT },
   ],
   bootstrap: [AppComponent]
 })

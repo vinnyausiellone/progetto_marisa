@@ -1,4 +1,5 @@
-<app-header></app-header>
+<!-- <div [ngClass]="{'dark-mode': isDarkMode}">
+    <app-header [isDarkMode]="isDarkMode" (darkModeToggle)="toggleDarkMode($event)"></app-header>  -->
 <div class="es-container">
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
         <h6 class="custom-title mt-20">ESERCIZIO 29/10</h6>
@@ -166,11 +167,6 @@
                 <app-dettaglio2910 (cambioValoreToggle)="cambioValoreToggle($event)"></app-dettaglio2910>
             </div>
         </div>
-        <button class="button-standard mt-20" (click)="onInserireNuovaRiga()" *ngIf="!showNuovaRiga">Inserire nuova
-            riga</button>
-        <div class="ml-449">
-            <button class="button-standard mt-10 mr-5" (click)="onAnnulla()" *ngIf="showNuovaRiga">Annulla</button>
-            <!-- <button class="button-standard mt-10" (click)="onSalva(i)" *ngIf="showNuovaRiga">Salva</button> -->
-        </div>
     </ng-template>
 </div>
+<!-- </div> -->

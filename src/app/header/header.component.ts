@@ -1,33 +1,37 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
-import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from '../shared/services/shared.service';
+
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit {
+  darkValue = false;
 
-  valoreDarkFC = new FormControl(false)
+  @Input() isDarkMode = false;
+  @Output() darkModeToggle = new EventEmitter<boolean>();
 
-  @Output() cambioValoreDark = new EventEmitter<boolean>();
-
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService, private sharedService: SharedService) { }
 
   ngOnInit() {
 
   }
 
-  onCambioValoreDark() {
-    this.cambioValoreDark.emit(this.valoreDarkFC.value || false);
-  }
-
   clickElenco() {
     this.router.navigateByUrl('elencoDettaglio');
   }
+
+  toggleDarkMode(isDark: boolean) {
+    this.darkModeToggle.emit(isDark);
+    this.darkValue = isDark;
+    this.sharedService.setAttUtilObj('valoreToggle', isDark);
+    }
+    
 }
 
 

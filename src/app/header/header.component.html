@@ -1,3 +1,4 @@
+<div [ngClass]="{'dark-mode': darkValue}">
 <header>
     <nav class="navbar">
         <div class="navbar-items">
@@ -8,7 +9,8 @@
             <button class="navbar-item" routerLink="/esercizio2910"> Esercizio 29/10</button>
             <button class="navbar-item" routerLink="/getAnagrafica"> Prima chiamata API </button>
             <button class="navbar-item" routerLink="/calendario"> Calendario </button>
-        <mat-slide-toggle class="navbar-item ml-20" [formControl]="valoreDarkFC" (change)="onCambioValoreDark()"></mat-slide-toggle>
+        <mat-slide-toggle class="toggle h-45" [checked]="isDarkMode" (change)="toggleDarkMode($event.checked)"></mat-slide-toggle>
         </div>
     </nav>
 </header>
+</div>

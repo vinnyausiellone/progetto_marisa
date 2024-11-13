@@ -1,7 +1,6 @@
-<app-header></app-header>
+<div [ngClass]="{'dark-mode': getToggle}">
 <div class="es-container">
     <h2 class="custom-title custom-color pointer" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
-
     <h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
     <div class="table-container">
         <table class="custom-table w-100 min-w-50">
@@ -81,6 +80,8 @@
     <div *ngIf="mostraDettaglio" >
         <app-anagrafica-dettaglio (clickEvent)="getClickEvent(true)"></app-anagrafica-dettaglio>
     </div>
+</div>
+</div>
 
     <!-- <div class="tab-anagrafica custom-dettaglio custom-color mt-20">
         <span class="mb-10">

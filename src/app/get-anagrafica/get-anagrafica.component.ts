@@ -9,12 +9,17 @@ import { ApiService } from '../shared/services/api.service';
 })
 export class GetAnagraficaComponent implements OnInit {
   anagraficaOggetto?: IntAnagrafica;
+  isDarkMode = false;
 
   constructor(private apiService: ApiService){}
 
   ngOnInit(): void {
     this.getAnagrafica(); 
   }
+
+  toggleDarkMode(isDark: boolean) {
+    this.isDarkMode = isDark;
+    }
 
   getAnagrafica() {
     this.apiService.getAnagrafica().subscribe(res => {

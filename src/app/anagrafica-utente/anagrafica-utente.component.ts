@@ -50,13 +50,20 @@ export class AnagraficaUtenteComponent implements OnInit {
   listaPersoneNuove: Persona[] = [new Persona('Isabelle', 'Haak'), new Persona('Marina', 'Lubian'), new Persona('Monica', 'De Gennaro'), new Persona('Sarah', 'Fahr'), new Persona('Cristina', 'Chirichella'), new Persona('Daniele', 'Sanatarelli'), new Persona('Marco', 'Fantasia')];
   count = 4;
   idTabella?: number;
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, private sharedService: SharedService) { }
+  getToggle?: boolean;
+  // isDarkMode = false;
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, private sharedService: SharedService) { 
+    this.getToggle = this.sharedService.getAttUtilObj('valoreToggle');
+  }
 
   ngOnInit(): void {
     // this.getAnagrafica();
     this.listaNomi.forEach(res => {
       this.listaNomeFC.push(new FormControl(res.nome));
     })
+    // const getToggle = this.sharedService.getAttUtilObj('valoreToggle');
+    // this.sharedService.clearAttUtilObj('valoreToggle');
+    // if(getToggle) this.getToggle = getToggle.valoreToggle;
   }
 
   mostraNuovaRigaTabella() {
@@ -138,7 +145,9 @@ export class AnagraficaUtenteComponent implements OnInit {
     this.idValore = !this.idValore;
   }
 
-
+  // toggleDarkMode(isDark: boolean) {
+  //   this.isDarkMode = isDark;
+  //   }
 }
 
 

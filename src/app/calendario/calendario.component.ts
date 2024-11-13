@@ -8,6 +8,7 @@ import { Component, model } from '@angular/core';
 export class CalendarioComponent {
   selectedData: Date | null = null;
   minDate: Date = new Date(); // Inposta la data minima come oggi
+  // isDarkMode = false;
 
   // Funzione per applicare una classe specifica ai weekend
   dateClass = (date: Date): string => {
@@ -15,5 +16,7 @@ export class CalendarioComponent {
     return day === 6 || day === 0 ? 'weekend' : ''; // 6 = Sabato, 0 = Domenica
   }
 
-
+  // toggleDarkMode(isDark: boolean) {
+  //   this.isDarkMode = isDark;
+  //   }
 }
