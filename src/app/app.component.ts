@@ -11,11 +11,12 @@ export class AppComponent implements OnInit{
   title = 'projectName';
   // getValoreDark: boolean = false;
   isDarkMode = false;
+  getToggle?: boolean;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(private sharedService: SharedService) {
+  }
   
   ngOnInit(): void {
-
   }
 
   toggleDarkMode(isDark: boolean) {

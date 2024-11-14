@@ -52,8 +52,7 @@ export class AnagraficaUtenteComponent implements OnInit {
   idTabella?: number;
   getToggle?: boolean;
   // isDarkMode = false;
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, private sharedService: SharedService) { 
-    this.getToggle = this.sharedService.getAttUtilObj('valoreToggle');
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, public sharedService: SharedService) { 
   }
 
   ngOnInit(): void {
