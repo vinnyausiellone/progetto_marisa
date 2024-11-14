@@ -25,7 +25,7 @@ export class ListaComponent implements OnInit {
   ricettaSalvata?: string;
   isDarkMode = false;
 
-  constructor(private route: ActivatedRoute, private router: Router, private sharedService: SharedService) {
+  constructor(private route: ActivatedRoute, private router: Router, public sharedService: SharedService) {
     this.selectedValue = this.listaCibi[0].viewValue;
   }
   ngOnInit(): void {

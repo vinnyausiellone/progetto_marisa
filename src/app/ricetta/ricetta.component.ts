@@ -14,7 +14,7 @@ export class RicettaComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private sharedService: SharedService, private router: Router) { }
+  constructor(private route: ActivatedRoute, public sharedService: SharedService, private router: Router) { }
 
   ricettaFC = new FormControl('');
   pageTitle?: string | null;

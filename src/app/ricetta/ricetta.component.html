@@ -1,4 +1,4 @@
-<div class="es-container">
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
   <div *ngIf="!isFromLista">
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
       <h4 class="custom-title">{{ 'Ricetta: ' + pageTitle }}</h4>

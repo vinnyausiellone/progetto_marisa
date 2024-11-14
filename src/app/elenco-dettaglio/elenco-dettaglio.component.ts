@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../shared/services/api.service';
 import { IntPosts } from '../anagrafica-utente/anagrafica-utente.model';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-elenco-dettaglio',
@@ -14,7 +15,7 @@ export class ElencoDettaglioComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService,  public sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.getPosts();

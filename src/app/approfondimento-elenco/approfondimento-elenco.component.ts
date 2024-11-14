@@ -5,6 +5,7 @@ import { ApiService } from '../shared/services/api.service';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-approfondimento-elenco',
@@ -24,7 +25,7 @@ export class ApprofondimentoElencoComponent implements OnInit {
   bodyFC: FormControl[] = [];
   datiFiltratiBody: string[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private matSnackBar: MatSnackBar) {
+  constructor(public sharedService: SharedService, private route: ActivatedRoute, private router: Router, private apiService: ApiService, private matSnackBar: MatSnackBar) {
     this.route.data.subscribe((params: any) => {
       if (params['0']) {
         this.isVisualizza = params['0'] === 'isVisualizza';

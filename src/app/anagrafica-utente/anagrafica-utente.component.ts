@@ -50,10 +50,12 @@ export class AnagraficaUtenteComponent implements OnInit {
   listaPersoneNuove: Persona[] = [new Persona('Isabelle', 'Haak'), new Persona('Marina', 'Lubian'), new Persona('Monica', 'De Gennaro'), new Persona('Sarah', 'Fahr'), new Persona('Cristina', 'Chirichella'), new Persona('Daniele', 'Sanatarelli'), new Persona('Marco', 'Fantasia')];
   count = 4;
   idTabella?: number;
-  getToggle?: boolean;
+  
   // isDarkMode = false;
   constructor(private route: ActivatedRoute, private router: Router, private apiService: ApiService, private dialogService: DialogService, public sharedService: SharedService) { 
   }
+
+  
 
   ngOnInit(): void {
     // this.getAnagrafica();

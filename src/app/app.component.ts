@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   isDarkMode = false;
   getToggle?: boolean;
 
-  constructor(private sharedService: SharedService) {
+  constructor(public sharedService: SharedService) {
   }
   
   ngOnInit(): void {

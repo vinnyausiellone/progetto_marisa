@@ -16,8 +16,8 @@
   text-align: center;
 }
 
-.dark-mode .mat-mdc-radio-button .mat-internal-form-field {
-  color: white, white !important;
+::ng-deep .dark-mode .mat-mdc-radio-button .mat-internal-form-field {
+  color: white !important;
 }
 
 .dark-mode .radio {

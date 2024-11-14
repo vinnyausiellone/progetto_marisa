@@ -43,6 +43,7 @@ import { LoadingInterceptor } from './shared/services/loading.interceptor';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { TrisComponent } from './tris/tris.component';
 
 
 
@@ -82,6 +83,7 @@ const MY_DATE_FORMAT = {
     GetAnagraficaComponent,
     SpinnerComponent,
     CalendarioComponent,
+    TrisComponent,
   ],
   imports: [
     BrowserModule,

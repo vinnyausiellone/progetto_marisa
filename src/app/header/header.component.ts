@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ApiService } from '../shared/services/api.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { SharedService } from '../shared/services/shared.service';
 
 
@@ -10,17 +9,14 @@ import { SharedService } from '../shared/services/shared.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   darkValue = false;
 
   @Input() isDarkMode = false;
   @Output() darkModeToggle = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private apiService: ApiService, private sharedService: SharedService) { }
+  constructor(private router: Router, private sharedService: SharedService) { }
 
-  ngOnInit() {
-
-  }
 
   clickElenco() {
     this.router.navigateByUrl('elencoDettaglio');
@@ -29,7 +25,7 @@ export class HeaderComponent implements OnInit {
   toggleDarkMode(isDark: boolean) {
     this.darkModeToggle.emit(isDark);
     this.darkValue = isDark;
-    this.sharedService.setAttUtilObj('valoreToggle', isDark);
+    this.sharedService.toggle = isDark;
     }
     
 }

@@ -1,22 +1,20 @@
-
-<div class="es-container">
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
         <h2 class="custom-title"> {{ titoloDettagli}} </h2>
-        <button class="button-standard h-45" (click)="bottoneIndietro()"
-            [disabled]="!bottoneAttivo">INDIETRO</button>
+        <button class="button-standard h-45" (click)="bottoneIndietro()" [disabled]="!bottoneAttivo">INDIETRO</button>
     </div>
     <div class="custom-dettaglio" *ngIf="showCibiPreferiti">
-    <ul>
-        <b class="custom-title"> Cibi preferiti </b>
-        <li *ngFor="let item of listaCibi">{{item}}</li>
-    </ul>
-</div>
-<div class="custom-dettaglio" *ngIf="showCibiOdiati">
-    <ul>
-        <b class="custom-title"> Cibi odiati </b>
-        <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
-    </ul>
-</div>
+        <ul>
+            <b class="custom-title"> Cibi preferiti </b>
+            <li *ngFor="let item of listaCibi">{{item}}</li>
+        </ul>
+    </div>
+    <div class="custom-dettaglio" *ngIf="showCibiOdiati">
+        <ul>
+            <b class="custom-title"> Cibi odiati </b>
+            <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
+        </ul>
+    </div>
 
     <div *ngIf="showAll" class="custom-dettaglio d-flex">
         <ul>
@@ -29,11 +27,14 @@
         </ul>
     </div>
 
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1" (change)="mostraCibiPreferiti()" [disabled]="!bottoneAttivo">Mostra cibi preferiti</mat-radio-button>
-        <mat-radio-button value="2" (change)="mostraCibiOdiati()" [disabled]="!bottoneAttivo">Mostra cibi odiati</mat-radio-button>
-        <mat-radio-button value="3" (change)="mostraEntrambi()" [disabled]="!bottoneAttivo">Mostra entrambi</mat-radio-button>
-      </mat-radio-group>
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1" (change)="mostraCibiPreferiti()" [disabled]="!bottoneAttivo">Mostra cibi
+            preferiti</mat-radio-button>
+        <mat-radio-button value="2" (change)="mostraCibiOdiati()" [disabled]="!bottoneAttivo">Mostra cibi
+            odiati</mat-radio-button>
+        <mat-radio-button value="3" (change)="mostraEntrambi()" [disabled]="!bottoneAttivo">Mostra
+            entrambi</mat-radio-button>
+    </mat-radio-group>
 
 
     <!-- <button class="ml-20 button-standard" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
@@ -46,7 +47,7 @@
         </div>
     </div> -->
 
-<!-- 
+    <!-- 
     <div *ngIf="persona">
         <h4> Persona Selezionata</h4>
         <p>Nome: {{persona.nome}}</p>
@@ -54,7 +55,9 @@
     </div> -->
 
     <div class="button-f-bottom-right">
-        <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ? 'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button>
-        <button class="button-standard mt-20" (click)="disattivaBottoni()">{{bottoneAttivo ? 'Disattiva Bottoni': 'Attiva Bottoni'}}</button>
+        <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ?
+            'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button>
+        <button class="button-standard mt-20" (click)="disattivaBottoni()">{{bottoneAttivo ? 'Disattiva Bottoni':
+            'Attiva Bottoni'}}</button>
     </div>
 </div>

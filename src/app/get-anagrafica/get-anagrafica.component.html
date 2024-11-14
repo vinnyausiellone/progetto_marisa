@@ -1,5 +1,6 @@
 <!-- <div [ngClass]="{'dark-mode': isDarkMode}">
     <app-header [isDarkMode]="isDarkMode" (darkModeToggle)="toggleDarkMode($event)"></app-header>  -->
+    <div [class.dark-mode]="sharedService.toggle">
     <div class="es-container">
     <div class="tab-anagrafica custom-dettaglio custom-color mt-20">
         <span class="mb-10">
@@ -14,6 +15,7 @@
         <span>
             userId: {{anagraficaOggetto?.userId}}
         </span>
+    </div>
     </div>
     </div>
 <!-- </div> -->

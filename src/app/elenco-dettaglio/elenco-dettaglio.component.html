@@ -1,6 +1,6 @@
 <!-- <div [ngClass]="{'dark-mode': isDarkMode}">
     <app-header [isDarkMode]="isDarkMode" (darkModeToggle)="toggleDarkMode($event)"></app-header>  -->
-<div class="es-container">
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
 <div class="custom-color custom-dettaglio-elenco mb-10 mt-10" *ngFor="let post of posts, let i = index">
     <span class="mb-10">
         id: {{post.id}}

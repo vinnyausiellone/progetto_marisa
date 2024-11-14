@@ -1,4 +1,4 @@
-<div class="es-container">
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
     <h4 class="custom-title"> PERSONA SELEZIONATA</h4>
     <div class="container-select">
     <p>Nome: {{sharedService.getAttUtilObj('personaSel')?.nome}}</p>

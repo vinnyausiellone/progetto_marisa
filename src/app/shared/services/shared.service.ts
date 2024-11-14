@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
  
 @Injectable({ providedIn: 'root' })
  
 export class SharedService {
+  toggle = false;
   [x: string]: any;
     private utilObj: any = {};
     stream = new Subject<any>();
@@ -45,6 +46,12 @@ export class SharedService {
   clearAttUtilObj(nameAtt: string): void { delete this.utilObj[nameAtt] }
   scrollToTop(): void {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  private darkModeSubject = new BehaviorSubject<boolean>(false);   
+  darkMode$ = this.darkModeSubject.asObservable();   
+  setDarkMode(isDark: boolean) { 
+    this.darkModeSubject.next(isDark); 
   }
 }
  

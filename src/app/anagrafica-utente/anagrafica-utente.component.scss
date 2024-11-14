@@ -36,3 +36,7 @@ th:first-child {
 .dark-mode {
   background-color: #121212 !important;
 }
+
+div:first-child {
+  height: 100%;
+}

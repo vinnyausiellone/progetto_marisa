@@ -331,3 +331,8 @@ mat-chip {
 .dark-mode .custom-dettaglio {
   border: 2px solid white;
 }
+
+
+::ng-deep .dark-mode body {
+    background-color: black !important;
+}

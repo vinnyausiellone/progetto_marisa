@@ -1,4 +1,4 @@
-<div class="es-container">
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
 <div class="custom-dettaglio d-flex flex-direction-column custom-color">
     <span>User Id: {{sharedService.getAttUtilObj('dati')?.userId}}</span>
     <span>Id: {{sharedService.getAttUtilObj('dati')?.id}}</span>

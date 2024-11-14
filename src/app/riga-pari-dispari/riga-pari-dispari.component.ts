@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { SharedService } from '../shared/services/shared.service';
 
 @Component({
   selector: 'app-riga-pari-dispari',
@@ -7,5 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class RigaPariDispariComponent {
   @Input() flagPari?: boolean;
+
+  constructor( public sharedService: SharedService) {}
 
 }

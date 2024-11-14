@@ -3,3 +3,24 @@ body {
     background-color: white;
     color: black;
 }
+
+.dark-mode body {
+    background-color: black;
+    color: white;
+}
+
+::ng-deep .dark-mode .mat-mdc-radio-button .mat-internal-form-field {
+color: white;
+}
+
+::ng-deep .dark-mode .mat-mdc-radio-button .mdc-radio__native-control {
+ color: white;
+}
+
+.dark-mode li {
+    color: white;
+}
+
+::ng-deep .dark-mode div:first-child {
+    height: 100%;
+}

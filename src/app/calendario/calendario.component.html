@@ -1,9 +1,7 @@
 <!-- <div [ngClass]="{'dark-mode': isDarkMode}">
   <app-header [isDarkMode]="isDarkMode" (darkModeToggle)="toggleDarkMode($event)"></app-header> -->
-<div class="calendario es-container mt-20">
-<mat-card class="demo-inline-calendar-card">
-    <mat-calendar [(selected)]="selectedData" [minDate]="minDate" [dateClass]="dateClass"></mat-calendar>
-  </mat-card>
+<div class="calendario es-container mt-20" [class.dark-mode]="sharedService.toggle">
+    <mat-calendar [(selected)]="selectedData" [minDate]="minDate" [dateClass]="dateClass" ></mat-calendar>
   <div class="mt-20">
   <p>Data selezionata: {{ selectedData | date: 'dd/MM/yyyy'}}</p>
   </div>

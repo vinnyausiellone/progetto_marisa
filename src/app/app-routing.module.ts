@@ -17,11 +17,13 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { CalendarioComponent } from './calendario/calendario.component';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
+import { TrisComponent } from './tris/tris.component';
 
 
 
 const routes: Routes = [
   { path: 'calendario', component: CalendarioComponent},
+  { path: 'tris', component:TrisComponent},
   { path: 'anagraficaUtente', component: AnagraficaUtenteComponent},
   { path: 'anagraficaDettaglio', component: AnagraficaDettaglioComponent},
   { path: 'anagraficaDettaglio/:id', component: AnagraficaDettaglioComponent},

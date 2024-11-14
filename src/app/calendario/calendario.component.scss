@@ -1,7 +1,7 @@
-.demo-inline-calendar-card {
-  width: 600px;
-}
 
+::ng-deep .dark-mode body {
+  background-color: black;
+}
 ::ng-deep .weekend .mat-calendar-body-cell-content {
     color: #005cbb;
     
@@ -75,3 +75,12 @@ div:first-child {
 ::ng-deep .dark-mode .mat-calendar-body-cell-content {
  color: white;
 }
+
+::ng-deep .mat-calendar-table-header th:nth-child(6)  {
+  color: #005cbb;
+  }
+
+::ng-deep .mat-calendar-table-header th:nth-child(7)  {
+    color: #005cbb;
+    }
+  

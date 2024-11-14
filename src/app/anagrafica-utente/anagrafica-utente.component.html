@@ -1,5 +1,5 @@
 <!-- <div [ngClass]="{'dark-mode': getToggle}"> -->
-<div class="es-container" [ngClass]="{'dark-mode': sharedService.getAttUtilObj('valoreToggle')}">
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
     <h2 class="custom-title custom-color pointer" (click)="mostraDettaglioMetodo ()">{{ titoloTabella }}</h2>
     <h5 *ngIf="nuovaRiga">TABELLA ANAGRAFICA</h5>
     <div class="table-container">
