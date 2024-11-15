@@ -1,20 +1,15 @@
 <div class="es-container" [class.dark-mode]="sharedService.toggle">
-    <div class="custom-dettaglio d-flex justify-content-between">
-    <p class="custom-color">Inserire il nome del giocatore X: </p>
-    <input class="ml-20" name="inputGiocatore1" matInput type="text" [formControl]="giocatore1">
-    <p class="custom-color mt-10">Inserire il nome del giocatore O: </p>
-    <input class="ml-20" name="inputGiocatore1" matInput type="text" [formControl]="giocatore2">
-    <div class="mt-10">
-    <button class="button-standard" (click)="nomiGiocatori()">Invio nomi</button>
+    <div *ngIf="!vincitore">
+        <h4 class="custom-title"> {{ giocatore }} può eseguire la sua mossa </h4>
     </div>
+    <div *ngIf="vincitore">
+        <h4 class="custom-title"> {{ vincitore === 'Pareggio' ? 'Pareggio!' : vincitore + ' ha vinto!' }} </h4>
     </div>
-<div class="griglia">
-    <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="gioco(i)">
-{{ cella }}
+    <div class="griglia">
+        <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="gioco(i)">
+            {{ cella }}
+        </div>
     </div>
+        <!-- <p class="custom-color custom-title" *ngIf="vincitore"> {{ vincitore }} HA VINTO </p>
+<p class="custom-color custom-title" *ngIf="!vincitore && !griglia.includes('')"> PAREGGIO </p> -->
 </div>
-<p class="custom-color custom-title" *ngIf="vincitore"> {{ vincitore }} HA VINTO </p>
-<p class="custom-color custom-title" *ngIf="!vincitore && !griglia.includes('')"> PAREGGIO </p>
-</div>
-
-

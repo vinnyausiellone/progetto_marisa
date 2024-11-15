@@ -44,6 +44,8 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatNativeDateModule, provideNativeDateAdapter } from '@angular/material/core';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { TrisComponent } from './tris/tris.component';
+import { TrisInizioComponent } from './tris-inizio/tris-inizio.component';
+import { TrisGiocatoriComponent } from './tris-giocatori/tris-giocatori.component';
 
 
 
@@ -84,6 +86,8 @@ const MY_DATE_FORMAT = {
     SpinnerComponent,
     CalendarioComponent,
     TrisComponent,
+    TrisInizioComponent,
+    TrisGiocatoriComponent,
   ],
   imports: [
     BrowserModule,

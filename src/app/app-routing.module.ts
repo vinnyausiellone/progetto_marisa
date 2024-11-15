@@ -18,11 +18,15 @@ import { CalendarioComponent } from './calendario/calendario.component';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
 import { TrisComponent } from './tris/tris.component';
+import { TrisInizioComponent } from './tris-inizio/tris-inizio.component';
+import { TrisGiocatoriComponent } from './tris-giocatori/tris-giocatori.component';
 
 
 
 const routes: Routes = [
   { path: 'calendario', component: CalendarioComponent},
+  { path: 'trisInizio', component: TrisInizioComponent},
+  { path: 'trisGiocatori', component: TrisGiocatoriComponent},
   { path: 'tris', component:TrisComponent},
   { path: 'anagraficaUtente', component: AnagraficaUtenteComponent},
   { path: 'anagraficaDettaglio', component: AnagraficaDettaglioComponent},

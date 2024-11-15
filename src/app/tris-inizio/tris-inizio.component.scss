@@ -1,0 +1,20 @@
+.inizio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    position: absolute;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 50px 100px;
+    margin-top: 400px;
+    background-color: #1b4d8b;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+}

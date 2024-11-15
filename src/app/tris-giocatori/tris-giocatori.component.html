@@ -1,0 +1,7 @@
+<div class="input-container" [class.dark-mode]="sharedService.toggle">
+    <h2>Inserire il nome del primo giocatore:</h2>
+    <input type="text" [formControl]="giocatore1">
+    <h2>Inserire il nome del secondo giocatore:</h2>
+    <input type="text" [formControl]="giocatore2">
+    <button (click)="inviaNomi()">GIOCA ORA</button>
+</div>

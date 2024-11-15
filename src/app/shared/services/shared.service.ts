@@ -5,6 +5,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
  
 export class SharedService {
   toggle = false;
+  nome1: string = '';
+  nome2: string = '';
   [x: string]: any;
     private utilObj: any = {};
     stream = new Subject<any>();
