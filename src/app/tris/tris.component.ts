@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared/services/shared.service';
-import { FormControl } from '@angular/forms';
+import { DialogService } from '../shared/services/dialog.service';
 
 @Component({
   selector: 'app-tris',
@@ -18,11 +18,13 @@ export class TrisComponent implements OnInit{
   nomeGiocatore2?: string;
   giocatore: string = '';
   vincitore: string | null = null;
+  count: number | null = null;
+  celleVincenti: number[] = [];
   combinazioniVincenti = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
   ];
 
-  constructor(public sharedService: SharedService) {
+  constructor(public sharedService: SharedService, private dialogService: DialogService) {
   }
 
   ngOnInit(): void {
@@ -41,6 +43,7 @@ export class TrisComponent implements OnInit{
   gioco(i: number) {
     if (this.griglia[i] === '' && !this.vincitore) {
       this.griglia[i] = this.giocatore === this.nomeGiocatore1 ? 'X' : 'O';
+      this.count = i; //conta l'ultima mossa fatta
       this.vincita();
       if (this.nomeGiocatore1 && this.nomeGiocatore2) this.giocatore = this.giocatore === this.nomeGiocatore1 ? this.nomeGiocatore2 : this.nomeGiocatore1;
       console.log('Il vincitore è ' + this.vincitore);
@@ -53,17 +56,53 @@ export class TrisComponent implements OnInit{
   //void perchè non restituisce esplicitamente un valore ma modifica il vincitore che poi viene mostrato in html per mostrare il risultato
 
   vincita(): void {
-    for (let combinazioni of this.combinazioniVincenti) {
+    this.combinazioniVincenti.forEach (combinazioni => {
       const [a, b, c] = combinazioni;
       if (this.griglia[a] && this.griglia[a] === this.griglia[b] && this.griglia[a] === this.griglia[c]) {
         if (this.nomeGiocatore1 && this.nomeGiocatore2) this.vincitore = this.griglia[a] === 'X' ? this.nomeGiocatore1 : this.nomeGiocatore2;
-        return;
+        this.celleVincenti = combinazioni;
+        if (this.vincitore && this.vincitore === this.nomeGiocatore1) {
+          this.dialogService.vincita(this.nomeGiocatore1 + ' ha vinto la partita')
+        } else {
+          this.dialogService.vincita(this.nomeGiocatore2 + ' ha vinto la partita')
+        }
       }
-    }
+    });
+
+    // for (let combinazioni of this.combinazioniVincenti) {
+    //   const [a, b, c] = combinazioni;
+    //   if (this.griglia[a] && this.griglia[a] === this.griglia[b] && this.griglia[a] === this.griglia[c]) {
+    //     if (this.nomeGiocatore1 && this.nomeGiocatore2) this.vincitore = this.griglia[a] === 'X' ? this.nomeGiocatore1 : this.nomeGiocatore2;
+    //     if (this.vincitore && this.vincitore === this.nomeGiocatore1) {
+    //       this.dialogService.vincita(this.nomeGiocatore1 + ' ha vinto la partita')
+    //     } else {
+    //       this.dialogService.vincita(this.nomeGiocatore2 + ' ha vinto la partita')
+    //     }
+    //     return;
+  
     //SE LA GRIGLIA E' PIENA E NON C'E' UN VINCITORE
     if (!this.griglia.includes('')) {
       this.vincitore = 'Pareggio';
+      if (this.vincitore = 'Pareggio') {
+        this.dialogService.pareggio('');
+      }
+    }
+  }
+
+  //PERCORSO AL CONTRARIO
+  //1. Togliere il simbolo dalla cella
+  //2. Cambiare giocatore a quello precendente
+  //3. Reimpostare il contatore a zero
+
+  undo() {
+    if (this.count !== null) {
+      this.griglia[this.count] = '';
+      if (this.nomeGiocatore1 && this.nomeGiocatore2) this.giocatore = this.giocatore === this.nomeGiocatore1 ? this.nomeGiocatore2 : this.nomeGiocatore1;
+      this.count = null; 
     }
   }
 
 }
+
+
+

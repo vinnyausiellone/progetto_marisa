@@ -54,3 +54,22 @@ mat-icon {
     position: absolute;
     right: 500px;
 }
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 17px !important;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #1b4d8b !important;
+    padding: 10px 20px;
+}
+
+::ng-deep .mat-mdc-select-arrow {
+    color: white !important;
+}
+
+::ng-deep .mat-mdc-select {
+    color: white !important;
+}

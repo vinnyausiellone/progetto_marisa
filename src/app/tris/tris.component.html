@@ -2,13 +2,21 @@
     <div *ngIf="!vincitore">
         <h4 class="custom-title"> {{ giocatore }} può eseguire la sua mossa </h4>
     </div>
-    <div *ngIf="vincitore">
+    <!-- <div *ngIf="vincitore">
         <h4 class="custom-title"> {{ vincitore === 'Pareggio' ? 'Pareggio!' : vincitore + ' ha vinto!' }} </h4>
-    </div>
+    </div> -->
     <div class="griglia">
         <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="gioco(i)">
-            {{ cella }}
+            <mat-icon *ngIf="cella === 'X'" [ngClass]="{'icone-vincenti' : celleVincenti.includes(i)}"> close </mat-icon>
+            <mat-icon *ngIf="cella === 'O'" [ngClass]="{'icone-vincenti' : celleVincenti.includes(i)}"> radio_button_unchecked </mat-icon>
         </div>
+    </div>
+    <div *ngIf="vincitore">
+        <button routerLink="/trisGiocatori">Inizia una nuova partita</button>
+        <button class="ml-5" routerLink="/homePage">ESCI</button>
+    </div>
+    <div *ngIf="!vincitore">
+        <button (click)="undo()" [disabled]="count === null"> Undo </button>
     </div>
         <!-- <p class="custom-color custom-title" *ngIf="vincitore"> {{ vincitore }} HA VINTO </p>
 <p class="custom-color custom-title" *ngIf="!vincitore && !griglia.includes('')"> PAREGGIO </p> -->

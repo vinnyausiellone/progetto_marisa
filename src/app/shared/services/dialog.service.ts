@@ -19,6 +19,16 @@ export class DialogService {
   successo(msg: string | DialogMsgDTO[] = 'Procedura conclusa con successo', tit = 'Successo', fun?: Function) {
     return this.openModale(DialogComponent, { type: 'S', title: tit, message: msg }, fun);
   }
+
+  
+
+  pareggio(msg: string | DialogMsgDTO[] = 'Pareggio', tit = 'Pareggio', fun?: Function) {
+    return this.openModale(DialogComponent, { type: 'S', title: tit, message: msg }, fun);
+  }
+
+  vincita (msg: string | DialogMsgDTO[] = 'Vincita', tit = 'HAI VINTO!', fun?: Function) {
+    return this.openModale(DialogComponent, { type: 'S', title: tit, message: msg }, fun);
+  }
   /**
   * Apre una modale di "errore" utilizzando il component "DialogComponent", al quale sarà fornito il titolo @tit
   * il messaggio @msg ed inoltre, se presente, sarà lanciata la funzione @fun alla chiusura della modale.

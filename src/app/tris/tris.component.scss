@@ -13,7 +13,6 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 100%;
 }
 
 .griglia {
@@ -21,6 +20,13 @@
     grid-template-columns: repeat(3, 100px);
     margin: 20px auto;
 }
+
+// CSS
+// La funzione repeat() è un modo semplice per creare griglie ripetitive. 
+// Permette di definire un numero di colonne o righe identiche in un'unica dichiarazione, 
+// il primo numero indica quante volte vuoi ripetere l'elemento, il seconso specifica la larghezza 
+// o altezza di ogni riga o colonna, si può usare fr per dividere lo spazio disponibile in modo che 
+// le colonne avranno la lunghezza uguale
 
 .cella {
     display: flex;
@@ -48,4 +54,39 @@ input {
 
 .dark-mode div {
     background-color: black;
+}
+
+button {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 22px;
+    margin-top: 20px;
+    background-color: #1b4d8b;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #b4b2b2 !important;
+}
+
+button:hover {
+    background-color: #163D6F;
+}
+
+ .mat-icon {
+    height: 99px !important;
+    width: 98px !important;
+    overflow: visible !important;
+}
+
+.material-icons {
+    font-size: 100px !important;
+}
+
+.icone-vincenti {
+    color: #FFFF00;
 }

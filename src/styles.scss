@@ -2,6 +2,10 @@
     font-size: 20px;
 }
 
+body {
+    background-color: white !important;
+}
+
 .button-f-bottom-right {
     position: fixed;
     bottom: 20px;
@@ -26,6 +30,10 @@
 
 .ml-20 {
     margin-left: 20px;
+}
+
+.ml-5 {
+    margin-left: 5px;
 }
 
 .mt-50 {
