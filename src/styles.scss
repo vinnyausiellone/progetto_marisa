@@ -1,9 +1,16 @@
+body, html {
+    margin: 0; 
+    padding: 0; 
+    height: 100%; 
+  }
+
+
 .f-20 {
     font-size: 20px;
 }
 
 body {
-    background-color: white !important;
+    background-color: white;
 }
 
 .button-f-bottom-right {
@@ -111,6 +118,14 @@ body {
 html,
 body {
     height: 100%;
+}
+
+body.dark-mode {
+    background-color: black !important;
+}
+
+.dark-mode .custom-background {
+    background-color: black !important;
 }
 
 body {
@@ -298,6 +313,9 @@ mat-chip {
 
 .es-container {
     padding: 20px;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box; /* Include il padding nei calcoli della larghezza e altezza */
 }
 
 .spinner-overlay {

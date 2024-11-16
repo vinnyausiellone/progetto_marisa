@@ -13,9 +13,9 @@ h1 {
 }
 
 ::ng-deep body {
-    background-color: #1b4d8b !important;
+    background-color: #1b4d8b;
 }
 
-::ng-deep .dark-mode body {
+::ng-deep body .dark-mode {
     background-color: black !important;
 }

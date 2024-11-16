@@ -26,7 +26,6 @@
             <li *ngFor="let item of listaCibiOdiati">{{item}}</li>
         </ul>
     </div>
-
     <mat-radio-group aria-label="Select an option">
         <mat-radio-button value="1" (change)="mostraCibiPreferiti()" [disabled]="!bottoneAttivo">Mostra cibi
             preferiti</mat-radio-button>
@@ -36,8 +35,16 @@
             entrambi</mat-radio-button>
     </mat-radio-group>
 
+    <div class="button-f-bottom-right">
+        <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ?
+            'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button>
+        <button class="button-standard mt-20" (click)="disattivaBottoni()">{{bottoneAttivo ? 'Disattiva Bottoni':
+            'Attiva Bottoni'}}</button>
+    </div>
+</div>
 
-    <!-- <button class="ml-20 button-standard" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
+
+   <!-- <button class="ml-20 button-standard" (click)="cambiaLista()" [disabled]="!bottoneAttivo">{{mostraCibi ?
         'Mostra Cibi Odiati': 'Mostra Cibi Preferiti'}}</button> -->
 
     <!-- <div class="d-flex ml-20 mt-20 flex-direction-column">
@@ -53,11 +60,3 @@
         <p>Nome: {{persona.nome}}</p>
         <p>Cognome: {{persona.cognome}}</p>
     </div> -->
-
-    <div class="button-f-bottom-right">
-        <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ?
-            'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button>
-        <button class="button-standard mt-20" (click)="disattivaBottoni()">{{bottoneAttivo ? 'Disattiva Bottoni':
-            'Attiva Bottoni'}}</button>
-    </div>
-</div>

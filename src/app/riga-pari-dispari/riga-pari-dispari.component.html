@@ -1,3 +1,4 @@
+<div class="es-container" [class.dark-mode]="sharedService.toggle">
 <div *ngIf="flagPari">
     <ng-container *ngTemplateOutlet="pari"></ng-container>
 </div>
@@ -8,3 +9,5 @@
 
 <ng-template #pari> RIGA PARI SELEZIONATA</ng-template>
 <ng-template #dispari> RIGA DISPARI SELEZIONATA </ng-template>
+
+</div>

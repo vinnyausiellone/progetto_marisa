@@ -11,3 +11,7 @@
     height: 100%;
 }
 
+.dark-mode .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: grey !important;
+}
+
