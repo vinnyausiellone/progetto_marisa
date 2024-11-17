@@ -1,4 +1,4 @@
-<div class="spinner-overlay" *ngIf="isLoading | async"> 
+<div class="spinner-overlay" *ngIf="isLoading | async" [class.dark-mode]="sharedService.toggle"> 
 <div class="spinner"></div>
 </div>
 

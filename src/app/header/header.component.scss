@@ -8,9 +8,10 @@
 }
 
 .navbar-item {
+    margin: 0 10px;
     font-weight: bold;
     font-size: 17px;
-    padding: 15px 30px;
+    padding: 10px 10px;
     cursor: pointer;
     position: relative;
     user-select: none;
@@ -19,6 +20,13 @@
     text-align: center;
     border: none;
 
+}
+
+.navbar-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
 }
 
 .dark-mode .navbar-item {
@@ -44,8 +52,16 @@
     width: 100%;
 }
 
+mat-form-field {
+    margin: 0 10px;
+}
+
+mat-slide-toggle {
+    margin: 0 10px;
+}
+
 mat-icon {
-    color: #ffffff !important; 
+    color: #ffffff !important;
     cursor: pointer;
 
 }
@@ -72,4 +88,57 @@ mat-icon {
 
 ::ng-deep .mat-mdc-select {
     color: white !important;
+    font-weight: bold !important;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: #1b4d8b !important;
+}
+
+::ng-deep .dark-mode .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: grey !important;
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label {
+    font-weight: bold !important;
+    font-size: 17px !important;
+    padding: 15px 30px !important;
+    color: #ffffff !important;
+}
+
+::ng-deep .mat-mdc-option:focus.mdc-list-item,
+.mat-mdc-option.mat-mdc-option-active.mdc-list-item {
+    background-color: #163D6F !important;
+}
+
+::ng-deep div.mat-mdc-select-panel {
+    background-color: #1b4d8b !important;
+}
+
+::ng-deep .dark-mode .mat-mdc-option.mdc-list-item {
+    background: grey !important;
+}
+
+::ng-deep .dark-mode div.mat-mdc-select-panel {
+    background-color: grey !important;
+}
+
+::ng-deep .mat-mdc-option.mdc-list-item {
+    background: #1b4d8b !important;
+}
+
+::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
+    font-weight: bold !important;
+    font-size: 17px !important;
+    padding: 15px 30px !important;
+    color: #ffffff !important;
+}
+
+::ng-deep .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,
+.mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after {
+    color: white !important;
+}
+
+::ng-deep .dark-mode div.mat-mdc-select-panel {
+    background-color: grey !important;
 }

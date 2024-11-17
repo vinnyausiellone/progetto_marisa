@@ -27,6 +27,16 @@ export class HeaderComponent {
     this.darkValue = isDark;
     this.sharedService.toggle = isDark;
     }
+
+  onGameSelect(evento: any) {
+    const giocoSelezionato = evento.value;
+    if (giocoSelezionato === 1) {
+      this.router.navigateByUrl('trisGiocatori');
+    } else if (giocoSelezionato === 2) {
+      // this.router.navigateByUrl('memoInizio');
+    }
+
+  }
     
 }
 

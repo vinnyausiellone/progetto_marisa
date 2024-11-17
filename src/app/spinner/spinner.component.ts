@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoadingService } from '../shared/services/loading.service';
 import { Observable } from 'rxjs';
+import { SharedService } from '../shared/services/shared.service';
 
 
 
@@ -12,7 +13,7 @@ import { Observable } from 'rxjs';
 export class SpinnerComponent {
  isLoading: Observable<boolean>;
 
-  constructor(private loadingService: LoadingService) {
+  constructor(private loadingService: LoadingService, public sharedService: SharedService) {
     this.isLoading = this.loadingService.isLoading;
   }
 

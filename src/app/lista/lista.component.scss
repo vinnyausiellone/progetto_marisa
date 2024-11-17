@@ -1,6 +1,6 @@
-.selectList {
-    background-color:#efedf0;
-    width: 30%;
+::ng-deep .selectList {
+    background-color:#efedf0 !important;
+    width: 30% !important;
 }
 
 .es-container {
@@ -9,4 +9,8 @@
 
 .dark-mode .mat-mdc-select {
  color: black !important;
+}
+
+.es-container {
+    background-color: white;
 }

@@ -340,6 +340,11 @@ mat-chip {
     animation: spin 4s linear infinite;
 }
 
+.dark-mode .spinner {
+    border: 8px solid rgba(208,228,252, 0.5);
+    border-top: 8px solid rgb(65, 65, 65);
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -361,4 +366,8 @@ mat-chip {
 
 ::ng-deep .dark-mode body {
     background-color: black !important;
+}
+
+.dark-mode div.mat-mdc-select-panel {
+    background-color: grey !important;
 }
