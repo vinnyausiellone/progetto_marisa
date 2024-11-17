@@ -16,7 +16,7 @@
                 <!-- <mat-icon matTooltip="Modifica Body" class="mt-20 pointer" (click)="modificaBody(item, i)" *ngIf="isModifica">
                     add_circle
                 </mat-icon> -->
-                <span>
+                <span *ngIf="isModifica">
                     <textarea class="ml-20" matInput [formControl]="bodyFC[i]" rows="1"></textarea>
                     <mat-icon class="ml-20 pointer" matTooltip="Salva Modifiche" (click)="cambioTextarea(item, i)"> expand_circle_down </mat-icon>
                 </span>

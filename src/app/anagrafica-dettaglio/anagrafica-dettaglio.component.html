@@ -1,7 +1,7 @@
 <div class="es-container" [class.dark-mode]="sharedService.toggle">
     <div class="custom-title justify-content-between d-flex a-i-c p-20">
         <h2 class="custom-title"> {{ titoloDettagli}} </h2>
-        <button class="button-standard h-45" (click)="bottoneIndietro()" [disabled]="!bottoneAttivo">INDIETRO</button>
+        <!-- <button class="button-standard h-45" (click)="bottoneIndietro()" [disabled]="!bottoneAttivo">INDIETRO</button> -->
     </div>
     <div class="custom-dettaglio" *ngIf="showCibiPreferiti">
         <ul>
@@ -36,8 +36,8 @@
     </mat-radio-group>
 
     <div class="button-f-bottom-right">
-        <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ?
-            'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button>
+        <!-- <button class="button-standard mt-20 mr-5" (click)="modalitaDark()" [disabled]="!bottoneAttivo">{{!darkmode ?
+            'Attiva Modalità Dark': 'Disattiva Modalità Dark'}}</button> -->
         <button class="button-standard mt-20" (click)="disattivaBottoni()">{{bottoneAttivo ? 'Disattiva Bottoni':
             'Attiva Bottoni'}}</button>
     </div>
