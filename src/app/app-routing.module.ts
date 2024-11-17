@@ -20,11 +20,17 @@ import { CommonModule } from '@angular/common';
 import { TrisComponent } from './tris/tris.component';
 import { TrisInizioComponent } from './tris-inizio/tris-inizio.component';
 import { TrisGiocatoriComponent } from './tris-giocatori/tris-giocatori.component';
+import { MemoComponent } from './memo/memo.component';
+import { MemoInizioComponent } from './memo-inizio/memo-inizio.component';
+import { MemoImpostazioniComponent } from './memo-impostazioni/memo-impostazioni.component';
 
 
 
 const routes: Routes = [
   { path: 'calendario', component: CalendarioComponent},
+  { path: 'memo', component: MemoComponent},
+  { path: 'memoInizio', component: MemoInizioComponent},
+  { path: 'memoImpostazioni', component: MemoImpostazioniComponent},
   { path: 'trisInizio', component: TrisInizioComponent},
   { path: 'trisGiocatori', component: TrisGiocatoriComponent},
   { path: 'tris', component:TrisComponent},

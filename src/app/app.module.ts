@@ -47,6 +47,9 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { TrisComponent } from './tris/tris.component';
 import { TrisInizioComponent } from './tris-inizio/tris-inizio.component';
 import { TrisGiocatoriComponent } from './tris-giocatori/tris-giocatori.component';
+import { MemoInizioComponent } from './memo-inizio/memo-inizio.component';
+import { MemoImpostazioniComponent } from './memo-impostazioni/memo-impostazioni.component';
+import { MemoComponent } from './memo/memo.component';
 
 
 
@@ -89,6 +92,9 @@ const MY_DATE_FORMAT = {
     TrisComponent,
     TrisInizioComponent,
     TrisGiocatoriComponent,
+    MemoInizioComponent,
+    MemoImpostazioniComponent,
+    MemoComponent,
   ],
   imports: [
     BrowserModule,

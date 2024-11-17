@@ -33,7 +33,7 @@ export class HeaderComponent {
     if (giocoSelezionato === 1) {
       this.router.navigateByUrl('trisGiocatori');
     } else if (giocoSelezionato === 2) {
-      // this.router.navigateByUrl('memoInizio');
+      this.router.navigateByUrl('memoInizio');
     }
 
   }
