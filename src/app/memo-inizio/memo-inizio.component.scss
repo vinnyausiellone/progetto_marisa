@@ -1,0 +1,27 @@
+.inizio {
+    margin-top: 20%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-left: 35%;
+}
+
+button {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 25px 70px;
+    background-color: #1b4d8b;
+    border: 2px solid white;
+    border-radius: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+mat-icon {
+    color: #ffffff !important;
+    cursor: pointer;
+    font-size: 35px;
+    overflow: visible;
+    margin-bottom: 13px;
+}

@@ -1,1 +1,15 @@
-<p>memo works!</p>
+<div class="es-container">
+    <div class="griglia">
+        <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="clickGioco(i)">
+            <div class="card-container">
+                <!-- Fronte della carta (immagine) -->
+                <div *ngIf="griglia[i].flipped" class="card-front">
+                    <img [src]="cella.image">
+                </div>
+                <!-- Retro della carta (copertura blu) -->
+                <div *ngIf="!griglia[i].flipped" class="card-back"></div>
+        </div>
+    </div>
+    </div>
+    <p>Coppie trovate: {{ coppieTrovate }}/8</p>
+</div>

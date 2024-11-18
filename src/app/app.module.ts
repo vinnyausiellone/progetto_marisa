@@ -50,6 +50,7 @@ import { TrisGiocatoriComponent } from './tris-giocatori/tris-giocatori.componen
 import { MemoInizioComponent } from './memo-inizio/memo-inizio.component';
 import { MemoImpostazioniComponent } from './memo-impostazioni/memo-impostazioni.component';
 import { MemoComponent } from './memo/memo.component';
+import { MemoGiocatoreComponent } from './memo-giocatore/memo-giocatore.component';
 
 
 
@@ -95,6 +96,7 @@ const MY_DATE_FORMAT = {
     MemoInizioComponent,
     MemoImpostazioniComponent,
     MemoComponent,
+    MemoGiocatoreComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,11 +23,13 @@ import { TrisGiocatoriComponent } from './tris-giocatori/tris-giocatori.componen
 import { MemoComponent } from './memo/memo.component';
 import { MemoInizioComponent } from './memo-inizio/memo-inizio.component';
 import { MemoImpostazioniComponent } from './memo-impostazioni/memo-impostazioni.component';
+import { MemoGiocatoreComponent } from './memo-giocatore/memo-giocatore.component';
 
 
 
 const routes: Routes = [
   { path: 'calendario', component: CalendarioComponent},
+  { path: 'memoGiocatore', component: MemoGiocatoreComponent},
   { path: 'memo', component: MemoComponent},
   { path: 'memoInizio', component: MemoInizioComponent},
   { path: 'memoImpostazioni', component: MemoImpostazioniComponent},
