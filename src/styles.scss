@@ -39,6 +39,10 @@ body {
     margin-left: 20px;
 }
 
+.ml-290 {
+    margin-left: 290px;
+}
+
 .ml-5 {
     margin-left: 5px;
 }
@@ -316,6 +320,10 @@ mat-chip {
     width: 100%;
     min-height: 100vh;
     box-sizing: border-box; /* Include il padding nei calcoli della larghezza e altezza */
+}
+
+.dark-mode .es-container {
+    background-color: black !important;
 }
 
 .spinner-overlay {

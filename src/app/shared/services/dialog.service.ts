@@ -29,6 +29,7 @@ export class DialogService {
   vincita (msg: string | DialogMsgDTO[] = 'Vincita', tit = 'HAI VINTO!', fun?: Function) {
     return this.openModale(DialogComponent, { type: 'S', title: tit, message: msg }, fun);
   }
+
   /**
   * Apre una modale di "errore" utilizzando il component "DialogComponent", al quale sarà fornito il titolo @tit
   * il messaggio @msg ed inoltre, se presente, sarà lanciata la funzione @fun alla chiusura della modale.
