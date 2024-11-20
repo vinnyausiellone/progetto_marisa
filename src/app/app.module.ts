@@ -20,6 +20,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './header/header.component';
@@ -122,7 +123,7 @@ const MY_DATE_FORMAT = {
     MatCardModule,
     MatMomentDateModule,
     MatMenuModule,
-  
+    MatDividerModule,
   ],
   exports: [
     HeaderComponent

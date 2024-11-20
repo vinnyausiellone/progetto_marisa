@@ -1,5 +1,15 @@
+<div *ngIf="!showNuovoGiocatore">
+    <ng-container *ngTemplateOutlet="memo"></ng-container>
+</div>
+
+<div *ngIf="showNuovoGiocatore">
+    <ng-container *ngTemplateOutlet="nuovoGiocatoreTemplate"></ng-container>
+</div>
+
+<ng-template #memo>
 <div class="es-container" [class.dark-mode]="sharedService.toggle">
     <div class="destra">
+        <h4 class="custom-title" id="timer">00:00:00</h4>
     <div class="griglia">
         <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="clickGioco(i)">
             <div class="card-container">
@@ -13,7 +23,7 @@
         </div>
     </div>
     <p>Coppie trovate: {{ coppieTrovate }}/8</p>
-    <button class="nuovoGiocatoreButton" routerLink="/memoGiocatore">Nuovo giocatore</button>
+    <button class="nuovoGiocatoreButton" (click)="nuovoGiocatore()">Nuovo giocatore</button>
     </div>
     <div class="sinistra ml-290">
     <div class="classifica"></div>
@@ -30,9 +40,22 @@
             <tr *ngFor=" let item of classifica, let i = index">
                 <td> {{ i + 1 }} </td>
                 <td> {{ item.nome }}</td>
-                <td> {{ item.time }} </td>
+                <td> {{ item.time }}</td>
             </tr>
         </tbody>
     </table>
     </div>
 </div>
+</ng-template>
+
+<ng-template #nuovoGiocatoreTemplate>
+    <div class="nuovoGiocatore">
+    <div class="es-container" [class.dark-mode]="sharedService.toggle">
+        <div class="input-container">
+            <h2>Inserire il nome del giocatore:</h2>
+            <input type="text" [formControl]="giocatoreProva">
+            <button (click)="inviaNome()">GIOCA ORA</button>
+        </div>
+        </div>
+    </div>
+</ng-template>

@@ -3,6 +3,8 @@ import { SharedService } from '../shared/services/shared.service';
 import { MomentService } from '../shared/services/moment.service';
 import moment from 'moment';
 import { DialogService } from '../shared/services/dialog.service';
+import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-memo',
@@ -15,50 +17,55 @@ export class MemoComponent implements OnInit {
   coppieTrovate = 0;
   primaSelezione: number | null = null;
   gameOver = false;
-  nomeGiocatore?: string;
   startGioco: moment.Moment | null = null;
   endGioco: moment.Moment | null = null;
   classifica: { nome: string, time: number} [] = [];
+  showNuovoGiocatore = true;
+  giocatoreProva = new FormControl('');
+  classificaInStringa: { nomeStringa: string, timeStringa: string} [] = [];
+
   animalFoto = [
     'koala.jpg',
     'leone.jpg',
     'pecora.jpg',
     'pinguino.jpg',
+
     'pipistrello.jpg',
     'tartaruga.jpg',
     'uccello.jpg',
     'volpe.jpg',
+
     'koala.jpg',
     'leone.jpg',
     'pecora.jpg',
     'pinguino.jpg',
+
     'pipistrello.jpg',
     'tartaruga.jpg',
     'uccello.jpg',
     'volpe.jpg',
   ];
 
-  constructor(public sharedService: SharedService, private momentService: MomentService, private dialogService: DialogService) {
-    this.nomeGiocatore = this.sharedService.nome1;
+  constructor(private router: Router, public sharedService: SharedService, private momentService: MomentService, private dialogService: DialogService) {
   }
 
   ngOnInit(): void {
-    this.inizioGioco();
   }
 
   inizioGioco() {
+    //ESERCIZIO MODIFICATO, ORA LE CARTE SONO IN ORDINE 
     this.coppieTrovate = 0;
     this.gameOver = false;
     this.primaSelezione = null;
     this.startGioco = null;
     this.endGioco = null;
-    const shuffledImages = this.animalFoto.sort(() => Math.random() - 0.5); //Mescola casualmente l'array
+    // const shuffledImages = this.animalFoto.sort(() => Math.random() - 0.5); //Mescola casualmente l'array
     // INIZIALIZZARE LA GRIGLIA  
     //   if (this.cont < shuffledImages.length) {
     //     this.griglia.push({image: shuffledImages[this.cont],  flipped: false, matched: false});
     //     this.cont++ 
     // }
-    this.griglia = shuffledImages.map(image => ({  //map trasforma ogni immagine in un oggetto 
+    this.griglia = this.animalFoto.map(image => ({  //map trasforma ogni immagine in un oggetto 
       image,
       flipped: false,
       matched: false
@@ -89,14 +96,14 @@ export class MemoComponent implements OnInit {
         if (this.coppieTrovate === 8) {
           this.gameOver = true;
           this.endGioco = moment();
-          console.log('Fine del gioco: ' + this.endGioco.format('DD-MM-YYYY HH:mm:ss'));
-          console.log(this.nomeGiocatore + ' ha completato il gioco');
           const durataPartita = moment.duration(this.endGioco.diff(this.startGioco));
-          console.log(durataPartita.minutes() + ' minuti ' + durataPartita.seconds() + ' secondi');
-          const tempoInSecondi = durataPartita.asSeconds();
-          if (this.nomeGiocatore) this.classifica.push( { nome: this.nomeGiocatore, time: tempoInSecondi});
+          const tempoInMinuti = durataPartita.asMinutes().toFixed(0);
+          const tempoInsecondi = durataPartita.asSeconds().toFixed(0);
+          const tempoFinale = parseFloat(durataPartita.asMinutes().toFixed(2));
+          if (this.giocatoreProva.value) this.classifica.push( { nome: this.giocatoreProva.value, time: tempoFinale});
           this.classifica.sort((a ,b) => a.time - b.time); //Ordina dal più veloce al più lento
-          this.dialogService.successo('Hai completato il gioco in ' + durataPartita.minutes() + ' minuti e ' + durataPartita.seconds() + ' secondi')
+
+          this.dialogService.successo('Hai completato il gioco');
         }
       } else {
         // Coppia non trovata: le carte vengono rigirate 
@@ -107,5 +114,21 @@ export class MemoComponent implements OnInit {
       }
       this.primaSelezione = null; // Resetta l'indice
     }
+  }
+
+  inviaNome() {
+    if (!this.giocatoreProva.value) {
+      this.dialogService.errore('Inserire il nome del giocatore per poter giocare')
+    } else {
+      if (this.giocatoreProva.value) this.sharedService.nome1 = this.giocatoreProva.value;
+      this.showNuovoGiocatore = !this.showNuovoGiocatore;
+      this.inizioGioco();
+    }
+  }
+
+
+  nuovoGiocatore() {
+    this.showNuovoGiocatore = !this.showNuovoGiocatore;
+    this.giocatoreProva.reset();
   }
 }

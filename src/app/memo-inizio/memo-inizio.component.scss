@@ -1,48 +1,53 @@
-.inizioBottoni {
-    margin-top: 20%;
-    display: inline-flex;
-    align-items: center;
+.inizioBottoni{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+   border: 2px solid white;
+   padding: 185px 15px;
+   width: 100%;
+   margin-left: 20px;
+}
+
+.es-container {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 30px;
-    margin-left: 35%;
-    // display: flex;
-    // flex-direction: row;
-    // align-items: normal;
-    // margin-left: 35px;
-    // gap: 10px;
+    align-items: center;
+    width: 100%;
+
+}
+
+.foto {
+    max-width: 80%;
+    min-height: 100%;
+}
+
+h3 {
+    color: #ffffff;
+    font-weight: bold;
+    align-items: center; 
 }
 
 button {
     color: #ffffff;
     font-weight: bold;
-    padding: 25px 70px;
+    padding: 15px 30px;
     background-color: #1b4d8b;
-    border: 2px solid white;
-    border-radius: 10px;
-    font-size: 30px;
+    // border: 2px solid white;
+    // border-radius: 10px;
+    font-size: 15px;
     cursor: pointer;
-}
-
-mat-icon {
-    color: #ffffff !important;
-    cursor: pointer;
-    font-size: 35px;
-    overflow: visible;
-    margin-bottom: 13px;
 }
 
 .dark-mode .es-container {
     background-color: black;
 }
 
-.es-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.bottone1 {
+    border: 2px solid white;
 }
 
-.inizioFoto {
-    flex: 1;
-    max-width: 100%;
-    height: auto;
+.bottone2 {
+    border: 2px solid white;
 }

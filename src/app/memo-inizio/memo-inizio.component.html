@@ -1,9 +1,12 @@
 <div class="es-container" [class.dark-mode]="sharedService.toggle">
-    <!-- <div class="inizioFoto">
-        <img src="fotoSfondo.jpeg">
-    </div> -->
+        <img src="fotoSfondo.jpeg" class="foto">
     <div class="inizioBottoni">
-        <button class="button-standard" routerLink="/memoGiocatore"> Gioca in modalità random </button>
-        <mat-icon matTooltip="Impostazioni" class="pointer" routerLink="/memoImpostazioni"> settings </mat-icon>
+        <h3>MEMO</h3>
+        <div class="bottone1">
+        <button class="button-standard" routerLink="/memo"> Vai al gioco </button>
+    </div>
+    <div class="bottone2">
+        <button class="button-standard pointer" routerLink="/memoImpostazioni"> Impostazioni </button>
+    </div>
     </div>
 </div>
