@@ -7,55 +7,57 @@
 </div>
 
 <ng-template #memo>
-<div class="es-container" [class.dark-mode]="sharedService.toggle">
-    <div class="destra">
-        <h4 class="custom-title" id="timer">00:00:00</h4>
-    <div class="griglia">
-        <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="clickGioco(i)">
-            <div class="card-container">
-                <!-- Fronte della carta (immagine) -->
-                <div *ngIf="griglia[i].flipped" class="card-front">
-                    <img [src]="cella.image">
-                </div>
-                <!-- Retro della carta (copertura blu) -->
-                <div *ngIf="!griglia[i].flipped" class="card-back"></div>
-            </div>
+    <div class="es-container" [class.dark-mode]="sharedService.toggle">
+        <div class="destra">
+            <p id="timer">0{{ minutes }} : {{ (seconds <10) ? 0 : null}}{{ seconds }}</p>
+                    <div class="griglia">
+                        <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="clickGioco(i)">
+                            <div class="card-container">
+                                <!-- Fronte della carta (immagine) -->
+                                <div *ngIf="griglia[i].flipped" class="card-front">
+                                    <img [src]="cella.image">
+                                </div>
+                                <!-- Retro della carta (copertura blu) -->
+                                <div *ngIf="!griglia[i].flipped" class="card-back"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p>Coppie trovate: {{ coppieTrovate }}/8</p>
+                    <button class="nuovoGiocatoreButton" (click)="nuovoGiocatore()">Nuovo giocatore</button>
+        </div>
+        <div class="sinistra ml-290">
+            <div class="classifica"></div>
+            <h5 class="custom-title">CLASSIFICA</h5>
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th> Posizione </th>
+                        <th> Nome </th>
+                        <th> Tempo </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor=" let item of classifica, let i = index">
+                        <td> {{ i + 1 }} </td>
+                        <td> {{ item.nome }}</td>
+                        <td> {{ (item.minuti === 1) ? item.minuti + ' minuto e ' + item.secondi + ' secondi' :
+                            item.minuti + ' minuti e ' + item.secondi + ' secondi'}} </td>
+                        <!-- <td> 0{{ item.minuti }}:{{ (item.secondi <10) ? 0 : null}}{{ item.secondi }} </td> -->
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <p>Coppie trovate: {{ coppieTrovate }}/8</p>
-    <button class="nuovoGiocatoreButton" (click)="nuovoGiocatore()">Nuovo giocatore</button>
-    </div>
-    <div class="sinistra ml-290">
-    <div class="classifica"></div>
-    <h5 class="custom-title">CLASSIFICA</h5>
-    <table class="custom-table">
-        <thead>
-            <tr>
-                <th> Posizione </th>
-                <th> Nome </th>
-                <th> Tempo </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor=" let item of classifica, let i = index">
-                <td> {{ i + 1 }} </td>
-                <td> {{ item.nome }}</td>
-                <td> {{ item.time }}</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-</div>
 </ng-template>
 
 <ng-template #nuovoGiocatoreTemplate>
     <div class="nuovoGiocatore">
-    <div class="es-container" [class.dark-mode]="sharedService.toggle">
-        <div class="input-container">
-            <h2>Inserire il nome del giocatore:</h2>
-            <input type="text" [formControl]="giocatoreProva">
-            <button (click)="inviaNome()">GIOCA ORA</button>
-        </div>
+        <div class="es-container" [class.dark-mode]="sharedService.toggle">
+            <div class="input-container">
+                <h2>Inserire il nome del giocatore:</h2>
+                <input type="text" [formControl]="giocatoreProva">
+                <button (click)="inviaNome()">GIOCA ORA</button>
+            </div>
         </div>
     </div>
 </ng-template>

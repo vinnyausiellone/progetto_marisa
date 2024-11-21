@@ -19,10 +19,16 @@ export class MemoComponent implements OnInit {
   gameOver = false;
   startGioco: moment.Moment | null = null;
   endGioco: moment.Moment | null = null;
-  classifica: { nome: string, time: number} [] = [];
+  classifica: { nome: string, minuti: number, secondi: number }[] = [];
   showNuovoGiocatore = true;
   giocatoreProva = new FormControl('');
-  classificaInStringa: { nomeStringa: string, timeStringa: string} [] = [];
+  classificaInStringa: { nomeStringa: string, timeStringa: string }[] = [];
+  timerMinuti: any;
+  timerSecondi: any
+  seconds: number = 0;
+  minutes: number = 0;
+  timerRunning: boolean = false;
+
 
   animalFoto = [
     'koala.jpg',
@@ -72,7 +78,27 @@ export class MemoComponent implements OnInit {
     }));
   }
 
+  startTimer() {
+    if (!this.timerRunning) {
+      this.timerRunning = true;
+      this.timerSecondi = setInterval(() => {
+        this.seconds++;
+        if (this.seconds === 60) {
+          this.seconds = 0;
+          this.minutes++;
+        }
+      }, 1000);
+    }
+  }
+
+  stopTimer() {
+    clearInterval(this.timerMinuti);
+    clearInterval(this.timerSecondi);
+    this.timerRunning = false;
+  }
+
   clickGioco(i: number) {
+    this.startTimer();
     if (!this.startGioco) {
       this.startGioco = moment();
       console.log('Inizio gioco: ' + this.startGioco.format('DD-MM-YYYY HH:mm:ss'));
@@ -96,13 +122,20 @@ export class MemoComponent implements OnInit {
         if (this.coppieTrovate === 8) {
           this.gameOver = true;
           this.endGioco = moment();
+          this.stopTimer();
           const durataPartita = moment.duration(this.endGioco.diff(this.startGioco));
-          const tempoInMinuti = durataPartita.asMinutes().toFixed(0);
-          const tempoInsecondi = durataPartita.asSeconds().toFixed(0);
+          console.log(durataPartita);
+          const tempoInMinuti = Math.floor(durataPartita.asMinutes());
+          const tempoInSecondi = Math.floor(durataPartita.asSeconds() % 60);
           const tempoFinale = parseFloat(durataPartita.asMinutes().toFixed(2));
-          if (this.giocatoreProva.value) this.classifica.push( { nome: this.giocatoreProva.value, time: tempoFinale});
-          this.classifica.sort((a ,b) => a.time - b.time); //Ordina dal più veloce al più lento
-
+          if (this.giocatoreProva.value) this.classifica.push({ nome: this.giocatoreProva.value, minuti: tempoInMinuti, secondi: tempoInSecondi });
+          // if (this.giocatoreProva.value) this.classifica.push({ nome: this.giocatoreProva.value, time: tempoFinale });
+          this.classifica.sort((a, b) => {
+            if (a.minuti !== b.minuti) {
+              return a.minuti - b.minuti; // Ordina per minuti
+            }
+            return a.secondi - b.secondi; // Ordina per secondi
+          });
           this.dialogService.successo('Hai completato il gioco');
         }
       } else {
@@ -123,9 +156,10 @@ export class MemoComponent implements OnInit {
       if (this.giocatoreProva.value) this.sharedService.nome1 = this.giocatoreProva.value;
       this.showNuovoGiocatore = !this.showNuovoGiocatore;
       this.inizioGioco();
+      this.seconds = 0; // Reset del timer se necessario
+      this.minutes = 0;
     }
   }
-
 
   nuovoGiocatore() {
     this.showNuovoGiocatore = !this.showNuovoGiocatore;

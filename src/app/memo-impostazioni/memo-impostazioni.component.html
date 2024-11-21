@@ -1,6 +1,9 @@
 <div class="es-container">
     <div class="input-container">
-    <p> Carica 8 foto:</p>
-    <input type="file" class="inputFile" >
-</div>
+        <p> Carica 8 foto:</p>
+        <input class="inputFile" type="file" accept="image/*" (change)="onFileChange($event)" multiple />
+    </div>
+    <div>
+        <button class="button-standard" (click)="onUpload()">Invia foto</button>
+    </div>
 </div>
