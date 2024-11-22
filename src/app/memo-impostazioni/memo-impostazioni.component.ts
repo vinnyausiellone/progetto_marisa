@@ -11,19 +11,35 @@ import { Router } from '@angular/router';
 export class MemoImpostazioniComponent {
   arrayFoto: File[] = [];
   file: File | null = null;
- 
-  constructor(private router: Router, private dialogService: DialogService, private sharedService: SharedService) { }
+
+  constructor(public sharedService: SharedService, private router: Router, private dialogService: DialogService) { }
+
+  // onFileChange(event: any): void {
+  //   this.file = event.target.files[0];
+  //   if (this.file && this.arrayFoto.length <8){ this.arrayFoto.push(this.file)
+  //     console.log(this.arrayFoto);
+  //   } else  {
+  //         this.dialogService.errore('Puoi caricare un massimo di 8 foto')
+  //         return;
+  //   }
+  //     }
 
   onFileChange(event: any): void {
-    this.file = event.target.files[0];
-    if (this.file && this.arrayFoto.length <8){ this.arrayFoto.push(this.file)
-      console.log(this.arrayFoto);
-    } else  {
-          this.dialogService.errore('Puoi caricare un massimo di 8 foto')
-          return;
+    const files = event.target.files;
+    if (files.length === 0) {
+      return;
     }
+    for (let i = 0; i < files.length; i++) {
+      if (this.arrayFoto.length < 8) {
+        this.arrayFoto.push(files[i]);
+      } else {
+        this.dialogService.errore('Puoi caricare un massimo di 8 foto');
+        break;
       }
-  
+    }
+    console.log(this.arrayFoto);
+  }
+
   onUpload() {
     const arrayFotoNome = this.arrayFoto.map(x => x.name);
     const doppioni = arrayFotoNome.flatMap(y => [y, y]); //Nuova lista con le foto duplicate

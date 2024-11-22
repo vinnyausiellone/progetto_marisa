@@ -10,6 +10,11 @@ input {
     cursor: pointer;
 }
 
+.dark-mode input {
+    background-color: black;
+    border: 1px solid white;
+}
+
 // .input-container {
 //     display: flex;
 //     flex-direction: column;
@@ -39,9 +44,17 @@ p {
     font-weight: bold;
 }
 
+.dark-mode p {
+    color: white;
+}
+
 h5 {
     color: #1b4d8b;
     font-weight: bold;
+}
+
+.dark-mode h5 {
+    color: white;
 }
 
 .es-container {
