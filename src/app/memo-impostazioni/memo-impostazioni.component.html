@@ -1,9 +1,11 @@
 <div class="es-container">
     <div class="input-container">
+        <h5>Gioca in modo personalizzato</h5>
         <p> Carica 8 foto:</p>
         <input class="inputFile" type="file" accept="image/*" (change)="onFileChange($event)" multiple />
     </div>
     <div>
-        <button class="button-standard" (click)="onUpload()">Invia foto</button>
+        <button class="button-standard" (click)="onUpload()">GIOCA ORA</button>
+        <button class="button-standard ml-10" (click)="onReset()">Resetta foto</button>
     </div>
 </div>

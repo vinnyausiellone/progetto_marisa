@@ -1,12 +1,12 @@
 <div class="es-container" [class.dark-mode]="sharedService.toggle">
-        <img src="fotoSfondo.jpeg" class="foto">
+    <img src="fotoSfondo.jpeg" class="foto">
     <div class="inizioBottoni">
         <h3>MEMO</h3>
         <div class="bottone1">
-        <button class="button-standard" routerLink="/memo"> Vai al gioco </button>
-    </div>
-    <div class="bottone2">
-        <button class="button-standard pointer" routerLink="/memoImpostazioni"> Impostazioni </button>
-    </div>
+            <button class="button-standard" (click)="mandaFotoAnimali()"> Vai al gioco </button>
+        </div>
+        <div class="bottone2">
+            <button class="button-standard pointer" routerLink="/memoImpostazioni"> Impostazioni </button>
+        </div>
     </div>
 </div>

@@ -9,7 +9,7 @@
 <ng-template #memo>
     <div class="es-container" [class.dark-mode]="sharedService.toggle">
         <div class="destra">
-            <p id="timer">0{{ minutes }} : {{ (seconds <10) ? 0 : null}}{{ seconds }}</p>
+            <p id="timer">{{ (minutes <10) ? 0 : null}}{{ minutes }} : {{ (seconds <10) ? 0 : null}}{{ seconds }}</p>
                     <div class="griglia">
                         <div class="cella pointer" *ngFor="let cella of griglia; let i = index" (click)="clickGioco(i)">
                             <div class="card-container">
@@ -40,9 +40,9 @@
                     <tr *ngFor=" let item of classifica, let i = index">
                         <td> {{ i + 1 }} </td>
                         <td> {{ item.nome }}</td>
-                        <td> {{ (item.minuti === 1) ? item.minuti + ' minuto e ' + item.secondi + ' secondi' :
-                            item.minuti + ' minuti e ' + item.secondi + ' secondi'}} </td>
-                        <!-- <td> 0{{ item.minuti }}:{{ (item.secondi <10) ? 0 : null}}{{ item.secondi }} </td> -->
+                        <!-- <td> {{ (item.minuti === 1) ? item.minuti + ' minuto e ' + item.secondi + ' secondi' :
+                            item.minuti + ' minuti e ' + item.secondi + ' secondi'}} </td> -->
+                        <td> 0{{ item.minuti }}:{{ (item.secondi <10) ? 0 : null}}{{ item.secondi }} </td>
                     </tr>
                 </tbody>
             </table>

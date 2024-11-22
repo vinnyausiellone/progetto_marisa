@@ -30,32 +30,21 @@ export class MemoComponent implements OnInit {
   timerRunning: boolean = false;
 
 
-  animalFoto = [
-    'koala.jpg',
-    'leone.jpg',
-    'pecora.jpg',
-    'pinguino.jpg',
-
-    'pipistrello.jpg',
-    'tartaruga.jpg',
-    'uccello.jpg',
-    'volpe.jpg',
-
-    'koala.jpg',
-    'leone.jpg',
-    'pecora.jpg',
-    'pinguino.jpg',
-
-    'pipistrello.jpg',
-    'tartaruga.jpg',
-    'uccello.jpg',
-    'volpe.jpg',
-  ];
+  memoFoto = [];
 
   constructor(private router: Router, public sharedService: SharedService, private momentService: MomentService, private dialogService: DialogService) {
   }
 
   ngOnInit(): void {
+    const valoreArrayNomiPersonalizzati = this.sharedService.getAttUtilObj('nomiFotoPersonalizzate');
+    const fotoAnimaliRandom = this.sharedService.getAttUtilObj('fotoAnimali');
+    if (valoreArrayNomiPersonalizzati) {
+      this.memoFoto = valoreArrayNomiPersonalizzati;
+      console.log(this.memoFoto);
+    } else {
+      this.memoFoto = fotoAnimaliRandom;
+      console.log(fotoAnimaliRandom);
+    }
   }
 
   inizioGioco() {
@@ -71,7 +60,7 @@ export class MemoComponent implements OnInit {
     //     this.griglia.push({image: shuffledImages[this.cont],  flipped: false, matched: false});
     //     this.cont++ 
     // }
-    this.griglia = this.animalFoto.map(image => ({  //map trasforma ogni immagine in un oggetto 
+    this.griglia = this.memoFoto.map(image => ({  //map trasforma ogni immagine in un oggetto 
       image,
       flipped: false,
       matched: false
