@@ -91,68 +91,45 @@ mat-icon {
     margin-top: 7px !important;
 }
 
-// .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-//     background-color: #1b4d8b !important;
-//     padding: 10px 20px;
-// }
+/* Media Queries */
 
-// ::ng-deep .mat-mdc-select-arrow {
-//     color: white !important;
-// }
+/* Per devices medi (tablets) */
+@media (max-width: 1024px) {
+    .navbar-items {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-// ::ng-deep .mat-mdc-select {
-//     color: white !important;
-//     font-weight: bold !important;
-// }
+    .navbar-item {
+        font-size: 15px;
+        padding: 8px 12px;
+    }
 
-// ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-//     background-color: #1b4d8b !important;
-// }
+    .buttonGiochi {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
+}
 
-// ::ng-deep .dark-mode .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-//     background-color: grey !important;
-// }
+/* Per grandi schermi (desktop) */
+@media (min-width: 1025px) {
+    .navbar {
+        padding: 10px 20px;
+    }
 
-// ::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label {
-//     font-weight: bold !important;
-//     font-size: 17px !important;
-//     padding: 15px 30px !important;
-//     // color: #ffffff !important;
-// }
+    .navbar-items {
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-// ::ng-deep .mat-mdc-option:focus.mdc-list-item,
-// .mat-mdc-option.mat-mdc-option-active.mdc-list-item {
-//     background-color: #163D6F !important;
-// }
+    .navbar-item {
+        font-size: 17px;
+        padding: 10px 15px;
+    }
 
-// ::ng-deep div.mat-mdc-select-panel {
-//     background-color: #1b4d8b !important;
-// }
-
-// ::ng-deep .dark-mode .mat-mdc-option.mdc-list-item {
-//     background: grey !important;
-// }
-
-// ::ng-deep .dark-mode div.mat-mdc-select-panel {
-//     background-color: grey !important;
-// }
-
-// ::ng-deep .mat-mdc-option.mdc-list-item {
-//     background: #1b4d8b !important;
-// }
-
-// ::ng-deep .mat-mdc-option .mdc-list-item__primary-text {
-//     font-weight: bold !important;
-//     font-size: 17px !important;
-//     padding: 15px 30px !important;
-//     color: #ffffff !important;
-// }
-
-// ::ng-deep .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-checked::after,
-// .mat-pseudo-checkbox-minimal.mat-pseudo-checkbox-indeterminate::after {
-//     color: white !important;
-// }
-
-// ::ng-deep .dark-mode div.mat-mdc-select-panel {
-//     background-color: grey !important;
-// }
+    .buttonGiochi {
+        font-size: 17px;
+        padding: 10px 20px;
+    }
+}

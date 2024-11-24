@@ -104,3 +104,79 @@ button:hover {
 .es-container {
     background-color: white;
 }
+
+/* Media Queries */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .es-container {
+        padding: 15px;
+    }
+
+    .griglia {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    .cella {
+        width: 90px;
+        height: 90px;
+        font-size: 45px; 
+    }
+
+    input {
+        width: 85%;
+        font-size: 15px;
+    }
+
+    button {
+        font-size: 17px;
+        padding: 18px 30px;
+        width: auto;
+    }
+
+    .mat-icon {
+        height: 90px !important;
+        width: 90px !important;
+    }
+
+    .material-icons {
+        font-size: 90px !important;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .es-container {
+        padding: 20px;
+    }
+
+    .griglia {
+        grid-template-columns: repeat(3, 100px); 
+    }
+
+    .cella {
+        width: 100px;
+        height: 100px;
+        font-size: 50px; 
+    }
+
+    input {
+        width: 200px;
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 20px 35px;
+    }
+
+    .mat-icon {
+        height: 99px !important;
+        width: 98px !important;
+    }
+
+    .material-icons {
+        font-size: 100px !important;
+    }
+}

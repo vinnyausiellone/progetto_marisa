@@ -139,3 +139,84 @@ h2 {
 }
 
 }
+
+/* Media Queries */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .es-container {
+        padding: 15px;
+    }
+
+    .griglia {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+
+    .cella {
+        width: 90px;
+        height: 90px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .nuovoGiocatoreButton {
+        font-size: 16px;
+        padding: 12px 18px;
+    }
+
+    input {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 25px 35px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .es-container {
+        flex-direction: row;
+        padding: 20px;
+    }
+
+    .griglia {
+        grid-template-columns: repeat(4, 100px);
+    }
+
+    .cella {
+        width: 100px;
+        height: 100px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .nuovoGiocatoreButton {
+        font-size: 15px;
+        padding: 12px 22px;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 30px 50px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
