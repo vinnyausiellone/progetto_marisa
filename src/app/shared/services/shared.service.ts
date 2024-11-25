@@ -7,6 +7,7 @@ export class SharedService {
   toggle = false;
   nome1: string = '';
   nome2: string = '';
+  arrayFotoBackup: File[] = [];
   [x: string]: any;
     private utilObj: any = {};
     stream = new Subject<any>();

@@ -54,7 +54,7 @@ export class MemoComponent implements OnInit {
     this.primaSelezione = null;
     this.startGioco = null;
     this.endGioco = null;
-    const shuffledImages = this.memoFoto.sort(() => Math.random() - 0.5); //Mescola casualmente l'array
+    // const shuffledImages = this.memoFoto.sort(() => Math.random() - 0.5); //Mescola casualmente l'array
     // INIZIALIZZARE LA GRIGLIA  
     //   if (this.cont < shuffledImages.length) {
     //     this.griglia.push({image: shuffledImages[this.cont],  flipped: false, matched: false});

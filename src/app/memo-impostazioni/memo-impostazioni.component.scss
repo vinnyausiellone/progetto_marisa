@@ -10,6 +10,7 @@ input {
     cursor: pointer;
 }
 
+
 .dark-mode input {
     background-color: black;
     border: 1px solid white;
@@ -25,6 +26,20 @@ input {
 // }
 
 button {
+    margin-top: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 22px;
+    margin-top: 8px;
+    background-color: #1b4d8b;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.inputLabel {
     margin-top: 20px;
     color: #ffffff;
     font-weight: bold;

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DialogService } from '../shared/services/dialog.service';
 import { SharedService } from '../shared/services/shared.service';
 import { Router } from '@angular/router';
@@ -8,11 +8,13 @@ import { Router } from '@angular/router';
   templateUrl: './memo-impostazioni.component.html',
   styleUrl: './memo-impostazioni.component.scss'
 })
-export class MemoImpostazioniComponent {
+export class MemoImpostazioniComponent implements OnInit{
   arrayFoto: File[] = [];
-  file: File | null = null;
 
-  constructor(public sharedService: SharedService, private router: Router, private dialogService: DialogService) { }
+  constructor(public sharedService: SharedService, private router: Router, private dialogService: DialogService) {
+   }
+  ngOnInit(): void {
+  }
 
   // onFileChange(event: any): void {
   //   this.file = event.target.files[0];
@@ -30,8 +32,9 @@ export class MemoImpostazioniComponent {
       return;
     }
     for (let i = 0; i < files.length; i++) {
-      if (this.arrayFoto.length < 8) {
+      if (this.arrayFoto.length < 8 && this.sharedService.arrayFotoBackup.length < 8) {
         this.arrayFoto.push(files[i]);
+        this.sharedService.arrayFotoBackup.push(files[i]);
       } else {
         this.dialogService.errore('Puoi caricare un massimo di 8 foto');
         break;
@@ -52,6 +55,8 @@ export class MemoImpostazioniComponent {
   }
 
   onReset() {
+    this.arrayFoto = [];
+    this.sharedService.arrayFotoBackup = [];
     this.sharedService.clearAttUtilObj('nomiFotoPersonalizzate')
   }
 }

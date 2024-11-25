@@ -2,7 +2,11 @@
     <div class="input-container">
         <h5>Gioca in modo personalizzato</h5>
         <p> Carica 8 foto:</p>
-        <input class="inputFile" type="file" accept="image/*" (change)="onFileChange($event)" multiple />
+        <input class="inputFile" id="my-file-input" style="display: none;" type="file" accept="image/*" (change)="onFileChange($event)" multiple />
+        <label class="inputLabel" for="my-file-input">Scegli foto</label>
+    </div>
+    <div *ngIf="sharedService.arrayFotoBackup" class="mt-20">
+        <div class="custom-title" *ngFor="let item of sharedService.arrayFotoBackup">{{item.name}}</div>
     </div>
     <div>
         <button class="button-standard" (click)="onUpload()">GIOCA ORA</button>
