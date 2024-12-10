@@ -18,6 +18,8 @@ export class TrisGiocatoriComponent {
   inviaNomi() {
     if (!this.giocatore1.value && !this.giocatore2.value) {
       this.dialogService.errore('Inserire i nomi dei giocatori per poter giocare')
+    } else if (this.giocatore1.value === this.giocatore2.value) {
+      this.dialogService.errore('Non ci possono essere due giocatori con lo stesso nome')
     } else if (!this.giocatore1.value && this.giocatore2.value) {
       this.dialogService.errore('Inserire il nome del primo giocatore per poter giocare')
     } else if (this.giocatore1.value && !this.giocatore2.value) {
